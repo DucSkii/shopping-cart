@@ -8,8 +8,8 @@ import './Favourite.css'
 const Favourite = () => {
 
   return (
-    <div>
-      Favourites <FontAwesomeIcon icon={faStar} />
+    <div className="favourites">
+      <div className="favourites-text">Favourites</div> <FontAwesomeIcon className="favourites-star" icon={faStar} />
     </div>
   )
 }

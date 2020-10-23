@@ -1,0 +1,9 @@
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar-text {
+  display: flex;
+  width: 700px;
+}

@@ -1,0 +1,21 @@
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0px 10px;
+  border-right: 1px solid rgb(0, 0, 0, 0.5);
+  width: 125px;
+}
+
+.cart:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: rgb(0, 0, 0, 0.1);
+}
+
+.cart-line {
+  font-weight: 900;
+}
+
+.cart-text {
+  font-weight: 600;
+}

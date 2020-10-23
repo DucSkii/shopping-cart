@@ -9,8 +9,8 @@ import './SearchBar.css'
 const SearchBar = () => {
 
   return (
-    <div>
-      <TextField placeholder="Search item..." />
+    <div className="searchBar">
+      <TextField placeholder="Search item..." className="searchBar-text" />
       <IconButton>
         <FontAwesomeIcon icon={faSearch} />
       </IconButton>

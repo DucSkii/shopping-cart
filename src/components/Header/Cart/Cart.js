@@ -8,8 +8,9 @@ import './Cart.css'
 const Cart = () => {
 
   return (
-    <div>
-      <div>Cart</div>
+    <div className="cart">
+      <div className="cart-text">Cart</div>
+      <div className="cart-line">|</div>
       <div>3 items</div>
       <i><FontAwesomeIcon icon={faShoppingCart} /></i>
     </div>

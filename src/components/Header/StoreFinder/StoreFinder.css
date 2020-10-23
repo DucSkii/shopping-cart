@@ -1,0 +1,55 @@
+.storeFinder {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.storeFinder-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+}
+
+.storeFinder-infoDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 130px;
+}
+
+.storeFinder-deliveryWrapper {
+  display: flex;
+  padding: 14px 3px;
+}
+
+.storeFinder-deliveryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.storeFinder-line {
+  font-size: 60px;
+}
+
+.open {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 130px;
+}
+
+.open-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(29, 143, 29);
+}
+
+.open-icon {
+  color: rgb(92, 206, 92);
+}
+
+.open-time {
+  color: rgb(29, 143, 29);
+}
