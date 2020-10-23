@@ -1,12 +1,19 @@
 import React from 'react'
 
 import Header from './components/Header/Header'
+import Navigation from './components/Navigation/Navigation'
 
-const App = () => {
+class App extends React.Component {
 
-  return (
-    <Header />
-  )
+  render() {
+
+    return (
+      <div className="App">
+        <Header />
+        <Navigation />
+      </div>
+    )
+  }
 }
 
 export default App

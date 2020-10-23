@@ -29,6 +29,10 @@
   align-items: baseline;
 }
 
+.storeFinder-location {
+  font-weight: 600;
+}
+
 .storeFinder-line {
   font-size: 60px;
 }
