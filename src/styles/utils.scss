@@ -1,0 +1,7 @@
+@mixin vertical-divider {
+  width: 2px;
+  height: auto;
+  background-color: #dadfe1;
+  box-shadow: 0 0 8px #dadfe1;
+  margin: 5px 0;
+}

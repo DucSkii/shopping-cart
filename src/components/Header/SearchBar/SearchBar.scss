@@ -1,0 +1,19 @@
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  font-size: 1rem;
+  border: 0;
+  height: 38px;
+  border-radius: 19px/50%;
+  margin: 20px 0px;
+  margin-left: 12px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  color: #2d2d2d;
+}
+
+.searchBar-text {
+  display: flex;
+  width: 700px;
+}

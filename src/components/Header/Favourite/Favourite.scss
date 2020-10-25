@@ -1,0 +1,21 @@
+.favourites {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 25px;
+  /* border-left: 1px solid rgb(0, 0, 0, 0.5);
+  border-right: 1px solid rgb(0, 0, 0, 0.5); */
+  width: 100px;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: #666;
+  }
+}
+
+.favourites-heart {
+  margin-left: 5px;
+}
+
+.favourites-text {
+  font-weight: 550;
+}

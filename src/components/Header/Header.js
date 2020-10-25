@@ -3,19 +3,22 @@ import React from 'react'
 import SearchBar from './SearchBar/SearchBar'
 import Favourite from './Favourite/Favourite'
 import Cart from './Cart/Cart'
+import Title from './Title/Title'
 import StoreFinder from './StoreFinder/StoreFinder'
 
-import './Header.css'
+import './Header.scss'
 
 const Header = () => {
   return (
     <div className="header">
       <div className="header-section">
         <SearchBar />
+        <Title />
         <StoreFinder />
       </div>
       <div className="header-link">
         <Favourite />
+        <div className="header-vertical-divider"></div>
         <Cart />
       </div>
     </div>

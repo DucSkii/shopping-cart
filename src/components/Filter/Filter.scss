@@ -1,0 +1,49 @@
+@import '../../styles/utils.scss';
+
+.filter {
+  display: flex;
+  height: 40px;
+  background-color: #eee;
+  justify-content: space-between;
+  padding: 0px 70px;
+  align-items: center;
+  &-vertical-divider {
+    @include vertical-divider;
+    height: 30px;
+    width: 1px;
+    background-color: rgb(199, 199, 199);
+    box-shadow: none;
+  }
+}
+
+.filter-gender {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  width: 200px;
+}
+
+.filter-gender-button {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  align-items: center;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: white;
+    background-color: #666;
+  }
+}
+
+.filter-gender-button-f {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  padding: 0px 8px;
+  align-items: center;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: white;
+    background-color: #666;
+  }
+}

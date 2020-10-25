@@ -3,7 +3,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faCircle } from '@fortawesome/free-solid-svg-icons'
 
-import './StoreFinder.css'
+import './StoreFinder.scss'
 
 const StoreFinder = () => {
 
@@ -21,11 +21,11 @@ const StoreFinder = () => {
           </div>
         </div>
       </div>
-      <div className="storeFinder-line">|</div>
+      <div className="storeFinder-vertical-divider"></div>
       <div className="storeFinder-deliveryWrapper">
         <div className="storeFinder-deliveryContainer">
           <div className="delivering-to">Delivering to</div>
-          <div className="storeFinder-address">SE39SB</div>
+          <div className="storeFinder-address">SE3 9SB</div>
         </div>
       </div>
     </div>

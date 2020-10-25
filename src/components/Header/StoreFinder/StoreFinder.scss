@@ -1,7 +1,15 @@
+@import '../../../styles/utils.scss';
+
 .storeFinder {
   display: flex;
   justify-content: space-between;
   width: 250px;
+  &-vertical-divider {
+    @include vertical-divider;
+    margin: 12px 5px;
+    background-color: rgb(199, 199, 199);
+    box-shadow: none;
+  }
 }
 
 .storeFinder-info {
@@ -16,11 +24,13 @@
   flex-direction: column;
   align-items: baseline;
   width: 130px;
+  color: rgb(199, 199, 199);
 }
 
 .storeFinder-deliveryWrapper {
   display: flex;
   padding: 14px 3px;
+  color: rgb(199, 199, 199);
 }
 
 .storeFinder-deliveryContainer {
@@ -33,27 +43,29 @@
   font-weight: 600;
 }
 
-.storeFinder-line {
-  font-size: 60px;
-}
-
 .open {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 130px;
+  color: rgb(199, 199, 199);
 }
 
 .open-text {
   font-size: 15px;
   font-weight: 600;
-  color: rgb(29, 143, 29);
+  color: #eee;
 }
 
 .open-icon {
-  color: rgb(92, 206, 92);
+  color: #eee;
 }
 
 .open-time {
-  color: rgb(29, 143, 29);
+  color: rgb(199, 199, 199);
+}
+
+.location-icon {
+  margin-bottom: 15px;
+  color: rgb(199, 199, 199);
 }

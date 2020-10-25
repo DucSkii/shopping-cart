@@ -1,0 +1,30 @@
+@import '../../styles/utils.scss';
+
+.navigation {
+  background-color: #666;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  box-shadow: 0px 3px 17px -5px rgba(149, 172, 188, 0.5);
+  padding: 0px 70px;
+
+  .nav-button {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    &:hover {
+      transition: all 0.2s ease-in-out;
+      color: #2d2d2d;
+      background-color: #eee;
+    }
+  }
+
+  .vertical-divider {
+    @include vertical-divider;
+    background-color: rgb(95, 95, 95);
+    box-shadow: 0 0 8px rgb(95, 95, 95);
+  }
+}

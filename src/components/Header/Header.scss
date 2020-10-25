@@ -1,0 +1,30 @@
+@import '../../styles/utils.scss';
+
+.header {
+  display: flex;
+  height: 80px;
+  background-color: #2d2d2d;
+  color: rgb(255, 255, 255);
+  /* border-bottom: 1px solid rgb(0, 0, 0, 0.2); */
+  align-items: stretch;
+  padding: 0px 40px;
+  &-vertical-divider {
+    @include vertical-divider;
+    margin: 12px 0;
+    background-color: rgb(95, 95, 95);
+    box-shadow: none;
+  }
+}
+
+.header-link {
+  display: flex;
+  padding-right: 40px;
+  padding-left: 15px;
+}
+
+.header-section {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding-left: 25px;
+}

@@ -1,18 +1,18 @@
 import React from 'react'
 
-import HomeDecor from './HomeDecor/HomeDecor'
-import KitchenWare from './KitchenWare/KitchenWare'
-import Furniture from './Furniture/Furniture'
-
-import './Navigation.css'
+import './Navigation.scss'
 
 const Navigation = () => {
 
   return (
     <div className="navigation">
-      <HomeDecor />
-      <KitchenWare />
-      <Furniture />
+      <div className="vertical-divider"></div>
+      <div className="nav-button">Watches</div>
+      <div className="vertical-divider"></div>
+      <div className="nav-button">Necklaces</div>
+      <div className="vertical-divider"></div>
+      <div className="nav-button">Earrings</div>
+      <div className="vertical-divider"></div>
     </div>
   )
 }
