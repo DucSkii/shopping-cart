@@ -1,7 +1,5 @@
 import React from 'react'
-import Dropdown from '../../../utils/Dropdown/Dropdown'
-
-import './SortBy.scss'
+import Dropdown from '../../../utils/Tools/Dropdown/Dropdown'
 
 const items = [
   {

@@ -1,3 +1,16 @@
-.page {
+.page-title {
+  display: flex;
+  justify-content: center;
+}
+
+.page-subTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.page-items {
+  display: grid;
+  grid-template-columns: repeat(4, 391.5px);
+  justify-content: space-evenly;
   padding: 0px 70px;
 }

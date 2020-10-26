@@ -1,8 +1,5 @@
 import React from 'react'
-
-import Dropdown from '../../../utils/Dropdown/Dropdown'
-
-import './ColourFilter.scss'
+import Dropdown from '../../../utils/Tools/Dropdown/Dropdown'
 
 const items = [
   {
@@ -18,11 +15,11 @@ const items = [
     value: 'Silver'
   },
   {
-    id: 3,
+    id: 4,
     value: 'Rose gold'
   },
   {
-    id: 3,
+    id: 5,
     value: 'Royal blue'
   },
 ]

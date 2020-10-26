@@ -6,18 +6,26 @@ import SortBy from './SortBy/SortBy'
 
 import './Filter.scss'
 
-const Filter = () => {
+const Filter = ({ gender, setGender }) => {
 
   return (
     <div className="filter">
       <div className="filter-gender">
         <div className="filter-vertical-divider" />
-        <div className="filter-gender-button">All</div>
+        <div
+          className={gender === "All" ? "filter-gender-button-selected" : "filter-gender-button"}
+          onClick={() => setGender('All')}
+        >All</div>
         <div className="filter-vertical-divider" />
+        <div
+          className={gender === "Men" ? "filter-gender-button-selected" : "filter-gender-button"}
+          onClick={() => setGender('Men')}
+        >Men</div>
         <div className="filter-vertical-divider" />
-        <div className="filter-gender-button">Men</div>
-        <div className="filter-vertical-divider" />
-        <div className="filter-gender-button-f">Women</div>
+        <div
+          className={gender === "Women" ? "filter-gender-button-f-selected" : "filter-gender-button-f"}
+          onClick={() => setGender('Women')}
+        >Women</div>
         <div className="filter-vertical-divider" />
       </div>
       <SortBy />

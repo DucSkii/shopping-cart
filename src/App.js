@@ -1,29 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Header from './components/Header/Header'
 import Navigation from './components/Navigation/Navigation'
 import Filter from './components/Filter/Filter'
-import Page from './components/Page/Page'
+import Watches from './components/Pages/Watches'
 
 import './App.scss'
 
-class App extends React.Component {
-  state = {
+const App = () => {
+  const [ gender, setGender ] = useState('All')
 
-  }
-
-  render() {
-
-    return (
-      <div className="App">
-        <div className="App-bar" />
-        <Header />
-        <Navigation />
-        <Filter />
-        <Page />
-      </div>
-    )
-  }
+  return (
+    <div className="App">
+      <div className="App-bar" />
+      <Header />
+      <Navigation />
+      <Filter gender={gender} setGender={setGender} />
+      {/* <Switch>
+        <Route path='/watches' component={Watch}>
+        <Route path='/' component={Homepage}/>
+      </Switch> */}
+      <Watches gender={gender} />
+      {/* <Necklace /> */}
+    </div>
+  )
 }
 
 export default App

@@ -13,6 +13,9 @@
     background-color: #ddd;
     box-shadow: none;
   }
+  div {
+    z-index: 9;
+  }
 }
 
 .filter-gender {
@@ -35,6 +38,24 @@
   }
 }
 
+.filter-gender-button-selected {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  align-items: center;
+  color: white;
+  background-color: #666;
+}
+
+.filter-gender-button-f-selected {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  padding: 0px 8px;
+  align-items: center;
+  color: white;
+  background-color: #666;
+}
 .filter-gender-button-f {
   display: flex;
   justify-content: center;

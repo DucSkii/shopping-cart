@@ -1,8 +1,6 @@
 import React from 'react'
 
-import Dropdown from '../../../utils/Dropdown/Dropdown'
-
-import './PriceFilter.scss'
+import Dropdown from '../../../utils/Tools/Dropdown/Dropdown'
 
 const items = [
   {
@@ -23,7 +21,7 @@ const PriceFilter = () => {
 
   return (
     <div className="priceFilter">
-      <Dropdown title="Price Range" items={items} />
+      <Dropdown title="Price Range" items={items} multiSelect />
     </div>
   )
 }
