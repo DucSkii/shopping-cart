@@ -1,18 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import './ColourFilter.css'
+import Dropdown from '../../../utils/Dropdown/Dropdown'
+
+import './ColourFilter.scss'
+
+const items = [
+  {
+    id: 1,
+    value: 'Gold'
+  },
+  {
+    id: 2,
+    value: 'Black'
+  },
+  {
+    id: 3,
+    value: 'Silver'
+  },
+]
 
 const ColourFilter = () => {
 
-  const [ toggleFilter, setToggleFilter ] = useState(false)
-
-  const toggleHandler = () => {
-    setToggleFilter(!toggleFilter)
-    console.log(toggleFilter)
-  }
   return (
     <div className="colourFilter">
-      <button onClick={toggleHandler}>Colour</button>
+      <Dropdown title="Colour" items={items} multiSelect />
     </div>
   )
 }

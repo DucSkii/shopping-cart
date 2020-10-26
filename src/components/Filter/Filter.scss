@@ -11,7 +11,7 @@
     @include vertical-divider;
     height: 30px;
     width: 1px;
-    background-color: rgb(199, 199, 199);
+    background-color: #ddd;
     box-shadow: none;
   }
 }
@@ -21,6 +21,7 @@
   align-items: stretch;
   justify-content: space-evenly;
   width: 200px;
+  color: #666;
 }
 
 .filter-gender-button {

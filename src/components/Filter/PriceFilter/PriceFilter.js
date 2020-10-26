@@ -1,11 +1,29 @@
 import React from 'react'
 
-import './PriceFilter.css'
+import Dropdown from '../../../utils/Dropdown/Dropdown'
+
+import './PriceFilter.scss'
+
+const items = [
+  {
+    id: 1,
+    value: 'Gold'
+  },
+  {
+    id: 2,
+    value: 'Black'
+  },
+  {
+    id: 3,
+    value: 'Silver'
+  },
+]
 
 const PriceFilter = () => {
+
   return (
     <div className="priceFilter">
-      <button>Price Range</button>
+      <Dropdown title="Price Range" items={items} />
     </div>
   )
 }
