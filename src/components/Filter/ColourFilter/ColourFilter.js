@@ -17,6 +17,14 @@ const items = [
     id: 3,
     value: 'Silver'
   },
+  {
+    id: 3,
+    value: 'Rose gold'
+  },
+  {
+    id: 3,
+    value: 'Royal blue'
+  },
 ]
 
 const ColourFilter = () => {

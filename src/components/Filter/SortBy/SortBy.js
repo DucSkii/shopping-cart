@@ -12,6 +12,10 @@ const items = [
     id: 2,
     value: 'Price high to low'
   },
+  {
+    id: 3,
+    value: `Our favourite's`
+  },
 ]
 
 const SortBy = () => {

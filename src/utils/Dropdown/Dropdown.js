@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faSquare } from '@fortawesome/free-regular-svg-icons'
 import './Dropdown.scss'
 
 function Dropdown({ title, items, multiSelect = false }) {
@@ -69,12 +70,15 @@ function Dropdown({ title, items, multiSelect = false }) {
       {open && (
         <ul className="dd-list">
           {items.map(item => (
-            <li className="dd-list-item" key={item.id}>
-              <button type="button" onClick={() => handleOnClick(item)}>
-                <span>{item.value}</span>
-                <span>{isItemInSelection(item) && 'Selected'}</span>
-              </button>
-            </li>
+            <div className="dd-list-item-wrapper">
+              <div className="dd-list-item-gap"></div>
+              <li className="dd-list-item" key={item.id}>
+                <button className={isItemInSelection(item) ? "dd-list-item-button-selected" : "dd-list-item-button"} type="button" onClick={() => handleOnClick(item)}>
+                  <span>{item.value}</span>
+                  <span>{isItemInSelection(item) ? <FontAwesomeIcon icon={faCheckSquare} size="lg" /> : <FontAwesomeIcon icon={faSquare} size="lg" />}</span>
+                </button>
+              </li>
+            </div>
           ))}
         </ul>
       )}
