@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
@@ -7,13 +7,17 @@ import './Dropdown.scss'
 function Dropdown({ title, items, multiSelect = false }) {
   const [ open, setOpen ] = useState(false);
   const [ selection, setSelection ] = useState([]);
+
+  useEffect(() => {
+    console.log(open)
+  }, [ open ])
+
   const toggle = () => {
     setOpen(!open)
-    console.log(open)
   }
   Dropdown.handleClickOutside = () => setOpen(false);
 
-  function handleOnClick(item) {
+  const handleOnClick = (item) => {
     if (!selection.some(current => current.id === item.id)) {
       if (!multiSelect) {
         setSelection([ item ])
@@ -29,7 +33,7 @@ function Dropdown({ title, items, multiSelect = false }) {
     }
   }
 
-  function isItemInSelection(item) {
+  const isItemInSelection = (item) => {
     if (selection.some(current => current.id === item.id)) {
       return true
     }
@@ -43,8 +47,16 @@ function Dropdown({ title, items, multiSelect = false }) {
           tabIndex={0}
           className="dd-header"
           role="button"
-          onKeyPress={() => toggle(!open)}
-          onClick={() => toggle(!open)}
+          onKeyPress={() => {
+            console.log('onKeyPress', open)
+            return toggle()
+          }
+          }
+          onClick={() => {
+            console.log('onClick', open)
+            return toggle()
+          }
+          }
         >
           <div className="dd-header__title">
             <p className="dd-header__title--bold">{title}</p>
