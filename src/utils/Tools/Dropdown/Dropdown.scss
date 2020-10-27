@@ -10,6 +10,39 @@
   display: flex;
   width: 250px;
   height: 30px;
+  background-color: #eee;
+  color: #666;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  &__title {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+  &__action {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+}
+
+.dd-header-selected {
+  margin: 5px 0;
+  &-wrapper {
+    :hover {
+      transition: all 0.2s ease-in-out;
+      color: #0770cf;
+    }
+  }
+  font-size: 14px;
+  display: flex;
+  width: 250px;
+  height: 30px;
+  background-color: #ddd;
   color: #666;
   justify-content: space-between;
   border-top: 1px solid #ddd;
@@ -37,6 +70,7 @@
   padding: 0px 10px;
   padding-bottom: 10px;
   background-color: #eee;
+  border-radius: 5px;
 }
 
 .dd-list-item-button {

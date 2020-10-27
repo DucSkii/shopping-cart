@@ -7,11 +7,11 @@ const Items = ({ name, cost, image }) => {
 
   return (
     <div className="items">
-      <div>
+      <div className="items-wrapper">
         <img className="items-image" src={image} />
-        <div>{name}</div>
-        <div>£{cost}</div>
       </div>
+      <div>{name}</div>
+      <div>£{cost}</div>
     </div>
   )
 }

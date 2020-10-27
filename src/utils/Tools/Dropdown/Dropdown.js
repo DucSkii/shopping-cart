@@ -8,6 +8,7 @@ import './Dropdown.scss'
 class Dropdown extends React.Component {
   static defaultProps = {
     multiSelect: false,
+    selection: [],
   }
 
   constructor(props) {
@@ -29,6 +30,7 @@ class Dropdown extends React.Component {
   handleOnClick = item => {
     const { selection } = this.state
     const { multiSelect } = this.props
+    console.log(selection)
     if (!selection.some(current => current.id === item.id)) {
       if (!multiSelect) {
         this.setState({ selection: [ item ] })
@@ -51,14 +53,14 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { open } = this.state
+    const { open, selection } = this.state
     const { title, items } = this.props
     return (
       <div className="dd-wrapper">
         <div className="dd-header-wrapper">
           <div
             tabIndex={0}
-            className="dd-header"
+            className={(selection === []) ? 'dd-header' : 'dd-header-selected'} //fix this please
             role="button"
             onKeyPress={this.toggle}
             onClick={this.toggle}
