@@ -4,7 +4,6 @@
   width: 350px;
   height: 350px;
   background-color: white;
-  margin-bottom: 30px;
   align-items: center;
   &-wrapper {
     :hover {
@@ -17,4 +16,8 @@
     width: 300px;
     height: 300px;
   }
+}
+
+.items-gap {
+  height: 30px;
 }
