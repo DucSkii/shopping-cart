@@ -128,6 +128,15 @@ export const watch = () => {
         gender: [ 'Women' ],
       },
     ]),
+    description1: faker.random.arrayElement([
+      '40mm', '42mm', '38mm', '36mm', '44mm'
+    ]),
+    description2: faker.random.arrayElement([
+      'Scratch-resistant sapphire', 'Waterproof to 100 metres / 330 feet'
+    ]),
+    description3: faker.random.arrayElement([
+      'Screw-down, Triplock triple waterproofness system', '-2/+2 sec/day, after casing'
+    ]),
   }
 }
 

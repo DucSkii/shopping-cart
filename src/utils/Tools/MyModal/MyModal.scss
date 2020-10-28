@@ -8,8 +8,30 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 150px;
+  &-colour {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  &-description {
+    &-wrapper {
+      padding-left: 25px;
+      margin: 0;
+    }
+  }
+  &-cost {
+    font-size: 25px;
+    margin-top: 15px;
+  }
+  &-info {
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+  }
   &-name {
-    font-size: 20px;
+    font-size: 25px;
+    margin-bottom: 15px;
   }
   &-image {
     height: 300px;
@@ -18,8 +40,8 @@
   &-wrapper {
     display: flex;
     align-items: center;
-    width: 600px;
-    height: 350px;
+    width: 660px;
+    height: 500px;
     background-color: white;
     border-radius: 5px;
   }

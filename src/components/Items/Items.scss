@@ -5,11 +5,11 @@
   height: 350px;
   background-color: white;
   align-items: center;
+  object-fit: cover;
   &-wrapper {
     :hover {
-      transition: all 0.2s ease-in-out;
-      width: 308px;
-      height: 308px;
+      transform: scale(1.1);
+      transition: transform 0.6s ease 0s;
     }
   }
   &-image {

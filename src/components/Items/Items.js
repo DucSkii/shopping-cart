@@ -5,11 +5,20 @@ import './Items.scss'
 
 import MyModal from '../../utils/Tools/MyModal/MyModal'
 
-const Items = ({ name, cost, image, index }) => {
+const Items = ({ name, cost, image, index, colour, desc1, desc2, desc3 }) => {
 
   return (
     <div className="items-container">
-      <MyModal cost={cost} name={name} image={image} index={index}>
+      <MyModal
+        cost={cost}
+        name={name}
+        image={image}
+        index={index}
+        colour={colour}
+        desc1={desc1}
+        desc2={desc2}
+        desc3={desc3}
+      >
         <div className="items">
           <div className="items-wrapper">
             <img className="items-image" src={image} />
