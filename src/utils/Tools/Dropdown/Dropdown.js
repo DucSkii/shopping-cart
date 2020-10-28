@@ -8,7 +8,6 @@ import './Dropdown.scss'
 class Dropdown extends React.Component {
   static defaultProps = {
     multiSelect: false,
-    selection: [],
   }
 
   constructor(props) {
@@ -30,12 +29,10 @@ class Dropdown extends React.Component {
   handleOnClick = item => {
     const { selection } = this.state
     const { multiSelect } = this.props
-    console.log(selection)
     if (!selection.some(current => current.id === item.id)) {
       if (!multiSelect) {
         this.setState({ selection: [ item ] })
       } else if (multiSelect) {
-        console.log(item)
         this.setState({ selection: [ ...selection, item ] })
       }
     } else {
@@ -60,7 +57,7 @@ class Dropdown extends React.Component {
         <div className="dd-header-wrapper">
           <div
             tabIndex={0}
-            className={(selection === []) ? 'dd-header' : 'dd-header-selected'} //fix this please
+            className={(selection.length) ? 'dd-header-selected' : 'dd-header'} //fix this please
             role="button"
             onKeyPress={this.toggle}
             onClick={this.toggle}
@@ -80,7 +77,7 @@ class Dropdown extends React.Component {
                 <div className="dd-list-item-gap"></div>
                 <li className="dd-list-item" key={item.id}>
                   <button className={this.isItemInSelection(item) ? "dd-list-item-button-selected" : "dd-list-item-button"} type="button" onClick={() => this.handleOnClick(item)}>
-                    <span>{item.value}</span>
+                    <span style={{ textTransform: "capitalize" }}>{item.value}</span>
                     <span>{this.isItemInSelection(item) ? <FontAwesomeIcon icon={faCheckSquare} size="lg" /> : <FontAwesomeIcon icon={faSquare} size="lg" />}</span>
                   </button>
                 </li>

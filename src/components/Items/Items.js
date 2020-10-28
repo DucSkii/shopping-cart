@@ -5,7 +5,7 @@ import './Items.scss'
 
 import MyModal from '../../utils/Tools/MyModal/MyModal'
 
-const Items = ({ name, cost, image, index, colour, desc1, desc2, desc3 }) => {
+const Items = ({ name, cost, image, index, colour, desc1, desc2, desc3, gender }) => {
 
   return (
     <div className="items-container">
@@ -18,6 +18,7 @@ const Items = ({ name, cost, image, index, colour, desc1, desc2, desc3 }) => {
         desc1={desc1}
         desc2={desc2}
         desc3={desc3}
+        gender={gender}
       >
         <div className="items">
           <div className="items-wrapper">
