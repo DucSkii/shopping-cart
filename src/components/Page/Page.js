@@ -7,6 +7,7 @@ const Page = ({ className, title, gender, children }) => {
     <div className={`page ${className}`}>
       <div className="page-title">{title}</div>
       <div className="page-subTitle">{gender}</div>
+      <div className="page-count">{children.length} items found</div>
       <div className="page-items">
         {children}
       </div>
