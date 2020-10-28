@@ -43,6 +43,7 @@ const MyModal = ({ ...props }) => {
             </div>
             <Delivery deliverySelect={deliverySelect} setDeliverySelect={setDeliverySelect} />
             {/* <AddToCart setOpenParent={setOpen} /> */}
+            {/* fix please */}
           </div>
         </div>
       </Modal>

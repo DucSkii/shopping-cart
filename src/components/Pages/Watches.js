@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from 'react'
 
 import { getWatches } from '../../data/watches'
@@ -11,7 +12,7 @@ import PriceFilter from '../Filter/PriceFilter/PriceFilter'
 
 // const test = () => {
 //   getWatches().filter(watch => {
-//     if(watch.image.color.include('Black')){
+//     if(watch.image.color.includes('Black')){
 //       return watch
 //     }
 //   })
@@ -32,7 +33,55 @@ const colorsFilterList = () => {
   }))
 }
 
+
+
 const Watches = ({ gender, setGender }) => {
+
+  const filterGender = () => {
+    if (gender === 'All') {
+      return getWatches().map((watch, index) => {
+        return <Items
+          key={index}
+          name={watch.name}
+          cost={watch.cost}
+          image={watch.image.url}
+          colour={watch.image.color.join(', ').toUpperCase()}
+          desc1={watch.description1}
+          desc2={watch.description2}
+          desc3={watch.description3}
+          gender={watch.image.gender}
+        />
+      })
+    } if (gender === 'Men') {
+      return getWatches().filter(watch => watch.image.gender.includes('Men')).map((filteredWatch, index) => {
+        return <Items
+          key={index}
+          name={filteredWatch.name}
+          cost={filteredWatch.cost}
+          image={filteredWatch.image.url}
+          colour={filteredWatch.image.color.join(', ').toUpperCase()}
+          desc1={filteredWatch.description1}
+          desc2={filteredWatch.description2}
+          desc3={filteredWatch.description3}
+          gender={filteredWatch.image.gender}
+        />
+      })
+    } if (gender === 'Women') {
+      return getWatches().filter(watch => watch.image.gender.includes('Women')).map((filteredWatch, index) => {
+        return <Items
+          key={index}
+          name={filteredWatch.name}
+          cost={filteredWatch.cost}
+          image={filteredWatch.image.url}
+          colour={filteredWatch.image.color.join(', ').toUpperCase()}
+          desc1={filteredWatch.description1}
+          desc2={filteredWatch.description2}
+          desc3={filteredWatch.description3}
+          gender={filteredWatch.image.gender}
+        />
+      })
+    }
+  }
   return (
     <>
       <Filter gender={gender} setGender={setGender}>
@@ -41,7 +90,8 @@ const Watches = ({ gender, setGender }) => {
         <ColourFilter coloursList={colorsFilterList()} />
       </Filter>
       <Page className='watches' title="Watches" gender={gender}>
-        {getWatches().map((watch, index) => {
+        {filterGender()}
+        {/* {getWatches().map((watch, index) => {
           return <Items
             key={index}
             name={watch.name}
@@ -53,7 +103,7 @@ const Watches = ({ gender, setGender }) => {
             desc3={watch.description3}
             gender={watch.image.gender}
           />
-        })}
+        })} */}
       </Page>
     </>
   )
