@@ -16,6 +16,7 @@ const MyModal = ({ ...props }) => {
   const handleClose = () => {
     setOpen(false)
     setDeliverySelect('standard')
+    setAddToCart(false)
   }
 
   const renderCTA = () => {
@@ -58,8 +59,7 @@ const MyModal = ({ ...props }) => {
             <div className="myModal-cost">£{props.cost}</div>
           </div>
           <Delivery deliverySelect={deliverySelect} setDeliverySelect={setDeliverySelect} />
-          {/* <AddToCart  /> */}
-          <button onClick={() => setAddToCart(true)}>Add to cart</button>
+          <button className="myModal-cart" onClick={() => setAddToCart(true)}>Add to cart</button>
         </div>
       </>
     )

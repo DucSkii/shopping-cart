@@ -8,6 +8,16 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 150px;
+  &-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 12px 0px;
+    margin-top: 30px;
+  }
   &-gender {
     font-size: 18px;
     margin-bottom: 5px;
@@ -29,6 +39,8 @@
     margin-top: 15px;
   }
   &-info {
+    display: flex;
+    flex-direction: column;
     margin-top: 25px;
     &-wrapper {
       display: flex;
