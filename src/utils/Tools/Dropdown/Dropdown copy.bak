@@ -8,13 +8,13 @@ import './Dropdown.scss'
 class Dropdown extends React.Component {
   static defaultProps = {
     multiSelect: false,
-    selection: [],
   }
 
   constructor(props) {
     super(props)
     this.state = {
       open: false,
+      selection: [],
     }
   }
 
@@ -27,29 +27,31 @@ class Dropdown extends React.Component {
   }
 
   handleOnClick = item => {
-    const { multiSelect, selection, setSelection } = this.props
+    const { selection } = this.state
+    const { multiSelect } = this.props
     if (!selection.some(current => current.id === item.id)) {
       if (!multiSelect) {
-        setSelection([ item ])
+        this.setState({ selection: [ item ] })
       } else if (multiSelect) {
-        setSelection([ ...selection, item ])
+        this.setState({ selection: [ ...selection, item ] })
       }
     } else {
       let selectionAfterRemoval = selection
       selectionAfterRemoval = selectionAfterRemoval.filter(
         current => current.id !== item.id
       );
-      setSelection([ ...selectionAfterRemoval ])
+      this.setState({ selection: [ ...selectionAfterRemoval ] })
     }
   }
 
   isItemInSelection = (item) => {
-    return this.props.selection.some(current => current.id === item.id)
+    const { selection } = this.state
+    return selection.some(current => current.id === item.id)
   }
 
   render() {
-    const { open } = this.state
-    const { title, items, selection } = this.props
+    const { open, selection } = this.state
+    const { title, items } = this.props
     return (
       <div className="dd-wrapper">
         <div className="dd-header-wrapper">

@@ -1,5 +1,5 @@
 import React from 'react'
-import Dropdown from '../../../utils/Tools/Dropdown/Dropdown'
+import Dropdown from '../../../utils/Tools/Dropdown/Dropdown.js'
 
 const items = [
   {
@@ -12,11 +12,15 @@ const items = [
   },
 ]
 
-const SortBy = () => {
+const SortBy = ({ selection, setSelection }) => {
 
   return (
     <div className="sortBy" >
-      <Dropdown title="Sort" items={items} />
+      <Dropdown title="Sort"
+        items={items}
+        selection={selection}
+        setSelection={setSelection}
+      />
     </div >
   )
 }

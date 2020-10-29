@@ -7,11 +7,11 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <div className="vertical-divider"></div>
-      <div className="nav-button">Watches</div>
+      <a className="nav-button" href='/watches'>Watches</a>
       <div className="vertical-divider"></div>
-      <div className="nav-button">Necklaces</div>
+      <a className="nav-button" href='/necklaces'>Necklaces</a>
       <div className="vertical-divider"></div>
-      <div className="nav-button">Earrings</div>
+      <a className="nav-button" href='/earrings'>Earrings</a>
       <div className="vertical-divider"></div>
     </div>
   )

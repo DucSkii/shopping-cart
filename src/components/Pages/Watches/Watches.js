@@ -1,14 +1,14 @@
 /* eslint-disable array-callback-return */
-import React from 'react'
+import React, { useState } from 'react'
 
-import { getWatches } from '../../data/watches'
+import { getWatches } from '../../../data/watches'
 
-import Page from '../Page/Page'
-import Items from '../Items/Items'
-import Filter from '../Filter/Filter'
-import ColourFilter from '../Filter/ColourFilter/ColourFilter'
-import SortBy from '../Filter/SortBy/SortBy'
-import PriceFilter from '../Filter/PriceFilter/PriceFilter'
+import Page from '../../Page/Page'
+import Items from '../../Items/Items'
+import Filter from '../../Filter/Filter'
+import ColourFilter from '../../Filter/ColourFilter/ColourFilter'
+import SortBy from '../../Filter/SortBy/SortBy'
+import PriceFilter from '../../Filter/PriceFilter/PriceFilter'
 
 // const test = () => {
 //   getWatches().filter(watch => {
@@ -34,10 +34,14 @@ const colorsFilterList = () => {
 }
 
 
-
-const Watches = ({ gender, setGender }) => {
+const Watches = () => {
+  const [ gender, setGender ] = useState('All')
+  const [ selectionColour, setSelectionColour ] = useState([])
+  const [ selectionSort, setSelectionSort ] = useState([])
+  const [ selectionPrice, setSelectionPrice ] = useState([])
 
   const filterGender = () => {
+
     if (gender === 'All') {
       return getWatches().map((watch, index) => {
         return <Items
@@ -82,28 +86,32 @@ const Watches = ({ gender, setGender }) => {
       })
     }
   }
+
+  const filterColour = () => {
+    if (selectionColour.length !== 0) {
+      return
+    }
+  }
+
   return (
     <>
       <Filter gender={gender} setGender={setGender}>
-        <SortBy />
-        <PriceFilter />
-        <ColourFilter coloursList={colorsFilterList()} />
+        <SortBy
+          selection={selectionSort}
+          setSelection={setSelectionSort}
+        />
+        <PriceFilter
+          selection={selectionPrice}
+          setSelection={setSelectionPrice}
+        />
+        <ColourFilter
+          coloursList={colorsFilterList()}
+          selection={selectionColour}
+          setSelection={setSelectionColour}
+        />
       </Filter>
       <Page className='watches' title="Watches" gender={gender}>
         {filterGender()}
-        {/* {getWatches().map((watch, index) => {
-          return <Items
-            key={index}
-            name={watch.name}
-            cost={watch.cost}
-            image={watch.image.url}
-            colour={watch.image.color.join(', ').toUpperCase()}
-            desc1={watch.description1}
-            desc2={watch.description2}
-            desc3={watch.description3}
-            gender={watch.image.gender}
-          />
-        })} */}
       </Page>
     </>
   )

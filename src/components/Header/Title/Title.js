@@ -5,7 +5,7 @@ import './Title.scss'
 const Title = () => {
 
   return (
-    <div className="title">Duck</div>
+    <a className="title" href='/' >Duck</a>
   )
 }
 

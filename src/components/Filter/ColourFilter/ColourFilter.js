@@ -1,10 +1,13 @@
 import React from 'react'
-import Dropdown from '../../../utils/Tools/Dropdown/Dropdown'
+import Dropdown from '../../../utils/Tools/Dropdown/Dropdown.js'
 
-const ColourFilter = ({ coloursList }) => {
+const ColourFilter = ({ coloursList, selection, setSelection }) => {
   return (
     <div className="colourFilter">
-      <Dropdown title="Colour" items={coloursList} multiSelect />
+      <Dropdown title="Colour" items={coloursList} multiSelect 
+      selection={selection} 
+      setSelection={setSelection}
+      />
     </div>
   )
 }
