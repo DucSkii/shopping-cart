@@ -8,9 +8,9 @@ import './Favourite.scss'
 const Favourite = () => {
 
   return (
-    <div className="favourites">
+    <a className="favourites" href='/favourites' >
       <div className="favourites-text">Favourites</div> <FontAwesomeIcon className="favourites-heart" icon={faHeart} />
-    </div>
+    </a>
   )
 }
 

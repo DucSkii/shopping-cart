@@ -8,12 +8,12 @@ import './Cart.scss'
 const Cart = () => {
 
   return (
-    <div className="cart">
+    <a className="cart" href='/cart' >
       <div className="cart-text">Cart</div>
       <div className="cart-vertical-divider"></div>
       <div>3 items</div>
       <i><FontAwesomeIcon icon={faShoppingCart} /></i>
-    </div>
+    </a>
   )
 }
 

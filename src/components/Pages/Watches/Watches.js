@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 import { getWatches } from '../../../data/watches'
 
+import Navigation from '../../Navigation/Navigation'
 import Page from '../../Page/Page'
 import Items from '../../Items/Items'
 import Filter from '../../Filter/Filter'
@@ -87,14 +88,15 @@ const Watches = () => {
     }
   }
 
-  const filterColour = () => {
-    if (selectionColour.length !== 0) {
-      return
-    }
-  }
+  // const filterColour = () => {
+  //   if (selectionColour.length !== 0) {
+  //     return
+  //   }
+  // }
 
   return (
     <>
+      <Navigation />
       <Filter gender={gender} setGender={setGender}>
         <SortBy
           selection={selectionSort}

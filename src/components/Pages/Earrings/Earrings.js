@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 import { getEarrings } from '../../../data/earrings'
 
+import Navigation from '../../Navigation/Navigation'
 import Page from '../../Page/Page'
 import Items from '../../Items/Items'
 import Filter from '../../Filter/Filter'
@@ -81,6 +82,7 @@ const Earrings = () => {
 
   return (
     <>
+      <Navigation />
       <Filter gender={gender} setGender={setGender}>
         <SortBy
           selection={selectionSort}

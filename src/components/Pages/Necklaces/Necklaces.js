@@ -9,6 +9,7 @@ import Filter from '../../Filter/Filter'
 import ColourFilter from '../../Filter/ColourFilter/ColourFilter'
 import SortBy from '../../Filter/SortBy/SortBy'
 import PriceFilter from '../../Filter/PriceFilter/PriceFilter'
+import Navigation from '../../Navigation/Navigation'
 
 const colorsFilterList = () => {
   const colors = []
@@ -81,6 +82,7 @@ const Necklaces = () => {
 
   return (
     <>
+    <Navigation />
       <Filter gender={gender} setGender={setGender}>
         <SortBy
           selection={selectionSort}
