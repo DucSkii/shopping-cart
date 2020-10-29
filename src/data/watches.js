@@ -143,7 +143,7 @@ export const watch = () => {
 export const getWatches = () => {
   let watches = []
 
-  for (let i = 0; i < faker.random.number({ min: 20, max: 30 }); i++) {
+  for (let i = 0; i < faker.random.number({ min: 30, max: 30 }); i++) {
     watches.push(watch())
   }
 
