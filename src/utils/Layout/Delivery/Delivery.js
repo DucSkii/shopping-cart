@@ -10,7 +10,7 @@ const Delivery = ({ deliverySelect, setDeliverySelect }) => {
       <div className="delivery-title">Delivery options</div>
       <div className="delivery-boxes">
         <div
-          className={(deliverySelect === "standard") ? "delivery-box-wrapper-selected" : "delivery-box-wrapper"}
+          className={(deliverySelect === 'standard') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
           onClick={() => setDeliverySelect('standard')}
         >
           <div className="delivery-box">
@@ -22,7 +22,7 @@ const Delivery = ({ deliverySelect, setDeliverySelect }) => {
 
         <div className="delivery-gap" />
         <div
-          className={(deliverySelect === "pick-up") ? "delivery-box-wrapper-selected" : "delivery-box-wrapper"}
+          className={(deliverySelect === 'pick-up') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
           onClick={() => setDeliverySelect('pick-up')}
         >
           <div className="delivery-box">
@@ -33,7 +33,7 @@ const Delivery = ({ deliverySelect, setDeliverySelect }) => {
         </div>
         <div className="delivery-gap" />
         <div
-          className={(deliverySelect === "pro") ? "delivery-box-wrapper-selected" : "delivery-box-wrapper"}
+          className={(deliverySelect === 'pro') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
           onClick={() => setDeliverySelect('pro')}
         >
           <div className="delivery-box">

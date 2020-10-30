@@ -4,11 +4,11 @@ import Dropdown from '../../../utils/Tools/Dropdown/Dropdown.js'
 const items = [
   {
     id: 1,
-    value: 'Price low to high'
+    value: 'Price low to high',
   },
   {
     id: 2,
-    value: 'Price high to low'
+    value: 'Price high to low',
   },
 ]
 

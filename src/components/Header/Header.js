@@ -9,6 +9,7 @@ import StoreFinder from './StoreFinder/StoreFinder'
 import './Header.scss'
 
 const Header = () => {
+ 
   return (
     <div className="header">
       <div className="header-section">

@@ -10,132 +10,132 @@ export const watch = () => {
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126333-0010.png?impolicy=v6-upright&imwidth=420',
         color: [ 'gold', 'silver' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126711chnr-0002.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'black', 'rose gold' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m228239-0033.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver' ],
-        gender: [ 'Men' ],
+        color: ['silver'],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m124060-0001.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'black' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m124300-0001.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver' ],
-        gender: [ 'Men' ],
+        color: ['silver'],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m116681-0002.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'rose gold', 'royal blue' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m116515ln-0018.png?impolicy=v6-upright&imwidth=420',
         color: [ 'black', 'rose gold' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126603-0001.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'black', 'gold' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m326238-0009.png?impolicy=v6-upright&imwidth=420',
         color: [ 'black', 'gold' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m50535-0002.png?impolicy=v6-upright&imwidth=420',
         color: [ 'black', 'rose gold' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m116680-0002.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'royal blue' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m116508-0009.png?impolicy=v6-upright&imwidth=420',
         color: [ 'gold', 'black' ],
-        gender: [ 'Men' ],
+        gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m279138rbr-0015.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'gold' ],
-        gender: [ 'Women' ],
+        color: ['gold'],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m86409rbr-0001.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver' ],
-        gender: [ 'Women' ],
+        color: ['silver'],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m278384rbr-0029.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'royal blue' ],
-        gender: [ 'Women' ],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126233-0030.png?impolicy=v6-upright&imwidth=420',
         color: [ 'gold', 'silver' ],
-        gender: [ 'Women' ],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126281rbr-0011.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'rose gold', 'black' ],
-        gender: [ 'Women' ],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126234-0015.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'black' ],
-        gender: [ 'Women' ],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126283rbr-0004.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'gold' ],
-        gender: [ 'Women' ],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m278285rbr-0010.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'rose gold' ],
-        gender: [ 'Women' ],
+        color: ['rose gold'],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m279136rbr-0001.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver' ],
-        gender: [ 'Women' ],
+        color: ['silver'],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m278273-0016.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'gold' ],
-        gender: [ 'Women' ],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m279384rbr-0018.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'black' ],
-        gender: [ 'Women' ],
+        gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m279161-0017.png?impolicy=v6-upright&imwidth=420',
         color: [ 'silver', 'rose gold' ],
-        gender: [ 'Women' ],
+        gender: ['Women'],
       },
     ]),
     description1: faker.random.arrayElement([
-      '40mm', '42mm', '38mm', '36mm', '44mm'
+      '40mm', '42mm', '38mm', '36mm', '44mm',
     ]),
     description2: faker.random.arrayElement([
-      'Scratch-resistant sapphire', 'Waterproof to 100 metres / 330 feet'
+      'Scratch-resistant sapphire', 'Waterproof to 100 metres / 330 feet',
     ]),
     description3: faker.random.arrayElement([
-      'Screw-down, Triplock triple waterproofness system', '-2/+2 sec/day, after casing'
+      'Screw-down, Triplock triple waterproofness system', '-2/+2 sec/day, after casing',
     ]),
   }
 }

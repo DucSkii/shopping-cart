@@ -5,15 +5,15 @@ import Dropdown from '../../../utils/Tools/Dropdown/Dropdown.js'
 const items = [
   {
     id: 1,
-    value: 'Gold'
+    value: 'Gold',
   },
   {
     id: 2,
-    value: 'Black'
+    value: 'Black',
   },
   {
     id: 3,
-    value: 'Silver'
+    value: 'Silver',
   },
 ]
 
@@ -21,12 +21,12 @@ const PriceFilter = ({ selection, setSelection }) => {
 
   return (
     <div className="priceFilter">
-      <Dropdown title="Price Range" 
-      items={items}
-       multiSelect 
-       selection={selection} 
-       setSelection={setSelection}
-       />
+      <Dropdown title="Price Range"
+        items={items}
+        multiSelect
+        selection={selection}
+        setSelection={setSelection}
+      />
     </div>
   )
 }

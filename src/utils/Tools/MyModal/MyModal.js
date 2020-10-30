@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react'
 
 import Modal from '@material-ui/core/Modal'
@@ -7,7 +6,6 @@ import Delivery from '../../Layout/Delivery/Delivery'
 import './MyModal.scss'
 
 const MyModal = ({ ...props }) => {
-
 
   const [ addToCart, setAddToCart ] = useState(false)
   const [ open, setOpen ] = useState(false)

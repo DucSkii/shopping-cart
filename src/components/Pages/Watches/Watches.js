@@ -34,7 +34,6 @@ const colorsFilterList = () => {
   }))
 }
 
-
 const Watches = () => {
   const [ gender, setGender ] = useState('All')
   const [ selectionColour, setSelectionColour ] = useState([])

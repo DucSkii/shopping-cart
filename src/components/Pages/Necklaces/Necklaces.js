@@ -26,7 +26,6 @@ const colorsFilterList = () => {
   }))
 }
 
-
 const Necklaces = () => {
   const [ gender, setGender ] = useState('All')
   const [ selectionColour, setSelectionColour ] = useState([])
@@ -82,7 +81,7 @@ const Necklaces = () => {
 
   return (
     <>
-    <Navigation />
+      <Navigation />
       <Filter gender={gender} setGender={setGender}>
         <SortBy
           selection={selectionSort}
