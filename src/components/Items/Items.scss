@@ -6,6 +6,17 @@
   background-color: white;
   align-items: center;
   object-fit: cover;
+  z-index: 1;
+  &-heart {
+    position:absolute;
+    margin-left: 25px;
+    margin-top: 20px;
+    z-index: 8;
+    :hover {
+      transform: scale(1.3);
+      transition: transform 0.2s ease 0s;
+    }
+  }
   &-wrapper {
     :hover {
       transform: scale(1.1);

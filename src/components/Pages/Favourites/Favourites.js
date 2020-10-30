@@ -1,12 +1,15 @@
 import React from 'react'
-
+import Page from '../../Page/Page'
+import Items from '../../Items/Items'
 import './Favourites.scss'
 
 const Favourites = () => {
 
   return (
     <div>
-      <h1>Favourites</h1>
+      <Page className='favouriteList' title="Favourites">
+        <Items />
+      </Page>
     </div>
   )
 }

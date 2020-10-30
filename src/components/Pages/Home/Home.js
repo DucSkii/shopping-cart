@@ -20,8 +20,8 @@ const Home = () => {
         <div className="home-description-text">Just for her</div>
       </div>
       <div className="home-model-wrapper" >
-        <img className="home-flower" src={Flower} />
-        <img className="home-model" src={Model} />
+        <img className="home-flower" src={Flower} alt='' />
+        <img className="home-model" src={Model} alt='' />
       </div>
     </div>
   )

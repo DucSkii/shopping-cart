@@ -43,7 +43,7 @@ const MyModal = ({ ...props }) => {
     }
     return (
       <>
-        <img className="myModal-image" src={props.image} />
+        <img className="myModal-image" src={props.image} alt='' />
         <div className="myModal-info">
           <div className="myModal-info-wrapper">
             <div className="myModal-name">{props.name}</div>
