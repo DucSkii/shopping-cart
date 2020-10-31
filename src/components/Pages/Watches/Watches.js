@@ -1,8 +1,6 @@
 /* eslint-disable array-callback-return */
 import React, { useState } from 'react'
 
-import { getWatches } from '../../../data/watches'
-
 import Navigation from '../../Navigation/Navigation'
 import Page from '../../Page/Page'
 import Items from '../../Items/Items'
@@ -10,18 +8,19 @@ import Filter from '../../Filter/Filter'
 import ColourFilter from '../../Filter/ColourFilter/ColourFilter'
 import SortBy from '../../Filter/SortBy/SortBy'
 import PriceFilter from '../../Filter/PriceFilter/PriceFilter'
+import { useStateValue } from '../../../context/StateContext'
 
 // const test = () => {
-//   getWatches().filter(watch => {
+//   watches.filter(watch => {
 //     if(watch.image.color.includes('Black')){
 //       return watch
 //     }
 //   })
 // }
 
-const colorsFilterList = () => {
+const colorsFilterList = (watches) => {
   const colors = []
-  getWatches().map((watch) => {
+  watches.map((watch) => {
     return watch.image.color.forEach(color => {
       if (!colors.includes(color)) {
         colors.push(color)
@@ -39,13 +38,15 @@ const Watches = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
+  const [{watches}, dispatch ] = useStateValue()
 
   const filterGender = () => {
-
+    
     if (gender === 'All') {
-      return getWatches().map((watch, index) => {
+      return watches.map((watch, index) => {
         return <Items
           key={index}
+          id={watch.id}
           name={watch.name}
           cost={watch.cost}
           image={watch.image.url}
@@ -57,9 +58,10 @@ const Watches = () => {
         />
       })
     } if (gender === 'Men') {
-      return getWatches().filter(watch => watch.image.gender.includes('Men')).map((filteredWatch, index) => {
+      return watches.filter(watch => watch.image.gender.includes('Men')).map((filteredWatch, index) => {
         return <Items
           key={index}
+          id={filteredWatch.id}
           name={filteredWatch.name}
           cost={filteredWatch.cost}
           image={filteredWatch.image.url}
@@ -71,9 +73,10 @@ const Watches = () => {
         />
       })
     } if (gender === 'Women') {
-      return getWatches().filter(watch => watch.image.gender.includes('Women')).map((filteredWatch, index) => {
+      return watches.filter(watch => watch.image.gender.includes('Women')).map((filteredWatch, index) => {
         return <Items
           key={index}
+          id={filteredWatch.id}
           name={filteredWatch.name}
           cost={filteredWatch.cost}
           image={filteredWatch.image.url}
@@ -106,7 +109,7 @@ const Watches = () => {
           setSelection={setSelectionPrice}
         />
         <ColourFilter
-          coloursList={colorsFilterList()}
+          coloursList={colorsFilterList(watches)}
           selection={selectionColour}
           setSelection={setSelectionColour}
         />

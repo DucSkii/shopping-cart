@@ -2,6 +2,7 @@ import faker from 'faker'
 
 export const necklace = () => {
   return {
+    id: faker.random.number(),
     name: faker.random.arrayElement([
       'Pear Shape', 'Cross-over', 'Multi-shape', 'Kiss', 'Marquise and Round', 'Double Strand Knot', 'Emerald Cut', 'Cross', 'Spiral Pave', 'Classic Butterfly', 'Bow Pendant', 'Solar Pave',
     ]),

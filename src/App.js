@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import Header from './components/Header/Header'
 import Earrings from './components/Pages/Earrings/Earrings'
@@ -10,8 +10,19 @@ import Favourites from './components/Pages/Favourites/Favourites'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './App.scss'
+import { useStateValue } from './context/StateContext'
 
 const App = () => {
+
+  const [{favouritesList}, dispatch ] = useStateValue()
+  useEffect(() => {
+    const rawFavourites = localStorage.getItem('favouritesList')
+    if(rawFavourites) {
+      dispatch({ type: 'initial-load', payload: JSON.parse(rawFavourites)})
+    }}, [])
+  useEffect(() => {
+    localStorage.setItem('favouritesList', JSON.stringify(favouritesList))
+  }, [favouritesList])
 
   return (
     <div className="App">

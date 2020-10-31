@@ -1,8 +1,6 @@
 /* eslint-disable array-callback-return */
 import React, { useState } from 'react'
 
-import { getNecklaces } from '../../../data/necklaces'
-
 import Page from '../../Page/Page'
 import Items from '../../Items/Items'
 import Filter from '../../Filter/Filter'
@@ -10,10 +8,11 @@ import ColourFilter from '../../Filter/ColourFilter/ColourFilter'
 import SortBy from '../../Filter/SortBy/SortBy'
 import PriceFilter from '../../Filter/PriceFilter/PriceFilter'
 import Navigation from '../../Navigation/Navigation'
+import { useStateValue } from '../../../context/StateContext'
 
-const colorsFilterList = () => {
+const colorsFilterList = (necklaces) => {
   const colors = []
-  getNecklaces().map((necklace) => {
+  necklaces.map((necklace) => {
     return necklace.image.color.forEach(color => {
       if (!colors.includes(color)) {
         colors.push(color)
@@ -31,11 +30,12 @@ const Necklaces = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
+  const [{necklaces}, dispatch ] = useStateValue()
 
   const filterGender = () => {
 
     if (gender === 'All') {
-      return getNecklaces().map((necklace, index) => {
+      return necklaces.map((necklace, index) => {
         return <Items
           key={index}
           name={necklace.name}
@@ -49,7 +49,7 @@ const Necklaces = () => {
         />
       })
     } if (gender === 'Men') {
-      return getNecklaces().filter(necklace => necklace.image.gender.includes('Men')).map((filteredNecklace, index) => {
+      return necklaces.filter(necklace => necklace.image.gender.includes('Men')).map((filteredNecklace, index) => {
         return <Items
           key={index}
           name={filteredNecklace.name}
@@ -63,7 +63,7 @@ const Necklaces = () => {
         />
       })
     } if (gender === 'Women') {
-      return getNecklaces().filter(necklace => necklace.image.gender.includes('Women')).map((filteredNecklace, index) => {
+      return necklaces.filter(necklace => necklace.image.gender.includes('Women')).map((filteredNecklace, index) => {
         return <Items
           key={index}
           name={filteredNecklace.name}
@@ -92,7 +92,7 @@ const Necklaces = () => {
           setSelection={setSelectionPrice}
         />
         <ColourFilter
-          coloursList={colorsFilterList()}
+          coloursList={colorsFilterList(necklaces)}
           selection={selectionColour}
           setSelection={setSelectionColour}
         />

@@ -2,6 +2,7 @@ import faker from 'faker'
 
 export const watch = () => {
   return {
+    id: faker.random.number(),
     name: faker.random.arrayElement([
       'GMT-MASTER II', 'OYSTER PERPETUAL 41', 'SUBMARINER', 'SEA-DWELLER', 'EXPLORER', 'SKY-DWELLER', 'AIR-KING', 'COSMOGRAPH DAYTONA', 'DATEJUST 36', 'EXPLORER II', 'SUBMARINER DATE', 'YACHT-MASTER 42', 'ROLEX DEEPSEA', 'CELLINI TIME', 'PEARLMASTER 39', 'PEARLMASTER 42', 'DATEJUST 31', 'OYSTER PERPETUAL 28', 'YACHT-MASTER 37', 'EXPLORER III', 'SUBMARINER 39', 'PEARLMASTER 51', 'DATEJUST 21', 'OYSTER PERPETUAL 18', 'AIR-KING 24', 'GMT-MASTER', 'ROLEX DEEPSEA II',
     ]),
@@ -141,6 +142,7 @@ export const watch = () => {
 }
 
 export const getWatches = () => {
+
   let watches = []
 
   for (let i = 0; i < faker.random.number({ min: 30, max: 30 }); i++) {
