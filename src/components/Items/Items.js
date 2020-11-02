@@ -16,8 +16,10 @@ const Items = ({...props}) => {
 
   const toggleFavouriteTrue = () => {
     setSelectFavourite(true)
-    dispatch({type: 'add', item: props})
-    console.log(favouritesList, 'favouriteslist add')
+    dispatch({type: 'add', item: {...props, selectFavourite}})
+  }
+  const dispatchFunc = () => {
+
   }
   const toggleFavouriteFalse = () => {
     setSelectFavourite(false)
@@ -45,6 +47,8 @@ const Items = ({...props}) => {
     <div className="items-container">
       {changeIcon()}
       <MyModal
+        favourite={selectFavourite}
+        id={props.id}
         cost={props.cost}
         name={props.name}
         image={props.image}

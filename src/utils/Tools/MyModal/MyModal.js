@@ -8,7 +8,7 @@ import { useStateValue } from '../../../context/StateContext'
 
 import './MyModal.scss'
 
-const MyModal = ({ ...props }) => {
+const MyModal = ({ children, ...props }) => {
 
   const [ addToCart, setAddToCart ] = useState(false)
   const [ open, setOpen ] = useState(false)
@@ -56,7 +56,7 @@ const MyModal = ({ ...props }) => {
 
     const addCart = () => {
       setAddToCart(true)
-      dispatch({type: 'add-cart', item: props})
+      dispatch({type: 'add-cart', item: {...props, deliverySelect}})
       console.log(cartList, 'cartList')
     }
 
@@ -89,7 +89,7 @@ const MyModal = ({ ...props }) => {
   return (
     <div className="myModal-container">
       <button className="myModal-button" type="button" onClick={() => setOpen(true)}>
-        {props.children}
+        {children}
       </button>
       <Modal
         className="myModal"

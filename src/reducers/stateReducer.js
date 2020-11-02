@@ -23,6 +23,7 @@ export default function stateReducer(state, action) {
       favouritesList: action.payload || [],
     }
   case 'add-cart' :
+    console.log(state, 'asd', action)
     return {
       ...state,
       cartList: [
@@ -42,6 +43,11 @@ export default function stateReducer(state, action) {
     return {
       ...state,
       favouritesList: state.favouritesList.filter(favourites => favourites.id !== action.id),
+    }
+  case 'delete-cart' :
+    return {
+      ...state,
+      cartList: state.cartList.filter(items => items.id !== action.id),
     }
   default:
     return state

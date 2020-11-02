@@ -1,5 +1,6 @@
 import React from 'react'
 import Navigation from '../../Navigation/Navigation'
+import CartItems from '../../Items/CartItems/CartItems'
 import './Cart.scss'
 
 const Cart = () => {
@@ -7,7 +8,7 @@ const Cart = () => {
   return (
     <div>
       <Navigation />
-      <h1>Cart</h1>
+      <CartItems />
     </div>
   )
 }
