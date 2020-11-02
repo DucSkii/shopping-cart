@@ -38,6 +38,7 @@ const Earrings = () => {
       return earrings.map((earring, index) => {
         return <Items
           key={index}
+          id={earring.id}
           name={earring.name}
           cost={earring.cost}
           image={earring.image.url}
@@ -52,6 +53,7 @@ const Earrings = () => {
       return earrings.filter(earring => earring.image.gender.includes('Men')).map((filteredEarring, index) => {
         return <Items
           key={index}
+          id={filteredEarring.id}
           name={filteredEarring.name}
           cost={filteredEarring.cost}
           image={filteredEarring.image.url}
@@ -66,6 +68,7 @@ const Earrings = () => {
       return earrings.filter(earring => earring.image.gender.includes('Women')).map((filteredEarring, index) => {
         return <Items
           key={index}
+          id={filteredEarring.id}
           name={filteredEarring.name}
           cost={filteredEarring.cost}
           image={filteredEarring.image.url}

@@ -17,11 +17,12 @@ const Items = ({...props}) => {
   const toggleFavouriteTrue = () => {
     setSelectFavourite(true)
     dispatch({type: 'add', item: props})
-    console.log(favouritesList, 'favouriteslist')
+    console.log(favouritesList, 'favouriteslist add')
   }
   const toggleFavouriteFalse = () => {
     setSelectFavourite(false)
     dispatch({type: 'delete', id: props.id})
+    console.log(favouritesList, 'favouriteslist delete')
   }
   
   const changeIcon = () => {

@@ -38,6 +38,7 @@ const Necklaces = () => {
       return necklaces.map((necklace, index) => {
         return <Items
           key={index}
+          id={necklace.id}
           name={necklace.name}
           cost={necklace.cost}
           image={necklace.image.url}
@@ -52,6 +53,7 @@ const Necklaces = () => {
       return necklaces.filter(necklace => necklace.image.gender.includes('Men')).map((filteredNecklace, index) => {
         return <Items
           key={index}
+          id={filteredNecklace.id}
           name={filteredNecklace.name}
           cost={filteredNecklace.cost}
           image={filteredNecklace.image.url}
@@ -66,6 +68,7 @@ const Necklaces = () => {
       return necklaces.filter(necklace => necklace.image.gender.includes('Women')).map((filteredNecklace, index) => {
         return <Items
           key={index}
+          id={filteredNecklace.id}
           name={filteredNecklace.name}
           cost={filteredNecklace.cost}
           image={filteredNecklace.image.url}

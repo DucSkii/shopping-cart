@@ -10,7 +10,6 @@ export const initialState = {
 }
 
 export default function stateReducer(state, action) {
-  console.log(state, 'state')
   switch(action.type) {
   case 'initial-load' :
     return {
