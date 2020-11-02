@@ -14,7 +14,9 @@ import { useStateValue } from './context/StateContext'
 
 const App = () => {
 
-  const [{favouritesList}, dispatch ] = useStateValue()
+  const [{favouritesList, cartList}, dispatch ] = useStateValue()
+  // const [{cartList}, cartDispatch ] = useStateValue()
+  
   useEffect(() => {
     const rawFavourites = localStorage.getItem('favouritesList')
     if(rawFavourites) {
@@ -23,6 +25,15 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('favouritesList', JSON.stringify(favouritesList))
   }, [favouritesList])
+
+  // useEffect(() => {
+  //   const rawCart = localStorage.getItem('cartList')
+  //   if(rawCart) {
+  //     cartDispatch({ type: 'initial-load-cart', payload: JSON.parse(rawCart)})
+  //   }}, [])
+  // useEffect(() => {
+  //   localStorage.setItem('cartList', JSON.stringify(cartList))
+  // }, [cartList])
 
   return (
     <div className="App">

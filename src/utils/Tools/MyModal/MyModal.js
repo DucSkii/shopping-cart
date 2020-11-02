@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons'
 import Modal from '@material-ui/core/Modal'
 import Delivery from '../../Layout/Delivery/Delivery'
+import { Link } from 'react-router-dom'
+import { useStateValue } from '../../../context/StateContext'
 
 import './MyModal.scss'
 
@@ -10,6 +13,7 @@ const MyModal = ({ ...props }) => {
   const [ addToCart, setAddToCart ] = useState(false)
   const [ open, setOpen ] = useState(false)
   const [ deliverySelect, setDeliverySelect ] = useState('standard')
+  const [{cartList}, dispatch ] = useStateValue()
 
   const handleClose = () => {
     setOpen(false)
@@ -21,26 +25,45 @@ const MyModal = ({ ...props }) => {
     if (!addToCart) {
       return null
     }
+
     return (
-      <>
-        <button
-          className="addToCart-modal-continue"
-          onClick={() => {
-            setOpen(false)
-            setAddToCart(false)
-          }}
-        >
-          Continue shopping
-        </button>
-        <button className="addToCart-modal-checkout">Checkout</button>
-      </>
+      <div className="addToCart-modal">
+        <div className="addToCart-modal-message">
+          <FontAwesomeIcon icon={faCheckCircle} className="addToCart-modal-message-icon" size='5x'/>
+          <div className="addToCart-modal-message-text">
+            This item has been added to your cart
+          </div>
+        </div>
+        <div className="addToCart-modal-button">
+          <button
+            className="addToCart-modal-button-continue"
+            onClick={() => {
+              setOpen(false)
+              setAddToCart(false)
+            }}
+          >
+            Continue shopping
+          </button>
+          <Link to='/cart' >
+            <button className="addToCart-modal-button-checkout">Checkout</button>
+          </Link>
+        </div>
+      </div>
     )
   }
 
   const renderItemDetails = () => {
+
+    const addCart = () => {
+      setAddToCart(true)
+      dispatch({type: 'add-cart', item: props})
+      console.log(cartList, 'cartList')
+    }
+
     if (addToCart) {
       return null
     }
+
     return (
       <>
         <img className="myModal-image" src={props.image} alt='' />
@@ -57,7 +80,7 @@ const MyModal = ({ ...props }) => {
             <div className="myModal-cost">£{props.cost}</div>
           </div>
           <Delivery deliverySelect={deliverySelect} setDeliverySelect={setDeliverySelect} />
-          <button className="myModal-cart" onClick={() => setAddToCart(true)}>Add to cart</button>
+          <button className="myModal-cart" onClick={addCart}>Add to cart</button>
         </div>
       </>
     )

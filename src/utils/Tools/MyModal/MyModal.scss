@@ -66,3 +66,44 @@
     border-radius: 5px;
   }
 }
+
+.addToCart-modal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 700px;
+  height: 500px;
+  &-message {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 120px;
+    &-icon {
+      color: rgb(47, 148, 47);
+    }
+    &-text {
+      margin-top: 50px;
+      font-size: 30px;
+    }
+  }
+  &-button {
+    margin-bottom: 70px;
+  &-continue {
+    margin-right: 10px;
+    width: 250px;
+    height: 40px;
+    border: none;
+    background-color: #666;
+    color: white;
+  }
+  &-checkout {
+    margin-left: 10px;
+    width: 250px;
+    height: 40px;
+    border: none;
+    background-color: #666;
+    color: white;
+  }
+}
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Page from '../../Page/Page'
 import FavouriteItems from '../../Items/FavouriteItems/FavouriteItems'
+import Navigation from '../../Navigation/Navigation'
 import { useStateValue } from '../../../context/StateContext'
 import './Favourites.scss'
 
@@ -27,6 +28,7 @@ const Favourites = () => {
 
   return (
     <div>
+      <Navigation />
       <Page className='favouriteList' title="Favourites">
         {renderList()}
       </Page>
