@@ -1,11 +1,13 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import './Title.scss'
 
 const Title = () => {
 
   return (
-    <a className="title" href='/' >Duck</a>
+    <Link to='/' className="title">
+      <div>Duck</div>
+    </Link>
   )
 }
 

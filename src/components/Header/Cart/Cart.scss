@@ -8,7 +8,10 @@
   color: white;
   text-decoration: none;
   width: 125px;
-
+  &-container {
+    display: flex;
+    text-decoration: none;
+  }
   &-vertical-divider {
     @include vertical-divider;
     height: 20px;
