@@ -6,65 +6,84 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as Heart } from '@fortawesome/free-solid-svg-icons'
 import Modal from '@material-ui/core/Modal'
+import { getFavouritesListIds } from '../../../reducers/stateReducer'
 
 const CartItems = () => {
 
   const [{cartList, favouritesList}, dispatch ] = useStateValue()
   const [ open, setOpen ] = useState(false)
+  const [ clickedItem, setClickedItem ] = useState()
 
   const closeHandler = () => setOpen(false)
   // console.log(cartList, 'cartListPage')
   // console.log(favouritesList, 'favouriteList')
 
+  // fix favourites toggle
+  const removeItem = () => {
+    console.log(clickedItem, 'remove item')
+    //remove item
+
+    //reset clickedItem
+    setOpen(false)
+    dispatch({type: 'delete-cart', id: clickedItem.id})
+  }
+      
+  const renderModalButtons = () => {
+    return (
+      <>
+        <button className="cartItems-right-options-remove-modal-button-no" onClick={closeHandler}>No</button>
+        <button className="cartItems-right-options-remove-modal-button-yes" onClick={removeItem}>Yes</button>
+      </>
+    )
+  }
+
   const renderCartItems = () => {
+
+    const renderFavouriteToggle = (item) => {
+      // if (item.favourite === false) {
+      //   return (
+      //     <>
+      //       <FontAwesomeIcon icon={faHeart} className='cartItems-right-options-favourite-icon' />
+      //       Favourite
+      //     </>
+      //   )
+      // } if (item.favourite === true) {
+      //   return (
+      //     <>
+      //       <FontAwesomeIcon icon={Heart} className='cartItems-right-options-favourite-icon' />
+      //       Favourite
+      //     </>
+      //   )
+      // }
+      let icon = faHeart
+      
+      if(getFavouritesListIds(favouritesList).includes(item.id)) {
+        icon = Heart
+      }
+
+      return (
+        <>
+          <FontAwesomeIcon icon={icon} className='cartItems-right-options-favourite-icon'/>
+          Favourite
+        </>
+      )
+    }
+
+    const favouriteToggle = (item) => {
+      let isSelectFavourite = !getFavouritesListIds(favouritesList).includes(item.id)
+      // if(getFavouritesListIds(favouritesList).includes(item.id)) {
+      //   isSelectFavourite = false
+      // }
+      dispatch({type: 'add', item: {...item, selectFavourite: isSelectFavourite}})
+    }
+
+    const removeItemModal = (item) => {
+      console.log('modal', item)
+      setClickedItem(item)
+      setOpen(true)
+    }
+
     return cartList.map((item, index) => {
-
-      const renderFavouriteToggle = () => {
-        if (item.favourite === false) {
-          return (
-            <>
-              <FontAwesomeIcon icon={faHeart} className='cartItems-right-options-favourite-icon' />
-              Favourite
-            </>
-          )
-        } if (item.favourite === true) {
-          return (
-            <>
-              <FontAwesomeIcon icon={Heart} className='cartItems-right-options-favourite-icon' />
-              Favourite
-            </>
-          )
-        }
-      }
-
-      const favouriteToggle = () => {
-        if (item.favourite) {
-          item.favourite = false
-        }
-        if (!item.favourite) {
-          item.favourite = true
-        }
-      }
-      // fix favourites toggle
-      const removeItem = () => {
-        setOpen(false)
-        console.log(item.id, 'item id')
-        console.log(item, 'item')
-        // dispatch({type: 'delete-cart', id: item.id})
-      }
-
-      const removeItemModal = () => {
-        setOpen(true)
-      }
-
-      const renderButton = () => {
-        return (
-          <>
-            <button className="cartItems-right-options-remove-modal-button-no" onClick={closeHandler}>No</button>
-            <button className="cartItems-right-options-remove-modal-button-yes" onClick={removeItem}>Yes</button>
-          </>
-        )
-      }
       // fix delivery selector
       return (
         <div key={index}>
@@ -83,26 +102,11 @@ const CartItems = () => {
                 <Delivery deliverySelect={item.deliverySelect}/>
               </div>
               <div className='cartItems-right-options'>
-                <div className='cartItems-right-options-favourite' onClick={favouriteToggle}>
-                  {renderFavouriteToggle()}
+                <div className='cartItems-right-options-favourite' onClick={() => favouriteToggle(item)}>
+                  {renderFavouriteToggle(item)}
                 </div>
                 <div className='vertical-divider'/>
-                <div className='cartItems-right-options-remove' onClick={removeItemModal}>Remove</div>
-                <Modal
-                  open={open}
-                  onClose={closeHandler}
-                >
-                  <div className="cartItems-right-options-remove-modal-container">
-                    <div className="cartItems-right-options-remove-modal">
-                      <div className="cartItems-right-options-remove-modal-text">
-                        Are you sure you want to remove this item?
-                      </div>
-                      <div className="cartItems-right-options-remove-modal-button-container">
-                        {renderButton()}
-                      </div>
-                    </div>
-                  </div>
-                </Modal>
+                <div className='cartItems-right-options-remove' onClick={() => removeItemModal(item)}>Remove</div>
               </div>
             </div>
             <div className='cartItems-cost'>£{item.cost}</div>
@@ -114,6 +118,21 @@ const CartItems = () => {
   return (
     <div className='cartItems-container'>
       {renderCartItems()}
+      <Modal
+        open={open}
+        onClose={closeHandler}
+      >
+        <div className="cartItems-right-options-remove-modal-container">
+          <div className="cartItems-right-options-remove-modal">
+            <div className="cartItems-right-options-remove-modal-text">
+              Are you sure you want to remove this item?
+            </div>
+            <div className="cartItems-right-options-remove-modal-button-container">
+              {renderModalButtons()}
+            </div>
+          </div>
+        </div>
+      </Modal>
     </div>
   )
 }

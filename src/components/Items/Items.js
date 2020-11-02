@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import './Items.scss'
 
@@ -7,47 +7,79 @@ import MyModal from '../../utils/Tools/MyModal/MyModal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as Heart } from '@fortawesome/free-solid-svg-icons'
+import { getFavouritesListIds } from '../../reducers/stateReducer'
 
 const Items = ({...props}) => {
-
   const [{favouritesList}, dispatch ] = useStateValue()
 
   const [ selectFavourite, setSelectFavourite ] = useState(false)
+  
+  //watch - favourites - false
+  //getid [1,2,3,4]
+  //render the heart icon if it exists
 
-  const toggleFavouriteTrue = () => {
-    setSelectFavourite(true)
-    dispatch({type: 'add', item: {...props, selectFavourite}})
+  const toggleFavourite = () => {
+    // favouritesList = [id]
+    // watchData
+    // watches.filter(item => favouritesListIds.includes(item.id))
+    setSelectFavourite(true) // might not need this cant remember what it is
+    let isSelectFavourite = true
+    if(getFavouritesListIds(favouritesList).includes(props.id)) {
+      isSelectFavourite = false
+    }
+    dispatch({type: 'add', item: {...props, selectFavourite: isSelectFavourite}})
   }
+
+  // const toggleFavouriteTrue = () => {
+  //   setSelectFavourite(true)
+  //   dispatch({type: 'add', item: {...props, selectFavourite}})
+  // }
+
+  // const toggleFavouriteTrue = () => {
+  //   setSelectFavourite(true)
+  //   dispatch({type: 'add', item: {...props, selectFavourite}})
+  // }
   const dispatchFunc = () => {
 
   }
-  const toggleFavouriteFalse = () => {
-    setSelectFavourite(false)
-    dispatch({type: 'delete', id: props.id})
-    console.log(favouritesList, 'favouriteslist delete')
-  }
+  // const toggleFavouriteFalse = () => {
+  //   setSelectFavourite(false)
+  //   dispatch({type: 'delete', id: props.id})
+  //   console.log(favouritesList, 'favouriteslist delete')
+  // }
   
   const changeIcon = () => {
-    if(selectFavourite === false) {
-      return (
-        <div className="items-heart">
-          <FontAwesomeIcon icon={faHeart} onClick={toggleFavouriteTrue}/>
-        </div>
-      )
-    } if(selectFavourite === true) {
-      return (
-        <div className="items-heart">
-          <FontAwesomeIcon icon={Heart} onClick={toggleFavouriteFalse}/>
-        </div>
-      )
+    let icon = faHeart
+    if(getFavouritesListIds(favouritesList).includes(props.id)) {
+      icon = Heart
     }
+
+    return (
+      <div className="items-heart">
+        <FontAwesomeIcon icon={icon} onClick={toggleFavourite}/>
+      </div>
+    )
+    
+    // if(selectFavourite === false) {
+    //   return (
+    //     <div className="items-heart">
+    //       <FontAwesomeIcon icon={faHeart} onClick={toggleFavouriteTrue}/>
+    //     </div>
+    //   )
+    // } if(selectFavourite === true) {
+    //   return (
+    //     <div className="items-heart">
+    //       <FontAwesomeIcon icon={Heart} onClick={toggleFavouriteFalse}/>
+    //     </div>
+    //   )
+    // }
   }
 
   return (
     <div className="items-container">
       {changeIcon()}
       <MyModal
-        favourite={selectFavourite}
+        selectFavourite={selectFavourite}
         id={props.id}
         cost={props.cost}
         name={props.name}

@@ -10,6 +10,10 @@ export const initialState = {
   earrings: getEarrings(),
 }
 
+export const getFavouritesListIds = (favouritesList) => {
+  return favouritesList?.map(item => item.id) || []
+}
+
 export default function stateReducer(state, action) {
   switch(action.type) {
   case 'initial-load-cart' :
@@ -23,7 +27,6 @@ export default function stateReducer(state, action) {
       favouritesList: action.payload || [],
     }
   case 'add-cart' :
-    console.log(state, 'asd', action)
     return {
       ...state,
       cartList: [
@@ -32,12 +35,19 @@ export default function stateReducer(state, action) {
       ],
     }
   case 'add' :
+    /*eslint no-case-declarations: "off"*/
+    let newFavouritesList = [...state.favouritesList.filter(item => item.id !== action.item.id)]
+
+    if(action.item.selectFavourite) {
+      newFavouritesList = [
+        ...state.favouritesList.filter(item => item.id !== action.item.id),
+        action.item,
+      ]
+    }
+    //update
     return {
       ...state,
-      favouritesList: [
-        ...state.favouritesList,
-        action.item,
-      ],
+      favouritesList: newFavouritesList,
     }
   case 'delete' :
     return {

@@ -8,7 +8,6 @@ import './Favourites.scss'
 const Favourites = () => {
 
   const [{favouritesList}, dispatch ] = useStateValue()
-
   const renderList = () => {
     return favouritesList.map((favourites, index) => {
       return <FavouriteItems
