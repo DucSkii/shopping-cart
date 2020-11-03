@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal'
 import Delivery from '../../Layout/Delivery/Delivery'
 import { Link } from 'react-router-dom'
 import { useStateValue } from '../../../context/StateContext'
+import {getCartListIds} from '../../../reducers/stateReducer'
 
 import './MyModal.scss'
 
@@ -53,10 +54,14 @@ const MyModal = ({ children, ...props }) => {
   }
 
   const renderItemDetails = () => {
-
     const addCart = () => {
       setAddToCart(true)
-      dispatch({type: 'add-cart', item: {...props, selectedDelivery: delivery}})
+      if (getCartListIds(cartList).includes(props.id)) {
+        console.log(props, 'modal props')
+        dispatch({type: 'add-cart-quantity', item: {...props, selectedDelivery: delivery, quantity: props.quantity + 1}})
+      } else {
+        dispatch({type: 'add-cart', item: {...props, selectedDelivery: delivery}})
+      }
     }
 
     if (addToCart) {

@@ -8,6 +8,7 @@ export const watch = () => {
     ]),
     selectFavourite: false,
     selectedDelivery: 'standard',
+    quantity: 1,
     cost: Math.ceil(faker.random.number({ min: 1000, max: 20000 }) / 100) * 100,
     image: faker.random.arrayElement([
       {

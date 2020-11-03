@@ -89,7 +89,7 @@ const CartItems = () => {
                 <img src={item.image} className="cartItems-left-image"/>
               </div>
               <div className='cartItems-left-quantity'>
-                quantity
+                quantity {item.quantity}
               </div>
             </div>
             <div className='cartItems-right'>

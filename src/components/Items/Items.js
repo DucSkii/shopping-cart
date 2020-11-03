@@ -48,6 +48,7 @@ const Items = ({...props}) => {
       {changeIcon()}
       <MyModal
         id={props.id}
+        quantity={props.quantity}
         cost={props.cost}
         name={props.name}
         image={props.image}

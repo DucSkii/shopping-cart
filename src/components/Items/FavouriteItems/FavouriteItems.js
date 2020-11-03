@@ -43,6 +43,7 @@ const FavouriteItems = ({...props}) => {
       <MyModal
         id={props.id}
         cost={props.cost}
+        quantity={props.quantity}
         name={props.name}
         image={props.image}
         index={props.index}

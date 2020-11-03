@@ -39,6 +39,7 @@ const Earrings = () => {
         return <Items
           key={index}
           id={earring.id}
+          quantity={earring.quantity}
           name={earring.name}
           cost={earring.cost}
           image={earring.image.url}
@@ -54,6 +55,7 @@ const Earrings = () => {
         return <Items
           key={index}
           id={filteredEarring.id}
+          quantity={filteredEarring.quantity}
           name={filteredEarring.name}
           cost={filteredEarring.cost}
           image={filteredEarring.image.url}
@@ -70,6 +72,7 @@ const Earrings = () => {
           key={index}
           id={filteredEarring.id}
           name={filteredEarring.name}
+          quantity={filteredEarring.quantity}
           cost={filteredEarring.cost}
           image={filteredEarring.image.url}
           colour={filteredEarring.image.color.join(', ').toUpperCase()}

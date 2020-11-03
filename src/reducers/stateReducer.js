@@ -38,6 +38,20 @@ export default function stateReducer(state, action) {
         action.item,
       ],
     }
+  case 'add-cart-quantity' :
+
+    let newCart = [...state.cartList.filter(item => item.id !== action.item.id)]
+  
+    if (action.item) {
+      newCart = [
+        ...state.cartList.filter(item => item.id !== action.item.id),
+        action.item,
+      ]
+    }
+    return {
+      ...state,
+      cartList: newCart,
+    }
   case 'STANDARD_INCLUDES' :
 
     let newCartList = [...state.cartList.filter(item => item.id !== action.item.id)]

@@ -39,6 +39,7 @@ const Necklaces = () => {
         return <Items
           key={index}
           id={necklace.id}
+          quantity={necklace.quantity}
           name={necklace.name}
           cost={necklace.cost}
           image={necklace.image.url}
@@ -54,6 +55,7 @@ const Necklaces = () => {
         return <Items
           key={index}
           id={filteredNecklace.id}
+          quantity={filteredNecklace.quantity}
           name={filteredNecklace.name}
           cost={filteredNecklace.cost}
           image={filteredNecklace.image.url}
@@ -69,6 +71,7 @@ const Necklaces = () => {
         return <Items
           key={index}
           id={filteredNecklace.id}
+          quantity={filteredNecklace.quantity}
           name={filteredNecklace.name}
           cost={filteredNecklace.cost}
           image={filteredNecklace.image.url}
