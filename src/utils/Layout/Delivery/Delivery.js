@@ -20,19 +20,27 @@ const Delivery = (props) => {
 
   const setDeliveryStandard = () => {
     if(getCartListIds(cartList).includes(props.id)) {
-      console.log(props.id, 'includes')
+      dispatch({type: 'STANDARD_INCLUDES', item: {...props, selectedDelivery: 'standard'}})
     } else {
       props.setDelivery('standard')
       console.log(props, 'delivery')
     }
   }
   const setDeliveryPick = () => {
-    props.setDelivery('pick-up')
-    console.log(props, 'delivery')
+    if(getCartListIds(cartList).includes(props.id)) {
+      dispatch({type: 'STANDARD_INCLUDES', item: {...props, selectedDelivery: 'pick-up'}})
+    } else {
+      props.setDelivery('pick-up')
+      console.log(props, 'delivery')
+    }
   }
   const setDeliveryPro = () => {
-    props.setDelivery('pro')
-    console.log(props, 'delivery')
+    if(getCartListIds(cartList).includes(props.id)) {
+      dispatch({type: 'STANDARD_INCLUDES', item: {...props, selectedDelivery: 'pro'}})
+    } else {
+      props.setDelivery('pro')
+      console.log(props, 'delivery')
+    }
   }
 
   return (

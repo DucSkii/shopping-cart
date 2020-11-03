@@ -38,6 +38,20 @@ export default function stateReducer(state, action) {
         action.item,
       ],
     }
+  case 'STANDARD_INCLUDES' :
+
+    let newCartList = [...state.cartList.filter(item => item.id !== action.item.id)]
+
+    if(action.item.selectedDelivery) {
+      newCartList = [
+        ...state.cartList.filter(item => item.id !== action.item.id),
+        action.item,
+      ]
+    }
+    return {
+      ...state,
+      cartList: newCartList,
+    }
   case 'add' :
     /*eslint no-case-declarations: "off"*/
     let newFavouritesList = [...state.favouritesList.filter(item => item.id !== action.item.id)]
