@@ -12,22 +12,19 @@ import { getFavouritesListIds } from '../../reducers/stateReducer'
 const Items = ({...props}) => {
   const [{favouritesList}, dispatch ] = useStateValue()
 
-  const [ selectFavourite, setSelectFavourite ] = useState(false)
-  
   //watch - favourites - false
   //getid [1,2,3,4]
   //render the heart icon if it exists
 
   const toggleFavourite = () => {
-    // favouritesList = [id]
-    // watchData
-    // watches.filter(item => favouritesListIds.includes(item.id))
-    setSelectFavourite(true)
-    let isSelectFavourite = true
+    // This checks if current item is already a favourite
     if(getFavouritesListIds(favouritesList).includes(props.id)) {
-      isSelectFavourite = false
+      //REMOVE_FROM_FAVOURITES
+      dispatch({type: 'delete', item: props})
+    }else {
+      //ADD_TO_FAVOURITES
+      dispatch({type: 'add', item: props})
     }
-    dispatch({type: 'add', item: {...props, selectFavourite: isSelectFavourite}})
   }
   
   const changeIcon = () => {

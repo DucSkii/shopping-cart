@@ -1,7 +1,7 @@
 import { getWatches } from '../data/watches'
 import { getNecklaces } from '../data/necklaces'
 import { getEarrings } from '../data/earrings'
-
+/*eslint no-case-declarations: "off"*/
 export const initialState = {
   cartList: [],
   favouritesList: [],
@@ -18,6 +18,10 @@ export const getCartListIds = (cartList) => {
   return cartList?.map(item => item.id) || []
 }
 
+const someFunc = () => {
+  console.log('asdsad')
+}
+
 export default function stateReducer(state, action) {
   switch(action.type) {
   case 'initial-load-cart' :
@@ -31,6 +35,18 @@ export default function stateReducer(state, action) {
       favouritesList: action.payload || [],
     }
   case 'add-cart' :
+
+    console.log('RUNNING ADDCART')
+    // run getCartListIds and check if item already exists in cart
+    // if it does then do the following
+    // Map through cartList
+    // if item.id from cartList === action.item.id
+    // then you want to return the item and increase it's quantitiy
+    // To do the above you should think in the same way you are spreading state, below.
+    // (Basically editing an object)
+
+    //OTHERWISE (add new item to cart)
+    //do your current logic below for cartlist
     return {
       ...state,
       cartList: [
@@ -39,52 +55,43 @@ export default function stateReducer(state, action) {
       ],
     }
   case 'add-cart-quantity' :
-
-    let newCart = [...state.cartList.filter(item => item.id !== action.item.id)]
-  
-    if (action.item) {
-      newCart = [
-        ...state.cartList.filter(item => item.id !== action.item.id),
-        action.item,
-      ]
-    }
+    // let newCart = [...state.cartList.filter(item => item.id !== action.item.id)]
+    const newCart = state.cartList.map(item=> {
+      return item.id === action.item.id ? action.item : item
+    })
+    
+    console.log('newCart', newCart)
     return {
       ...state,
       cartList: newCart,
     }
   case 'STANDARD_INCLUDES' :
-
-    let newCartList = [...state.cartList.filter(item => item.id !== action.item.id)]
-
-    if(action.item.selectedDelivery) {
-      newCartList = [
-        ...state.cartList.filter(item => item.id !== action.item.id),
-        action.item,
-      ]
-    }
+    console.log('RUNNING STANDARD')
+    const newCartList = state.cartList.map(item => {
+      if(item.id === action.item.id) {
+        return {
+          ...action.item,
+          quantity: item.quantity,
+        }
+      }
+      return item
+    })
     return {
       ...state,
       cartList: newCartList,
     }
   case 'add' :
-    /*eslint no-case-declarations: "off"*/
-    let newFavouritesList = [...state.favouritesList.filter(item => item.id !== action.item.id)]
-
-    if(action.item.selectFavourite) {
-      newFavouritesList = [
-        ...state.favouritesList.filter(item => item.id !== action.item.id),
-        action.item,
-      ]
-    }
-    //update
     return {
       ...state,
-      favouritesList: newFavouritesList,
+      favouritesList: [
+        ...state.favouritesList,
+        action.item,
+      ],
     }
   case 'delete' :
     return {
       ...state,
-      favouritesList: state.favouritesList.filter(favourites => favourites.id !== action.id),
+      favouritesList: state.favouritesList.filter(favourites => favourites.id !== action.item.id),
     }
   case 'delete-cart' :
     return {

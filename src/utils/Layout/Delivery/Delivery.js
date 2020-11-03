@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShippingFast, faTruck, faStoreAlt } from '@fortawesome/free-solid-svg-icons'
 import {useStateValue} from '../../../context/StateContext'
@@ -9,37 +9,11 @@ const Delivery = (props) => {
 
   const [{cartList}, dispatch ] = useStateValue()
 
-  // const setStandard = () => {
-  //   console.log(props.selectDelivery, 'selectDelivery')
-  //   if(getCartListIds(cartList).includes(props.id)) {
-  //     return console.log(props.id, 'includes')
-  //   } else {
-  //     console.log(props.id, 'doesnot include')
-  //   }
-  // }
-
-  const setDeliveryStandard = () => {
-    if(getCartListIds(cartList).includes(props.id)) {
-      dispatch({type: 'STANDARD_INCLUDES', item: {...props, selectedDelivery: 'standard'}})
-    } else {
-      props.setDelivery('standard')
-      console.log(props, 'delivery')
-    }
-  }
-  const setDeliveryPick = () => {
-    if(getCartListIds(cartList).includes(props.id)) {
-      dispatch({type: 'STANDARD_INCLUDES', item: {...props, selectedDelivery: 'pick-up'}})
-    } else {
-      props.setDelivery('pick-up')
-      console.log(props, 'delivery')
-    }
-  }
-  const setDeliveryPro = () => {
-    if(getCartListIds(cartList).includes(props.id)) {
-      dispatch({type: 'STANDARD_INCLUDES', item: {...props, selectedDelivery: 'pro'}})
-    } else {
-      props.setDelivery('pro')
-      console.log(props, 'delivery')
+  const updateDeliveryType = type => {
+    if(props.isModal) {
+      props.setDelivery(type)
+    } else if(getCartListIds(cartList).includes(props.id)) {
+      dispatch({type: 'STANDARD_INCLUDES', item: {...props, selectedDelivery: type}})
     }
   }
 
@@ -49,7 +23,7 @@ const Delivery = (props) => {
       <div className="delivery-boxes">
         <div
           className={(props.selectedDelivery === 'standard') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          onClick={setDeliveryStandard}
+          onClick={() => updateDeliveryType('standard')}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">STANDARD</div>
@@ -61,7 +35,7 @@ const Delivery = (props) => {
         <div className="delivery-gap" />
         <div
           className={(props.selectedDelivery === 'pick-up') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          onClick={setDeliveryPick}
+          onClick={() => updateDeliveryType('pick-up')}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">PICK-UP</div>
@@ -72,7 +46,7 @@ const Delivery = (props) => {
         <div className="delivery-gap" />
         <div
           className={(props.selectedDelivery === 'pro') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          onClick={setDeliveryPro}
+          onClick={() => updateDeliveryType('pro')}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">PRO</div>

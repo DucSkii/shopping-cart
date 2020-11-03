@@ -66,11 +66,13 @@ const CartItems = () => {
     }
 
     const favouriteToggle = (item) => {
-      let isSelectFavourite = !getFavouritesListIds(favouritesList).includes(item.id)
-      // if(getFavouritesListIds(favouritesList).includes(item.id)) {
-      //   isSelectFavourite = false
-      // }
-      dispatch({type: 'add', item: {...item, selectFavourite: isSelectFavourite}})
+      if(getFavouritesListIds(favouritesList).includes(item.id)) {
+        //REMOVE_FROM_FAVOURITES
+        dispatch({type: 'delete', item})
+      }else {
+        //ADD_TO_FAVOURITES
+        dispatch({type: 'add', item})
+      }
     }
 
     const removeItemModal = (item) => {
@@ -80,6 +82,7 @@ const CartItems = () => {
 
     return cartList.map((item, index) => {
       // fix delivery selector
+      console.log('CC', cartList)
       return (
         <div key={index}>
           <div className='cartItems'>

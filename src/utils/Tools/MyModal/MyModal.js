@@ -57,9 +57,11 @@ const MyModal = ({ children, ...props }) => {
   const renderItemDetails = () => {
     const addCart = () => {
       setAddToCart(true)
+      console.log(props, 'modal props')
+      console.log('CARTLIST', cartList)
       if (getCartListIds(cartList).includes(props.id)) {
-        console.log(props, 'modal props')
-        dispatch({type: 'add-cart-quantity', item: {...props, selectedDelivery: delivery, quantity: props.quantity + 1}})
+        const test = cartList.find(item => item.id === props.id)
+        dispatch({type: 'add-cart-quantity', item: {...test, selectedDelivery: delivery, quantity: test.quantity + 1}})
       } else {
         dispatch({type: 'add-cart', item: {...props, selectedDelivery: delivery}})
       }
@@ -87,6 +89,7 @@ const MyModal = ({ children, ...props }) => {
           <Delivery
             selectedDelivery={delivery}
             setDelivery={setDelivery}
+            isModal
             id={props.id}
             cost={props.cost}
             name={props.name}

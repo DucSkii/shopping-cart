@@ -13,15 +13,15 @@ const FavouriteItems = ({...props}) => {
 
   const [{favouritesList}, dispatch ] = useStateValue()
 
-  const [ selectFavourite, setSelectFavourite ] = useState(true)
-
   const toggleFavourite = () => {
-    setSelectFavourite(true)
-    let isSelectFavourite = true
+    // This checks if current item is already a favourite
     if(getFavouritesListIds(favouritesList).includes(props.id)) {
-      isSelectFavourite = false
+      //REMOVE_FROM_FAVOURITES
+      dispatch({type: 'delete', item: props})
+    }else {
+      //ADD_TO_FAVOURITES
+      dispatch({type: 'add', item: props})
     }
-    dispatch({type: 'add', item: {...props, selectFavourite: isSelectFavourite}})
   }
   
   const changeIcon = () => {

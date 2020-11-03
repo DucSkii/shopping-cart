@@ -6,7 +6,6 @@ export const earring = () => {
     name: faker.random.arrayElement([
       'Pear Shape', 'Cross-over', 'Multi-shape', 'Kiss', 'Marquise and Round', 'Double Strand Knot', 'Emerald Cut', 'Cross', 'Spiral Pave', 'Classic Butterfly', 'Bow Pendant', 'Solar Pave',
     ]),
-    selectFavourite: false,
     selectedDelivery: 'standard',
     quantity: 1,
     cost: Math.ceil(faker.random.number({ min: 200, max: 2000 }) / 100) * 100,
