@@ -85,8 +85,8 @@ const CartItems = () => {
           {console.log(item, 'cart')}
           <div className='cartItems'>
             <div className='cartItems-left'>
-              <div className='cartItems-left-image'>
-                <img src={item.image}/>
+              <div className='cartItems-left-image-container'>
+                <img src={item.image} className="cartItems-left-image"/>
               </div>
               <div className='cartItems-left-quantity'>
                 quantity
