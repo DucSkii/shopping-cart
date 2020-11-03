@@ -10,7 +10,6 @@ function Dropdown({ title, items, multiSelect = false }) {
   const [ selection, setSelection ] = useState([]);
 
   useEffect(() => {
-    console.log(open)
   }, [ open ])
 
   const toggle = () => {
@@ -49,12 +48,10 @@ function Dropdown({ title, items, multiSelect = false }) {
           className="dd-header"
           role="button"
           onKeyPress={() => {
-            console.log('onKeyPress', open)
             return toggle()
           }
           }
           onClick={() => {
-            console.log('onClick', open)
             return toggle()
           }
           }

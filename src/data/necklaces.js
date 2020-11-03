@@ -6,6 +6,7 @@ export const necklace = () => {
     name: faker.random.arrayElement([
       'Pear Shape', 'Cross-over', 'Multi-shape', 'Kiss', 'Marquise and Round', 'Double Strand Knot', 'Emerald Cut', 'Cross', 'Spiral Pave', 'Classic Butterfly', 'Bow Pendant', 'Solar Pave',
     ]),
+    selectFavourite: false,
     cost: Math.ceil(faker.random.number({ min: 200, max: 5000 }) / 100) * 100,
     image: faker.random.arrayElement([
       {

@@ -22,31 +22,13 @@ const Items = ({...props}) => {
     // favouritesList = [id]
     // watchData
     // watches.filter(item => favouritesListIds.includes(item.id))
-    setSelectFavourite(true) // might not need this cant remember what it is
+    setSelectFavourite(true)
     let isSelectFavourite = true
     if(getFavouritesListIds(favouritesList).includes(props.id)) {
       isSelectFavourite = false
     }
     dispatch({type: 'add', item: {...props, selectFavourite: isSelectFavourite}})
   }
-
-  // const toggleFavouriteTrue = () => {
-  //   setSelectFavourite(true)
-  //   dispatch({type: 'add', item: {...props, selectFavourite}})
-  // }
-
-  // const toggleFavouriteTrue = () => {
-  //   setSelectFavourite(true)
-  //   dispatch({type: 'add', item: {...props, selectFavourite}})
-  // }
-  const dispatchFunc = () => {
-
-  }
-  // const toggleFavouriteFalse = () => {
-  //   setSelectFavourite(false)
-  //   dispatch({type: 'delete', id: props.id})
-  //   console.log(favouritesList, 'favouriteslist delete')
-  // }
   
   const changeIcon = () => {
     let icon = faHeart
@@ -59,20 +41,6 @@ const Items = ({...props}) => {
         <FontAwesomeIcon icon={icon} onClick={toggleFavourite}/>
       </div>
     )
-    
-    // if(selectFavourite === false) {
-    //   return (
-    //     <div className="items-heart">
-    //       <FontAwesomeIcon icon={faHeart} onClick={toggleFavouriteTrue}/>
-    //     </div>
-    //   )
-    // } if(selectFavourite === true) {
-    //   return (
-    //     <div className="items-heart">
-    //       <FontAwesomeIcon icon={Heart} onClick={toggleFavouriteFalse}/>
-    //     </div>
-    //   )
-    // }
   }
 
   return (

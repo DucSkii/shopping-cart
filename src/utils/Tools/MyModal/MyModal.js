@@ -57,7 +57,6 @@ const MyModal = ({ children, ...props }) => {
     const addCart = () => {
       setAddToCart(true)
       dispatch({type: 'add-cart', item: {...props, deliverySelect}})
-      console.log(cartList, 'cartList')
     }
 
     if (addToCart) {

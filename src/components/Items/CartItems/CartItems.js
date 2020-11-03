@@ -15,12 +15,8 @@ const CartItems = () => {
   const [ clickedItem, setClickedItem ] = useState()
 
   const closeHandler = () => setOpen(false)
-  // console.log(cartList, 'cartListPage')
-  // console.log(favouritesList, 'favouriteList')
 
-  // fix favourites toggle
   const removeItem = () => {
-    console.log(clickedItem, 'remove item')
     //remove item
 
     //reset clickedItem
@@ -78,7 +74,6 @@ const CartItems = () => {
     }
 
     const removeItemModal = (item) => {
-      console.log('modal', item)
       setClickedItem(item)
       setOpen(true)
     }
