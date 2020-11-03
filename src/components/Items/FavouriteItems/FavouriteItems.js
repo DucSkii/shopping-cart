@@ -41,7 +41,6 @@ const FavouriteItems = ({...props}) => {
     <div className="favouriteItems-container">
       {changeIcon()}
       <MyModal
-        selectFavourite={selectFavourite}
         id={props.id}
         cost={props.cost}
         name={props.name}

@@ -46,7 +46,6 @@ const Watches = () => {
       return watches.map((watch, index) => {
         return <Items
           key={index}
-          selectDelivery={watch.selectDelivery}
           id={watch.id}
           name={watch.name}
           cost={watch.cost}
@@ -62,7 +61,6 @@ const Watches = () => {
       return watches.filter(watch => watch.image.gender.includes('Men')).map((filteredWatch, index) => {
         return <Items
           key={index}
-          selectDelivery={filteredWatch.selectDelivery}
           id={filteredWatch.id}
           name={filteredWatch.name}
           cost={filteredWatch.cost}
@@ -78,7 +76,6 @@ const Watches = () => {
       return watches.filter(watch => watch.image.gender.includes('Women')).map((filteredWatch, index) => {
         return <Items
           key={index}
-          selectDelivery={filteredWatch.selectDelivery}
           id={filteredWatch.id}
           name={filteredWatch.name}
           cost={filteredWatch.cost}

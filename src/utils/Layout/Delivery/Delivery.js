@@ -9,13 +9,30 @@ const Delivery = (props) => {
 
   const [{cartList}, dispatch ] = useStateValue()
 
-  const setStandard = () => {
-    console.log(props)
+  // const setStandard = () => {
+  //   console.log(props.selectDelivery, 'selectDelivery')
+  //   if(getCartListIds(cartList).includes(props.id)) {
+  //     return console.log(props.id, 'includes')
+  //   } else {
+  //     console.log(props.id, 'doesnot include')
+  //   }
+  // }
+
+  const setDeliveryStandard = () => {
     if(getCartListIds(cartList).includes(props.id)) {
-      return console.log(props.id, 'includes')
+      console.log(props.id, 'includes')
     } else {
-      console.log(props.id, 'doesnot include')
+      props.setDelivery('standard')
+      console.log(props, 'delivery')
     }
+  }
+  const setDeliveryPick = () => {
+    props.setDelivery('pick-up')
+    console.log(props, 'delivery')
+  }
+  const setDeliveryPro = () => {
+    props.setDelivery('pro')
+    console.log(props, 'delivery')
   }
 
   return (
@@ -23,8 +40,8 @@ const Delivery = (props) => {
       <div className="delivery-title">Delivery options</div>
       <div className="delivery-boxes">
         <div
-          className={(props.selectDelivery === 'standard') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          onClick={setStandard}
+          className={(props.selectedDelivery === 'standard') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
+          onClick={setDeliveryStandard}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">STANDARD</div>
@@ -35,8 +52,8 @@ const Delivery = (props) => {
 
         <div className="delivery-gap" />
         <div
-          className={(props.selectDelivery === 'pick-up') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          // onClick={() => setDeliverySelect('pick-up')}
+          className={(props.selectedDelivery === 'pick-up') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
+          onClick={setDeliveryPick}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">PICK-UP</div>
@@ -46,8 +63,8 @@ const Delivery = (props) => {
         </div>
         <div className="delivery-gap" />
         <div
-          className={(props.selectDelivery === 'pro') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          // onClick={() => setDeliverySelect('pro')}
+          className={(props.selectedDelivery === 'pro') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
+          onClick={setDeliveryPro}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">PRO</div>

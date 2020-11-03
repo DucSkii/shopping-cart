@@ -13,6 +13,7 @@ const MyModal = ({ children, ...props }) => {
   const [ addToCart, setAddToCart ] = useState(false)
   const [ open, setOpen ] = useState(false)
   const [{cartList}, dispatch ] = useStateValue()
+  const [ delivery, setDelivery ] = useState('standard')
 
   const handleClose = () => {
     setOpen(false)
@@ -55,7 +56,7 @@ const MyModal = ({ children, ...props }) => {
 
     const addCart = () => {
       setAddToCart(true)
-      dispatch({type: 'add-cart', item: props})
+      dispatch({type: 'add-cart', item: {...props, selectedDelivery: delivery}})
     }
 
     if (addToCart) {
@@ -78,7 +79,8 @@ const MyModal = ({ children, ...props }) => {
             <div className="myModal-cost">£{props.cost}</div>
           </div>
           <Delivery
-            selectDelivery={props.selectDelivery}
+            selectedDelivery={delivery}
+            setDelivery={setDelivery}
             id={props.id}
             cost={props.cost}
             name={props.name}
