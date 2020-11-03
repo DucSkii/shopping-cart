@@ -1,17 +1,30 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShippingFast, faTruck, faStoreAlt } from '@fortawesome/free-solid-svg-icons'
+import {useStateValue} from '../../../context/StateContext'
+import {getCartListIds} from '../../../reducers/stateReducer'
 import './Delivery.scss'
 
-const Delivery = ({ deliverySelect, setDeliverySelect }) => {
+const Delivery = (props) => {
+
+  const [{cartList}, dispatch ] = useStateValue()
+
+  const setStandard = () => {
+    console.log(props)
+    if(getCartListIds(cartList).includes(props.id)) {
+      return console.log(props.id, 'includes')
+    } else {
+      console.log(props.id, 'doesnot include')
+    }
+  }
 
   return (
     <div className="delivery">
       <div className="delivery-title">Delivery options</div>
       <div className="delivery-boxes">
         <div
-          className={(deliverySelect === 'standard') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          onClick={() => setDeliverySelect('standard')}
+          className={(props.selectDelivery === 'standard') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
+          onClick={setStandard}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">STANDARD</div>
@@ -22,8 +35,8 @@ const Delivery = ({ deliverySelect, setDeliverySelect }) => {
 
         <div className="delivery-gap" />
         <div
-          className={(deliverySelect === 'pick-up') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          onClick={() => setDeliverySelect('pick-up')}
+          className={(props.selectDelivery === 'pick-up') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
+          // onClick={() => setDeliverySelect('pick-up')}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">PICK-UP</div>
@@ -33,8 +46,8 @@ const Delivery = ({ deliverySelect, setDeliverySelect }) => {
         </div>
         <div className="delivery-gap" />
         <div
-          className={(deliverySelect === 'pro') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
-          onClick={() => setDeliverySelect('pro')}
+          className={(props.selectDelivery === 'pro') ? 'delivery-box-wrapper-selected' : 'delivery-box-wrapper'}
+          // onClick={() => setDeliverySelect('pro')}
         >
           <div className="delivery-box">
             <div className="delivery-box-title">PRO</div>

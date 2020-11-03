@@ -14,6 +14,10 @@ export const getFavouritesListIds = (favouritesList) => {
   return favouritesList?.map(item => item.id) || []
 }
 
+export const getCartListIds = (cartList) => {
+  return cartList?.map(item => item.id) || []
+}
+
 export default function stateReducer(state, action) {
   switch(action.type) {
   case 'initial-load-cart' :

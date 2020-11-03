@@ -12,13 +12,12 @@ const MyModal = ({ children, ...props }) => {
 
   const [ addToCart, setAddToCart ] = useState(false)
   const [ open, setOpen ] = useState(false)
-  const [ deliverySelect, setDeliverySelect ] = useState('standard')
   const [{cartList}, dispatch ] = useStateValue()
 
   const handleClose = () => {
     setOpen(false)
-    setDeliverySelect('standard')
     setAddToCart(false)
+    console.log(props, 'modal')
   }
 
   const renderCTA = () => {
@@ -56,7 +55,7 @@ const MyModal = ({ children, ...props }) => {
 
     const addCart = () => {
       setAddToCart(true)
-      dispatch({type: 'add-cart', item: {...props, deliverySelect}})
+      dispatch({type: 'add-cart', item: props})
     }
 
     if (addToCart) {
@@ -78,7 +77,19 @@ const MyModal = ({ children, ...props }) => {
             </ul>
             <div className="myModal-cost">£{props.cost}</div>
           </div>
-          <Delivery deliverySelect={deliverySelect} setDeliverySelect={setDeliverySelect} />
+          <Delivery
+            selectDelivery={props.selectDelivery}
+            id={props.id}
+            cost={props.cost}
+            name={props.name}
+            image={props.image}
+            index={props.index}
+            colour={props.colour}
+            desc1={props.desc1}
+            desc2={props.desc2}
+            desc3={props.desc3}
+            gender={props.gender}
+          />
           <button className="myModal-cart" onClick={addCart}>Add to cart</button>
         </div>
       </>

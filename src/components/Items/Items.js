@@ -48,6 +48,7 @@ const Items = ({...props}) => {
       {changeIcon()}
       <MyModal
         selectFavourite={selectFavourite}
+        selectDelivery={props.selectDelivery}
         id={props.id}
         cost={props.cost}
         name={props.name}

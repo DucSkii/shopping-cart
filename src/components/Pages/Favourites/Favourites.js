@@ -10,7 +10,6 @@ const Favourites = () => {
   const [{favouritesList}, dispatch ] = useStateValue()
   const renderList = () => {
     return favouritesList.map((favourites, index) => {
-      console.log(favourites, 'favouritesPage')
       return <FavouriteItems
         key={index}
         id={favourites.id}

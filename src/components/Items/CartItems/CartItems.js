@@ -82,7 +82,7 @@ const CartItems = () => {
       // fix delivery selector
       return (
         <div key={index}>
-          {console.log(item, 'cart')}
+          {console.log(cartList, 'cart')}
           <div className='cartItems'>
             <div className='cartItems-left'>
               <div className='cartItems-left-image-container'>
@@ -95,7 +95,19 @@ const CartItems = () => {
             <div className='cartItems-right'>
               <div className='cartItems-right-name'>{item.name}</div>
               <div className='cartItems-right-delivery'>
-                <Delivery deliverySelect={item.deliverySelect}/>
+                <Delivery
+                  selectDelivery={item.selectDelivery}
+                  id={item.id}
+                  cost={item.cost}
+                  name={item.name}
+                  image={item.image}
+                  index={item.index}
+                  colour={item.colour}
+                  desc1={item.desc1}
+                  desc2={item.desc2}
+                  desc3={item.desc3}
+                  gender={item.gender}
+                />
               </div>
               <div className='cartItems-right-options'>
                 <div className='cartItems-right-options-favourite' onClick={() => favouriteToggle(item)}>

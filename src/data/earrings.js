@@ -7,6 +7,7 @@ export const earring = () => {
       'Pear Shape', 'Cross-over', 'Multi-shape', 'Kiss', 'Marquise and Round', 'Double Strand Knot', 'Emerald Cut', 'Cross', 'Spiral Pave', 'Classic Butterfly', 'Bow Pendant', 'Solar Pave',
     ]),
     selectFavourite: false,
+    selectDelivery: 'standard',
     cost: Math.ceil(faker.random.number({ min: 200, max: 2000 }) / 100) * 100,
     image: faker.random.arrayElement([
       {

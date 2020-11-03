@@ -7,6 +7,7 @@ export const watch = () => {
       'GMT-MASTER II', 'OYSTER PERPETUAL 41', 'SUBMARINER', 'SEA-DWELLER', 'EXPLORER', 'SKY-DWELLER', 'AIR-KING', 'COSMOGRAPH DAYTONA', 'DATEJUST 36', 'EXPLORER II', 'SUBMARINER DATE', 'YACHT-MASTER 42', 'ROLEX DEEPSEA', 'CELLINI TIME', 'PEARLMASTER 39', 'PEARLMASTER 42', 'DATEJUST 31', 'OYSTER PERPETUAL 28', 'YACHT-MASTER 37', 'EXPLORER III', 'SUBMARINER 39', 'PEARLMASTER 51', 'DATEJUST 21', 'OYSTER PERPETUAL 18', 'AIR-KING 24', 'GMT-MASTER', 'ROLEX DEEPSEA II',
     ]),
     selectFavourite: false,
+    selectDelivery: 'standard',
     cost: Math.ceil(faker.random.number({ min: 1000, max: 20000 }) / 100) * 100,
     image: faker.random.arrayElement([
       {
