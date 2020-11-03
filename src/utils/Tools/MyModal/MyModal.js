@@ -19,6 +19,7 @@ const MyModal = ({ children, ...props }) => {
   const handleClose = () => {
     setOpen(false)
     setAddToCart(false)
+    setDelivery('standard')
     console.log(props, 'modal')
   }
 

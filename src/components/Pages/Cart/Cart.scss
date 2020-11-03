@@ -1,0 +1,25 @@
+.cartPage {
+  display: flex;
+  &-subTotal {
+    margin: 50px 70px;
+    width: 500px;
+    height: 400px;
+    background-color: #eee;
+    border-radius: 20px;
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &-title {
+    font-size: 50px;
+    margin-top: 40px;
+    margin-left: 40px;
+    &-line {
+      margin: 20px 40px;
+      height: 1px;
+      width: 900px;
+      background-color: black;
+    }
+  }
+}
