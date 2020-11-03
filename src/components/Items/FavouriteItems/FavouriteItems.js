@@ -6,6 +6,8 @@ import { useStateValue } from '../../../context/StateContext'
 import MyModal from '../../../utils/Tools/MyModal/MyModal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as Heart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import { getFavouritesListIds } from '../../../reducers/stateReducer'
 
 const FavouriteItems = ({...props}) => {
 
@@ -13,15 +15,24 @@ const FavouriteItems = ({...props}) => {
 
   const [ selectFavourite, setSelectFavourite ] = useState(true)
 
-  const toggleFavouriteFalse = () => {
-    setSelectFavourite(false)
-    dispatch({type: 'delete', id: props.id})
+  const toggleFavourite = () => {
+    setSelectFavourite(true)
+    let isSelectFavourite = true
+    if(getFavouritesListIds(favouritesList).includes(props.id)) {
+      isSelectFavourite = false
+    }
+    dispatch({type: 'add', item: {...props, selectFavourite: isSelectFavourite}})
   }
   
   const changeIcon = () => {
+    let icon = faHeart
+    if(getFavouritesListIds(favouritesList).includes(props.id)) {
+      icon = Heart
+    }
+
     return (
-      <div className="favouriteItems-heart">
-        <FontAwesomeIcon icon={Heart} onClick={toggleFavouriteFalse}/>
+      <div className="items-heart">
+        <FontAwesomeIcon icon={icon} onClick={toggleFavourite}/>
       </div>
     )
   }
@@ -30,6 +41,8 @@ const FavouriteItems = ({...props}) => {
     <div className="favouriteItems-container">
       {changeIcon()}
       <MyModal
+        selectFavourite={selectFavourite}
+        id={props.id}
         cost={props.cost}
         name={props.name}
         image={props.image}

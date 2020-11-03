@@ -82,6 +82,7 @@ const CartItems = () => {
       // fix delivery selector
       return (
         <div key={index}>
+          {console.log(item, 'cart')}
           <div className='cartItems'>
             <div className='cartItems-left'>
               <div className='cartItems-left-image'>
