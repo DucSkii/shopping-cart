@@ -7,7 +7,6 @@ import './Cart.scss'
 const Cart = () => {
 
   const [{cartList}, dispatch ] = useStateValue()
-  console.log('??', cartList)
   return (
     <div className="cartPage-container">
       <Navigation />

@@ -82,7 +82,6 @@ const CartItems = () => {
 
     return cartList.map((item, index) => {
       // fix delivery selector
-      console.log('CC', cartList)
       return (
         <div key={index}>
           <div className='cartItems'>

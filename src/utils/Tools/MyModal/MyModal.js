@@ -20,7 +20,6 @@ const MyModal = ({ children, ...props }) => {
     setOpen(false)
     setAddToCart(false)
     setDelivery('standard')
-    console.log(props, 'modal')
   }
 
   const renderCTA = () => {
@@ -57,8 +56,6 @@ const MyModal = ({ children, ...props }) => {
   const renderItemDetails = () => {
     const addCart = () => {
       setAddToCart(true)
-      console.log(props, 'modal props')
-      console.log('CARTLIST', cartList)
       if (getCartListIds(cartList).includes(props.id)) {
         const test = cartList.find(item => item.id === props.id)
         dispatch({type: 'add-cart-quantity', item: {...test, selectedDelivery: delivery, quantity: test.quantity + 1}})

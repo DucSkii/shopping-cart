@@ -17,11 +17,7 @@ export const getFavouritesListIds = (favouritesList) => {
 export const getCartListIds = (cartList) => {
   return cartList?.map(item => item.id) || []
 }
-
-const someFunc = () => {
-  console.log('asdsad')
-}
-
+// Can have function outside and use it within switches
 export default function stateReducer(state, action) {
   switch(action.type) {
   case 'initial-load-cart' :
@@ -56,11 +52,10 @@ export default function stateReducer(state, action) {
     }
   case 'add-cart-quantity' :
     // let newCart = [...state.cartList.filter(item => item.id !== action.item.id)]
-    const newCart = state.cartList.map(item=> {
+    const newCart = state.cartList.map(item => {
       return item.id === action.item.id ? action.item : item
     })
     
-    console.log('newCart', newCart)
     return {
       ...state,
       cartList: newCart,
