@@ -47,6 +47,7 @@ const Watches = () => {
         return <Items
           key={index}
           id={watch.id}
+          subTotal={watch.subTotal}
           quantity={watch.quantity}
           name={watch.name}
           cost={watch.cost}
@@ -63,6 +64,7 @@ const Watches = () => {
         return <Items
           key={index}
           id={filteredWatch.id}
+          subTotal={filteredWatch.subTotal}
           quantity={filteredWatch.quantity}
           name={filteredWatch.name}
           cost={filteredWatch.cost}
@@ -79,6 +81,7 @@ const Watches = () => {
         return <Items
           key={index}
           id={filteredWatch.id}
+          subTotal={filteredWatch.subTotal}
           quantity={filteredWatch.quantity}
           name={filteredWatch.name}
           cost={filteredWatch.cost}

@@ -26,8 +26,8 @@ const Cart = () => {
           <div className="cartPage-title-line"/>
           <CartItems />
         </div>
-        <div className="cartPage-subTotal">
-          SUBTOTAL
+        <div className="cartPage-total">
+          CART TOTAL
         </div>
       </div>
     </div>

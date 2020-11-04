@@ -13,6 +13,7 @@ const Favourites = () => {
       return <FavouriteItems
         key={index}
         id={favourites.id}
+        subTotal={favourites.subTotal}
         quantity={favourites.quantity}
         name={favourites.name}
         cost={favourites.cost}

@@ -88,6 +88,7 @@ const MyModal = ({ children, ...props }) => {
             setDelivery={setDelivery}
             isModal
             id={props.id}
+            subTotal={props.subTotal}
             cost={props.cost}
             name={props.name}
             image={props.image}

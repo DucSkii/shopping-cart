@@ -39,6 +39,7 @@ const Earrings = () => {
         return <Items
           key={index}
           id={earring.id}
+          subTotal={earring.subTotal}
           quantity={earring.quantity}
           name={earring.name}
           cost={earring.cost}
@@ -55,6 +56,7 @@ const Earrings = () => {
         return <Items
           key={index}
           id={filteredEarring.id}
+          subTotal={filteredEarring.subTotal}
           quantity={filteredEarring.quantity}
           name={filteredEarring.name}
           cost={filteredEarring.cost}
@@ -71,6 +73,7 @@ const Earrings = () => {
         return <Items
           key={index}
           id={filteredEarring.id}
+          subTotal={filteredEarring.subTotal}
           name={filteredEarring.name}
           quantity={filteredEarring.quantity}
           cost={filteredEarring.cost}

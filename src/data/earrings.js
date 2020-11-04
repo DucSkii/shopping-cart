@@ -8,6 +8,7 @@ export const earring = () => {
     ]),
     selectedDelivery: 'standard',
     quantity: 1,
+    subTotal: 0,
     cost: Math.ceil(faker.random.number({ min: 200, max: 2000 }) / 100) * 100,
     image: faker.random.arrayElement([
       {

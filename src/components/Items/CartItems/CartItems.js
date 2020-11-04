@@ -33,6 +33,14 @@ const CartItems = () => {
     )
   }
 
+  // const displayTotalCost = (totalCost) => {
+  //   console.log('RUNNING DISPLAYTOTALCOST')
+  //   return totalCost
+  // }
+
+  const itemSubTotal = (item) => {
+    return (item.selectedDelivery === 'pro') ? (item.cost * item.quantity) + 50 : (item.cost * item.quantity)
+  }
   const renderCartItems = () => {
 
     const renderFavouriteToggle = (item) => {
@@ -93,17 +101,8 @@ const CartItems = () => {
         dispatch({type: 'CHANGE_QUANTITY', item, quantity: newQuantity})
       }
     }
-
-    const itemSubTotal = (item) => {
-      if(item.selectedDelivery === 'pro') {
-        return (item.cost * item.quantity) + 50
-      } else {
-        return (item.cost * item.quantity)
-      }
-    }
-
+    
     return cartList.map((item, index) => {
-      // fix delivery selector
       return (
         <div key={index}>
           <div className='cartItems'>
@@ -125,6 +124,7 @@ const CartItems = () => {
                 <Delivery
                   selectedDelivery={item.selectedDelivery}
                   id={item.id}
+                  subTotal={item.subTotal}
                   cost={item.cost}
                   name={item.name}
                   image={item.image}
@@ -147,7 +147,7 @@ const CartItems = () => {
             <div className="cartItems-cost-container">
               <div className='cartItems-cost'>Item price: £ {item.cost}</div>
               <div className="cartItems-cost-quantity">Quantity: {item.quantity}</div>
-              <div className="cartItems-cost-delivery">Delivery: {(item.selectedDelivery === 'pro') ? '£21.99' : 'Free'}</div>
+              <div className="cartItems-cost-delivery">Delivery: {(item.selectedDelivery === 'pro') ? '£50.00' : 'Free'}</div>
               <div className="cartItems-cost-subTotal-title">SubTotal</div>
               <div className="cartItems-cost-subTotal-divider" />
               <div className="cartItems-cost-subTotal">£ {itemSubTotal(item)}</div>

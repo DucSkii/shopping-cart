@@ -45,6 +45,20 @@ export default function stateReducer(state, action) {
       ...state,
       cartList: newQuantity,
     }
+  case 'CHANGE_SUBTOTAL' :
+    const newSubTotal = state.cartList.map(item => {
+      if(item.id === action.item.id) {
+        return {
+          ...action.item,
+          subTotal: action.subTotal,
+        }
+      }
+      return item
+    })
+    return {
+      ...state,
+      cartList: newSubTotal,
+    }
   case 'DISPLAY_COUNT' :
     return {
       ...state,

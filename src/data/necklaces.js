@@ -8,6 +8,7 @@ export const necklace = () => {
     ]),
     selectedDelivery: 'standard',
     quantity: 1,
+    subTotal: 0,
     cost: Math.ceil(faker.random.number({ min: 200, max: 5000 }) / 100) * 100,
     image: faker.random.arrayElement([
       {
