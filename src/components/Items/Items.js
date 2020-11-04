@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
 import './Items.scss'
 
@@ -10,21 +10,11 @@ import { faHeart as Heart } from '@fortawesome/free-solid-svg-icons'
 import { getFavouritesListIds } from '../../reducers/stateReducer'
 
 const Items = ({...props}) => {
-  const [{favouritesList, cartList}, dispatch ] = useStateValue()
+  const [{favouritesList}, dispatch ] = useStateValue()
 
   //watch - favourites - false
   //getid [1,2,3,4]
   //render the heart icon if it exists
-
-  useEffect(() => {
-    const totalSum = quantityCount.reduce(
-      (previousCount, currentCount) => previousCount + currentCount, 0)
-    dispatch({type: 'DISPLAY_COUNT', count: totalSum})
-  }, [cartList])
-  
-  const quantityCount = cartList.map(item => {
-    return item.quantity
-  })
 
   const toggleFavourite = () => {
     // This checks if current item is already a favourite

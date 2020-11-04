@@ -18,6 +18,19 @@ export const getFavouritesListIds = (favouritesList) => {
 export const getCartListIds = (cartList) => {
   return cartList?.map(item => item.id) || []
 }
+
+export const getCartTotal = (cartList) => {
+  const getSubTotal = cartList.reduce((amount, item) => ((item.cost * item.quantity) + amount), 0)
+
+  const getDeliveryCost = cartList.reduce((amount, item) => {
+    if(item.selectedDelivery === 'pro') {
+      return 50 + amount
+    }
+    return amount
+  }, 0)
+  return getSubTotal + getDeliveryCost
+}
+
 // Can have function outside and use it within switches
 export default function stateReducer(state, action) {
   switch(action.type) {

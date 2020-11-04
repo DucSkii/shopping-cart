@@ -33,16 +33,11 @@ const CartItems = () => {
     )
   }
 
-  // const displayTotalCost = (totalCost) => {
-  //   console.log('RUNNING DISPLAYTOTALCOST')
-  //   return totalCost
-  // }
-
   const itemSubTotal = (item) => {
     return (item.selectedDelivery === 'pro') ? (item.cost * item.quantity) + 50 : (item.cost * item.quantity)
   }
-  const renderCartItems = () => {
 
+  const renderCartItems = () => {
     const renderFavouriteToggle = (item) => {
       // if (item.favourite === false) {
       //   return (
@@ -101,14 +96,14 @@ const CartItems = () => {
         dispatch({type: 'CHANGE_QUANTITY', item, quantity: newQuantity})
       }
     }
-    
+
     return cartList.map((item, index) => {
       return (
         <div key={index}>
           <div className='cartItems'>
             <div className='cartItems-left'>
               <div className='cartItems-left-image-container'>
-                <img src={item.image} className="cartItems-left-image"/>
+                <img src={item.image} alt='' className="cartItems-left-image"/>
               </div>
               <div className="cartItems-left-quantity-container">
                 <div className='cartItems-left-quantity'>{item.quantity} </div>
