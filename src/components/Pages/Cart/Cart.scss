@@ -1,9 +1,11 @@
 .cartPage {
   display: flex;
+  padding-left: 125px;
   &-subTotal {
-    margin: 50px 70px;
-    width: 500px;
-    height: 400px;
+    margin-top: 115px;
+    margin-left: 10px;
+    width: 635px;
+    height: 200px;
     background-color: #eee;
     border-radius: 20px;
   }
