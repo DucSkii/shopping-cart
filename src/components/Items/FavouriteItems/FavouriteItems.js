@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 
 import './FavouriteItems.scss'
 
@@ -11,7 +11,17 @@ import { getFavouritesListIds } from '../../../reducers/stateReducer'
 
 const FavouriteItems = ({...props}) => {
 
-  const [{favouritesList}, dispatch ] = useStateValue()
+  const [{favouritesList, cartList}, dispatch ] = useStateValue()
+
+  useEffect(() => {
+    const totalSum = quantityCount.reduce(
+      (previousCount, currentCount) => previousCount + currentCount, 0)
+    dispatch({type: 'DISPLAY_COUNT', count: totalSum})
+  }, [cartList])
+  
+  const quantityCount = cartList.map(item => {
+    return item.quantity
+  })
 
   const toggleFavourite = () => {
     // This checks if current item is already a favourite

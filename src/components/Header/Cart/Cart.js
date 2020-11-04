@@ -8,14 +8,14 @@ import './Cart.scss'
 
 const Cart = () => {
 
-  const [{cartList}, dispatch ] = useStateValue()
+  const [{cartList, itemCount}, dispatch ] = useStateValue()
 
   return (
     <Link to='/cart' className="cart-container">
       <div className="cart">
         <div className="cart-text">Cart</div>
         <div className="cart-vertical-divider"></div>
-        <div>{cartList.length} items</div>
+        <div>{itemCount} items</div>
         <i><FontAwesomeIcon icon={faShoppingCart} /></i>
       </div>
     </Link>

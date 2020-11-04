@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShippingFast, faTruck, faStoreAlt } from '@fortawesome/free-solid-svg-icons'
 import {useStateValue} from '../../../context/StateContext'

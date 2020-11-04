@@ -8,6 +8,7 @@ export const initialState = {
   watches: getWatches(),
   necklaces: getNecklaces(),
   earrings: getEarrings(),
+  itemCount: 0,
 }
 
 export const getFavouritesListIds = (favouritesList) => {
@@ -30,9 +31,12 @@ export default function stateReducer(state, action) {
       ...state,
       favouritesList: action.payload || [],
     }
+  case 'DISPLAY_COUNT' :
+    return {
+      ...state,
+      itemCount: action.count,
+    }
   case 'add-cart' :
-
-    console.log('RUNNING ADDCART')
     // run getCartListIds and check if item already exists in cart
     // if it does then do the following
     // Map through cartList
@@ -61,7 +65,6 @@ export default function stateReducer(state, action) {
       cartList: newCart,
     }
   case 'STANDARD_INCLUDES' :
-    console.log('RUNNING STANDARD')
     const newCartList = state.cartList.map(item => {
       if(item.id === action.item.id) {
         return {
