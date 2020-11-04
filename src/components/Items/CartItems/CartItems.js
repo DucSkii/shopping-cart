@@ -4,7 +4,7 @@ import Delivery from '../../../utils/Layout/Delivery/Delivery'
 import {useStateValue} from '../../../context/StateContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
-import { faHeart as Heart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as Heart, faSortUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import Modal from '@material-ui/core/Modal'
 import { getFavouritesListIds } from '../../../reducers/stateReducer'
 
@@ -89,8 +89,12 @@ const CartItems = () => {
               <div className='cartItems-left-image-container'>
                 <img src={item.image} className="cartItems-left-image"/>
               </div>
-              <div className='cartItems-left-quantity'>
-                quantity {item.quantity}
+              <div className="cartItems-left-quantity-container">
+                <div className='cartItems-left-quantity'>{item.quantity} </div>
+                <div className="cartItems-left-quantity-buttons">
+                  <button className="cartItems-left-quantity-buttons-button-up"><FontAwesomeIcon icon={faSortUp} /></button>
+                  <button className="cartItems-left-quantity-buttons-button-down"><FontAwesomeIcon icon={faCaretDown} /></button>
+                </div>
               </div>
             </div>
             <div className='cartItems-right'>
