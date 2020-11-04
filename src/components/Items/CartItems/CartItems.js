@@ -79,6 +79,20 @@ const CartItems = () => {
       setClickedItem(item)
       setOpen(true)
     }
+    
+    const itemQuantityIncrement = (item) => {
+      const newQuantity = item.quantity + 1
+      dispatch({type: 'CHANGE_QUANTITY', item, quantity: newQuantity})
+    }
+
+    const itemQuantityDecrement = (item) => {
+      if(item.quantity === 1) {
+        return null
+      } else {
+        const newQuantity = item.quantity - 1
+        dispatch({type: 'CHANGE_QUANTITY', item, quantity: newQuantity})
+      }
+    }
 
     return cartList.map((item, index) => {
       // fix delivery selector
@@ -92,8 +106,8 @@ const CartItems = () => {
               <div className="cartItems-left-quantity-container">
                 <div className='cartItems-left-quantity'>{item.quantity} </div>
                 <div className="cartItems-left-quantity-buttons">
-                  <button className="cartItems-left-quantity-buttons-button-up"><FontAwesomeIcon icon={faSortUp} /></button>
-                  <button className="cartItems-left-quantity-buttons-button-down"><FontAwesomeIcon icon={faCaretDown} /></button>
+                  <button className="cartItems-left-quantity-buttons-button-up" onClick={() => itemQuantityIncrement(item)}><FontAwesomeIcon icon={faSortUp} /></button>
+                  <button className="cartItems-left-quantity-buttons-button-down" onClick={() => itemQuantityDecrement(item)}><FontAwesomeIcon icon={faCaretDown} /></button>
                 </div>
               </div>
             </div>

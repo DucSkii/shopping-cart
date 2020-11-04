@@ -31,6 +31,20 @@ export default function stateReducer(state, action) {
       ...state,
       favouritesList: action.payload || [],
     }
+  case 'CHANGE_QUANTITY' :
+    const newQuantity = state.cartList.map(item => {
+      if(item.id === action.item.id) {
+        return {
+          ...action.item,
+          quantity: action.quantity,
+        }
+      }
+      return item
+    })
+    return {
+      ...state,
+      cartList: newQuantity,
+    }
   case 'DISPLAY_COUNT' :
     return {
       ...state,
