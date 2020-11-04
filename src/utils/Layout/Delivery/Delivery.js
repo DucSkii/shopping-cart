@@ -51,7 +51,7 @@ const Delivery = (props) => {
           <div className="delivery-box">
             <div className="delivery-box-title">PRO</div>
             <FontAwesomeIcon className="delivery-box-icon" icon={faShippingFast} size="2x" />
-            <div className="delivery-price">£21.99</div>
+            <div className="delivery-price">£50.00</div>
           </div>
         </div>
       </div>

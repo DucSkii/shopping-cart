@@ -94,6 +94,14 @@ const CartItems = () => {
       }
     }
 
+    const itemSubTotal = (item) => {
+      if(item.selectedDelivery === 'pro') {
+        return (item.cost * item.quantity) + 50
+      } else {
+        return (item.cost * item.quantity)
+      }
+    }
+
     return cartList.map((item, index) => {
       // fix delivery selector
       return (
@@ -136,7 +144,14 @@ const CartItems = () => {
                 <div className='cartItems-right-options-remove' onClick={() => removeItemModal(item)}>Remove</div>
               </div>
             </div>
-            <div className='cartItems-cost'>£{item.cost}</div>
+            <div className="cartItems-cost-container">
+              <div className='cartItems-cost'>Item price: £ {item.cost}</div>
+              <div className="cartItems-cost-quantity">Quantity: {item.quantity}</div>
+              <div className="cartItems-cost-delivery">Delivery: {(item.selectedDelivery === 'pro') ? '£21.99' : 'Free'}</div>
+              <div className="cartItems-cost-subTotal-title">SubTotal</div>
+              <div className="cartItems-cost-subTotal-divider" />
+              <div className="cartItems-cost-subTotal">£ {itemSubTotal(item)}</div>
+            </div>
           </div>
         </div>
       )

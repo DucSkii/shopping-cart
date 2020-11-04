@@ -4,16 +4,42 @@
   display: flex;
   margin-bottom: 30px;
   &-cost {
-    display: flex;
-    font-size: 30px;
-    align-items: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666;
+    &-subTotal {
+      font-size: 30px;
+      &-divider {
+        height: 1px;
+        width: 140px;
+        background-color: #666;
+        margin: 10px 0px;
+      }
+      &-title {
+        font-size: 20px;
+      }
+    }
+    &-delivery {
+      font-size: 16px;
+      color: #666;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    &-quantity {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    &-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
   }
   &-container {
     display: flex;
     flex-direction: column;
-    &-cost {
-      font-size: 30px;
-    }
   }
   &-right {
     display: flex;
