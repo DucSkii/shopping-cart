@@ -8,6 +8,7 @@ import Home from './components/Pages/Home/Home'
 import Cart from './components/Pages/Cart/Cart'
 import Favourites from './components/Pages/Favourites/Favourites'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import ScrollToTop from './utils/Tools/ScrollToTop'
 
 import './App.scss'
 import { useStateValue } from './context/StateContext'
@@ -39,6 +40,7 @@ const App = () => {
     <div className="App">
       <div className="App-bar" />
       <Router>
+        <ScrollToTop />
         <Header />
         <Switch>
           <Route path='/favourites' component={Favourites} />
