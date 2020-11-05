@@ -18,7 +18,7 @@ const Page = ({ className, title, gender, children }) => {
   const scrollTop = () =>{
     window.scrollTo({top: 0, behavior: 'smooth'})
   }
-
+ 
   window.addEventListener('scroll', checkScrollTop)
 
   return (
