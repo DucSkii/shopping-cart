@@ -5,9 +5,96 @@
     margin-top: 115px;
     margin-left: 10px;
     width: 635px;
-    height: 200px;
+    height: 240px;
     background-color: #eee;
     border-radius: 20px;
+    padding: 10px;
+    &-grandTotal {
+      display: flex;
+      justify-content: space-between;
+      margin-right: 20px;
+      margin-left: 20px;
+      margin-top: 20px;
+      &-text {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      &-cost {
+        margin-right: 10px;
+        font-size: 25px;
+      }
+    }
+    &-savings {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      &-description {
+        margin-left: 22px;
+        color: rgb(26, 192, 40);
+        font-size: 15px;
+        display: flex;
+        &-normal {
+          margin-right: 4px;
+        }
+        &-bold {
+          font-weight: 700;
+          margin-right: 5px;
+        }
+      }
+      &-text {
+        font-size: 15px;
+        color: rgb(26, 192, 40);
+       }
+      &-cost {
+        font-size: 17px;
+        margin-right: 10px;
+        color: rgb(26, 192, 40);
+      }
+    }
+    &-shipping {
+      display: flex;
+       justify-content: space-between;
+       margin-left:20px;
+       margin-right:20px;
+       &-text {
+        font-size: 15px;
+       }
+       margin-bottom: 10px;
+       &-cost {
+         font-size: 17px;
+         margin-right: 10px;
+       }
+    }
+     &-subTotal {
+       display: flex;
+       justify-content: space-between;
+       margin-left: 20px;
+       margin-right: 20px;
+       margin-top: 20px;
+       margin-bottom: 10px;
+       &-text {
+        font-size: 17px;
+        font-weight: 700;
+       }
+       &-cost {
+         font-size: 17px;
+         margin-right: 10px;
+       }
+     }
+    &-title {
+      font-size: 25px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 15px;
+      &-line {
+        height: 1px;
+        width: 600px;
+        background-color: #666;
+        margin-left: 10px;
+      }
+    }
   }
   &-container {
     display: flex;

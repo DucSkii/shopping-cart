@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-import Header from './components/Header/Header'
+import Header from './components/Header'
 import Earrings from './components/Pages/Earrings/Earrings'
 import Necklaces from './components/Pages/Necklaces/Necklaces'
 import Watches from './components/Pages/Watches/Watches'

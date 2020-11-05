@@ -19,16 +19,21 @@ export const getCartListIds = (cartList) => {
   return cartList?.map(item => item.id) || []
 }
 
-export const getCartTotal = (cartList) => {
-  const getSubTotal = cartList.reduce((amount, item) => ((item.cost * item.quantity) + amount), 0)
-
+export const getCartDeliveryTotal = (cartList) => {
   const getDeliveryCost = cartList.reduce((amount, item) => {
     if(item.selectedDelivery === 'pro') {
       return 50 + amount
     }
     return amount
   }, 0)
-  return getSubTotal + getDeliveryCost
+
+  return getDeliveryCost
+}
+
+export const getCartSubTotal = (cartList) => {
+  const getSubTotal = cartList.reduce((amount, item) => ((item.cost * item.quantity) + amount), 0)
+
+  return getSubTotal
 }
 
 // Can have function outside and use it within switches
