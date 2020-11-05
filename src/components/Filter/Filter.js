@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import './Filter.scss'
 
@@ -7,14 +7,20 @@ const Filter = ({ gender, setGender, children }) => {
   const [ stickFilter, setStickFilter ] = useState(false)
 
   const checkScrollFilter = () => {
-    if (!stickFilter && window.pageYOffset > 162) {
+    if (window.pageYOffset > 162) {
       setStickFilter(true)
-    } else if (stickFilter && window.pageYOffset <= 162) {
+    } else if (window.pageYOffset <= 162) {
       setStickFilter(false)
     }
   }
 
-  window.addEventListener('scroll', checkScrollFilter)
+  useEffect(() => {
+    window.addEventListener('scroll', checkScrollFilter)
+    return () => {
+      window.removeEventListener('scroll', checkScrollFilter)
+      setStickFilter(false)
+    }
+  }, [])
 
   return (
     <div className={stickFilter ? 'filter-fixed' : 'filter'}>

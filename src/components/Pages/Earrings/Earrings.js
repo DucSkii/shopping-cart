@@ -34,7 +34,7 @@ const Earrings = () => {
 
   const filterGender = () => {
     if (gender === 'All') {
-      if (mapColor === 0) {
+      if (mapColor.length === 0) {
         return earrings.map((earring, index) => {
           return <Items
             key={index}
@@ -52,7 +52,7 @@ const Earrings = () => {
           />
         })
       } else {
-        return earrings.filter(earring => earring.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+        return earrings.filter(item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}
@@ -89,7 +89,7 @@ const Earrings = () => {
         })
       } else {
         return earrings.filter(earring => earring.image.gender.includes('Men')).filter(
-          filteredEarring => filteredEarring.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}
@@ -126,7 +126,7 @@ const Earrings = () => {
         })
       } else {
         return earrings.filter(earring => earring.image.gender.includes('Women')).filter(
-          filteredEarring => filteredEarring.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}

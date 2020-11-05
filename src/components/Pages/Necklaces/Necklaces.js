@@ -53,7 +53,7 @@ const Necklaces = () => {
           />
         })
       } else {
-        return necklaces.filter(necklace => necklace.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+        return necklaces.filter(item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}
@@ -90,7 +90,7 @@ const Necklaces = () => {
         })
       } else {
         return necklaces.filter(necklace => necklace.image.gender.includes('Men')).filter(
-          filteredNecklace => filteredNecklace.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}
@@ -127,7 +127,7 @@ const Necklaces = () => {
         })
       } else {
         return necklaces.filter(necklace => necklace.image.gender.includes('Women')).filter(
-          filteredNecklace => filteredNecklace.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}

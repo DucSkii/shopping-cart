@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons'
 import './Page.scss'
@@ -8,9 +8,9 @@ const Page = ({ className, title, gender, children }) => {
   const [ showScroll, setShowScroll ] = useState(false)
 
   const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 400){
+    if (window.pageYOffset > 400){
       setShowScroll(true)
-    } else if (showScroll && window.pageYOffset <= 400){
+    } else if (window.pageYOffset <= 400){
       setShowScroll(false)
     }
   }
@@ -19,7 +19,12 @@ const Page = ({ className, title, gender, children }) => {
     window.scrollTo({top: 0, behavior: 'smooth'})
   }
  
-  window.addEventListener('scroll', checkScrollTop)
+  useEffect (() => {
+    window.addEventListener('scroll', checkScrollTop)
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop)
+    }
+  }, [])
 
   return (
     <>

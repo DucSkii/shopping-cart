@@ -41,7 +41,6 @@ const Watches = () => {
   const [{watches, mapColor}, dispatch ] = useStateValue()
 
   const filterGender = () => {
-    
     if (gender === 'All') {
       if (mapColor.length === 0) {
         return watches.map((watch, index) => {
@@ -61,7 +60,7 @@ const Watches = () => {
           />
         })
       } else {
-        return watches.filter(watch => watch.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+        return watches.filter(item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}
@@ -98,7 +97,7 @@ const Watches = () => {
         })
       } else {
         return watches.filter(watch => watch.image.gender.includes('Men')).filter(
-          filteredWatch => filteredWatch.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}
@@ -135,7 +134,7 @@ const Watches = () => {
         })
       } else {
         return watches.filter(watch => watch.image.gender.includes('Women')).filter(
-          filteredWatch => filteredWatch.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}

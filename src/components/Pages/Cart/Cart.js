@@ -41,9 +41,9 @@ const Cart = () => {
   }
 
   const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 400){
+    if (window.pageYOffset > 400){
       setShowScroll(true)
-    } else if (showScroll && window.pageYOffset <= 400){
+    } else if (window.pageYOffset <= 400){
       setShowScroll(false)
     }
   }
@@ -52,7 +52,12 @@ const Cart = () => {
     window.scrollTo({top: 0, behavior: 'smooth'})
   }
 
-  window.addEventListener('scroll', checkScrollTop)
+  useEffect (() => {
+    window.addEventListener('scroll', checkScrollTop)
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop)
+    }
+  }, [])
 
   return (
     <>
