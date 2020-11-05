@@ -42,7 +42,6 @@ const Watches = () => {
 
   const filterGender = () => {
     
-    console.log('mapColor', mapColor)
     if (gender === 'All') {
       if (mapColor.length === 0) {
         return watches.map((watch, index) => {
@@ -62,7 +61,7 @@ const Watches = () => {
           />
         })
       } else {
-        return watches.filter(watch => watch.image.color.includes(...mapColor)).map((filteredColor, index) => {
+        return watches.filter(watch => watch.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
           return <Items
             key={index}
             id={filteredColor.id}
@@ -80,39 +79,79 @@ const Watches = () => {
         })
       }
     } if (gender === 'Men') {
-      return watches.filter(watch => watch.image.gender.includes('Men')).map((filteredWatch, index) => {
-        return <Items
-          key={index}
-          id={filteredWatch.id}
-          subTotal={filteredWatch.subTotal}
-          quantity={filteredWatch.quantity}
-          name={filteredWatch.name}
-          cost={filteredWatch.cost}
-          image={filteredWatch.image.url}
-          colour={filteredWatch.image.color.join(', ').toUpperCase()}
-          desc1={filteredWatch.description1}
-          desc2={filteredWatch.description2}
-          desc3={filteredWatch.description3}
-          gender={filteredWatch.image.gender}
-        />
-      })
+      if (mapColor.length === 0) {
+        return watches.filter(watch => watch.image.gender.includes('Men')).map((filteredWatch, index) => {
+          return <Items
+            key={index}
+            id={filteredWatch.id}
+            subTotal={filteredWatch.subTotal}
+            quantity={filteredWatch.quantity}
+            name={filteredWatch.name}
+            cost={filteredWatch.cost}
+            image={filteredWatch.image.url}
+            colour={filteredWatch.image.color.join(', ').toUpperCase()}
+            desc1={filteredWatch.description1}
+            desc2={filteredWatch.description2}
+            desc3={filteredWatch.description3}
+            gender={filteredWatch.image.gender}
+          />
+        })
+      } else {
+        return watches.filter(watch => watch.image.gender.includes('Men')).filter(
+          filteredWatch => filteredWatch.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          return <Items
+            key={index}
+            id={filteredColor.id}
+            subTotal={filteredColor.subTotal}
+            quantity={filteredColor.quantity}
+            name={filteredColor.name}
+            cost={filteredColor.cost}
+            image={filteredColor.image.url}
+            colour={filteredColor.image.color.join(', ').toUpperCase()}
+            desc1={filteredColor.description1}
+            desc2={filteredColor.description2}
+            desc3={filteredColor.description3}
+            gender={filteredColor.image.gender}
+          />
+        })
+      }
     } if (gender === 'Women') {
-      return watches.filter(watch => watch.image.gender.includes('Women')).map((filteredWatch, index) => {
-        return <Items
-          key={index}
-          id={filteredWatch.id}
-          subTotal={filteredWatch.subTotal}
-          quantity={filteredWatch.quantity}
-          name={filteredWatch.name}
-          cost={filteredWatch.cost}
-          image={filteredWatch.image.url}
-          colour={filteredWatch.image.color.join(', ').toUpperCase()}
-          desc1={filteredWatch.description1}
-          desc2={filteredWatch.description2}
-          desc3={filteredWatch.description3}
-          gender={filteredWatch.image.gender}
-        />
-      })
+      if (mapColor.length === 0) {
+        return watches.filter(watch => watch.image.gender.includes('Women')).map((filteredWatch, index) => {
+          return <Items
+            key={index}
+            id={filteredWatch.id}
+            subTotal={filteredWatch.subTotal}
+            quantity={filteredWatch.quantity}
+            name={filteredWatch.name}
+            cost={filteredWatch.cost}
+            image={filteredWatch.image.url}
+            colour={filteredWatch.image.color.join(', ').toUpperCase()}
+            desc1={filteredWatch.description1}
+            desc2={filteredWatch.description2}
+            desc3={filteredWatch.description3}
+            gender={filteredWatch.image.gender}
+          />
+        })
+      } else {
+        return watches.filter(watch => watch.image.gender.includes('Women')).filter(
+          filteredWatch => filteredWatch.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          return <Items
+            key={index}
+            id={filteredColor.id}
+            subTotal={filteredColor.subTotal}
+            quantity={filteredColor.quantity}
+            name={filteredColor.name}
+            cost={filteredColor.cost}
+            image={filteredColor.image.url}
+            colour={filteredColor.image.color.join(', ').toUpperCase()}
+            desc1={filteredColor.description1}
+            desc2={filteredColor.description2}
+            desc3={filteredColor.description3}
+            gender={filteredColor.image.gender}
+          />
+        })
+      }
     }
   }
 

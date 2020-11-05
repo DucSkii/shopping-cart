@@ -30,61 +30,119 @@ const Earrings = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
-  const [{earrings}, dispatch ] = useStateValue()
+  const [{earrings, mapColor}, dispatch ] = useStateValue()
 
   const filterGender = () => {
-
     if (gender === 'All') {
-      return earrings.map((earring, index) => {
-        return <Items
-          key={index}
-          id={earring.id}
-          subTotal={earring.subTotal}
-          quantity={earring.quantity}
-          name={earring.name}
-          cost={earring.cost}
-          image={earring.image.url}
-          colour={earring.image.color.join(', ').toUpperCase()}
-          desc1={earring.description1}
-          desc2={earring.description2}
-          desc3={earring.description3}
-          gender={earring.image.gender}
-        />
-      })
+      if (mapColor === 0) {
+        return earrings.map((earring, index) => {
+          return <Items
+            key={index}
+            id={earring.id}
+            subTotal={earring.subTotal}
+            quantity={earring.quantity}
+            name={earring.name}
+            cost={earring.cost}
+            image={earring.image.url}
+            colour={earring.image.color.join(', ').toUpperCase()}
+            desc1={earring.description1}
+            desc2={earring.description2}
+            desc3={earring.description3}
+            gender={earring.image.gender}
+          />
+        })
+      } else {
+        return earrings.filter(earring => earring.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          return <Items
+            key={index}
+            id={filteredColor.id}
+            subTotal={filteredColor.subTotal}
+            quantity={filteredColor.quantity}
+            name={filteredColor.name}
+            cost={filteredColor.cost}
+            image={filteredColor.image.url}
+            colour={filteredColor.image.color.join(', ').toUpperCase()}
+            desc1={filteredColor.description1}
+            desc2={filteredColor.description2}
+            desc3={filteredColor.description3}
+            gender={filteredColor.image.gender}
+          />
+        })
+      }
     } if (gender === 'Men') {
-      return earrings.filter(earring => earring.image.gender.includes('Men')).map((filteredEarring, index) => {
-        return <Items
-          key={index}
-          id={filteredEarring.id}
-          subTotal={filteredEarring.subTotal}
-          quantity={filteredEarring.quantity}
-          name={filteredEarring.name}
-          cost={filteredEarring.cost}
-          image={filteredEarring.image.url}
-          colour={filteredEarring.image.color.join(', ').toUpperCase()}
-          desc1={filteredEarring.description1}
-          desc2={filteredEarring.description2}
-          desc3={filteredEarring.description3}
-          gender={filteredEarring.image.gender}
-        />
-      })
+      if (mapColor.length === 0) {
+        return earrings.filter(earring => earring.image.gender.includes('Men')).map((filteredEarring, index) => {
+          return <Items
+            key={index}
+            id={filteredEarring.id}
+            subTotal={filteredEarring.subTotal}
+            quantity={filteredEarring.quantity}
+            name={filteredEarring.name}
+            cost={filteredEarring.cost}
+            image={filteredEarring.image.url}
+            colour={filteredEarring.image.color.join(', ').toUpperCase()}
+            desc1={filteredEarring.description1}
+            desc2={filteredEarring.description2}
+            desc3={filteredEarring.description3}
+            gender={filteredEarring.image.gender}
+          />
+        })
+      } else {
+        return earrings.filter(earring => earring.image.gender.includes('Men')).filter(
+          filteredEarring => filteredEarring.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          return <Items
+            key={index}
+            id={filteredColor.id}
+            subTotal={filteredColor.subTotal}
+            quantity={filteredColor.quantity}
+            name={filteredColor.name}
+            cost={filteredColor.cost}
+            image={filteredColor.image.url}
+            colour={filteredColor.image.color.join(', ').toUpperCase()}
+            desc1={filteredColor.description1}
+            desc2={filteredColor.description2}
+            desc3={filteredColor.description3}
+            gender={filteredColor.image.gender}
+          />
+        })
+      }
     } if (gender === 'Women') {
-      return earrings.filter(earring => earring.image.gender.includes('Women')).map((filteredEarring, index) => {
-        return <Items
-          key={index}
-          id={filteredEarring.id}
-          subTotal={filteredEarring.subTotal}
-          name={filteredEarring.name}
-          quantity={filteredEarring.quantity}
-          cost={filteredEarring.cost}
-          image={filteredEarring.image.url}
-          colour={filteredEarring.image.color.join(', ').toUpperCase()}
-          desc1={filteredEarring.description1}
-          desc2={filteredEarring.description2}
-          desc3={filteredEarring.description3}
-          gender={filteredEarring.image.gender}
-        />
-      })
+      if (mapColor.length === 0) {
+        return earrings.filter(earring => earring.image.gender.includes('Women')).map((filteredEarring, index) => {
+          return <Items
+            key={index}
+            id={filteredEarring.id}
+            subTotal={filteredEarring.subTotal}
+            name={filteredEarring.name}
+            quantity={filteredEarring.quantity}
+            cost={filteredEarring.cost}
+            image={filteredEarring.image.url}
+            colour={filteredEarring.image.color.join(', ').toUpperCase()}
+            desc1={filteredEarring.description1}
+            desc2={filteredEarring.description2}
+            desc3={filteredEarring.description3}
+            gender={filteredEarring.image.gender}
+          />
+        })
+      } else {
+        return earrings.filter(earring => earring.image.gender.includes('Women')).filter(
+          filteredEarring => filteredEarring.image.color.toString().includes(mapColor)).map((filteredColor, index) => {
+          return <Items
+            key={index}
+            id={filteredColor.id}
+            subTotal={filteredColor.subTotal}
+            quantity={filteredColor.quantity}
+            name={filteredColor.name}
+            cost={filteredColor.cost}
+            image={filteredColor.image.url}
+            colour={filteredColor.image.color.join(', ').toUpperCase()}
+            desc1={filteredColor.description1}
+            desc2={filteredColor.description2}
+            desc3={filteredColor.description3}
+            gender={filteredColor.image.gender}
+          />
+        })
+      }
     }
   }
 
