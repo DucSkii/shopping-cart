@@ -38,27 +38,47 @@ const Watches = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
-  const [{watches}, dispatch ] = useStateValue()
+  const [{watches, mapColor}, dispatch ] = useStateValue()
 
   const filterGender = () => {
     
+    console.log('mapColor', mapColor)
     if (gender === 'All') {
-      return watches.map((watch, index) => {
-        return <Items
-          key={index}
-          id={watch.id}
-          subTotal={watch.subTotal}
-          quantity={watch.quantity}
-          name={watch.name}
-          cost={watch.cost}
-          image={watch.image.url}
-          colour={watch.image.color.join(', ').toUpperCase()}
-          desc1={watch.description1}
-          desc2={watch.description2}
-          desc3={watch.description3}
-          gender={watch.image.gender}
-        />
-      })
+      if (mapColor.length === 0) {
+        return watches.map((watch, index) => {
+          return <Items
+            key={index}
+            id={watch.id}
+            subTotal={watch.subTotal}
+            quantity={watch.quantity}
+            name={watch.name}
+            cost={watch.cost}
+            image={watch.image.url}
+            colour={watch.image.color.join(', ').toUpperCase()}
+            desc1={watch.description1}
+            desc2={watch.description2}
+            desc3={watch.description3}
+            gender={watch.image.gender}
+          />
+        })
+      } else {
+        return watches.filter(watch => watch.image.color.includes(...mapColor)).map((filteredColor, index) => {
+          return <Items
+            key={index}
+            id={filteredColor.id}
+            subTotal={filteredColor.subTotal}
+            quantity={filteredColor.quantity}
+            name={filteredColor.name}
+            cost={filteredColor.cost}
+            image={filteredColor.image.url}
+            colour={filteredColor.image.color.join(', ').toUpperCase()}
+            desc1={filteredColor.description1}
+            desc2={filteredColor.description2}
+            desc3={filteredColor.description3}
+            gender={filteredColor.image.gender}
+          />
+        })
+      }
     } if (gender === 'Men') {
       return watches.filter(watch => watch.image.gender.includes('Men')).map((filteredWatch, index) => {
         return <Items

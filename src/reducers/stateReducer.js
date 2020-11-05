@@ -9,6 +9,7 @@ export const initialState = {
   necklaces: getNecklaces(),
   earrings: getEarrings(),
   itemCount: 0,
+  mapColor: [],
 }
 
 export const getFavouritesListIds = (favouritesList) => {
@@ -48,6 +49,12 @@ export default function stateReducer(state, action) {
     return {
       ...state,
       favouritesList: action.payload || [],
+    }
+  case 'CHANGE_COLOR' :
+    const newColor = action.selection
+    return {
+      ...state,
+      mapColor: newColor,
     }
   case 'CHANGE_QUANTITY' :
     const newQuantity = state.cartList.map(item => {
