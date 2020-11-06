@@ -135,7 +135,11 @@ const Watches = () => {
   const orderedArray = mapOrder(filterGender(), sortArray(), 'cost')
 
   const renderOrderedArray = () => {
-    return orderedArray.map((item, index) => {
+    return orderedArray.filter(item => {
+      if (min <= item.cost && item.cost <= max) {
+        return item
+      }
+    }).map((item, index) => {
       return <Items
         key={index}
         id={item.id}
