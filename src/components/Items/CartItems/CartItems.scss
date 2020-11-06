@@ -75,6 +75,7 @@
           }
           &-button {
             &-no {
+              outline: none;
               width: 200px;
               height: 50px;
               border: none;
@@ -84,6 +85,7 @@
               margin-right: 5px;
             }
            &-yes {
+            outline: none;
             width: 200px;
             height: 50px;
             border: none;
@@ -94,6 +96,7 @@
            }
           }
           &-container {
+            outline: none;
             display: flex;
             justify-content: center;
             margin-top: 200px;
@@ -135,6 +138,7 @@
           background-color: #2d2d2d;
         }
         &-button-up {
+          outline: none;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -145,6 +149,7 @@
           border-top-right-radius: 10px;
         }
         &-button-down {
+          outline: none;
           display: flex;
           justify-content: center;
           align-items: center;
