@@ -1,14 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import onClickOutside from 'react-onclickoutside'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { Slider } from '@material-ui/core'
 import './DropdownPrice.scss'
 
-const DropdownPrice = ({title, min, max, setMin, setMax}) => {
+const DropdownPrice = ({title, min, max, setMin, setMax, difference, addition}) => {
 
   const [ open, setOpen ] = useState(false)
   const [ val, setVal ] = useState([ 0, 100 ])
+  const [ selected, setSelected ] = useState(false)
 
   const toggle = () => {
     setOpen(!open)
@@ -19,17 +20,25 @@ const DropdownPrice = ({title, min, max, setMin, setMax}) => {
   }
 
   const updateRange = (e, data) => {
-    setMin((data[0] * 190) + 1000)
-    setMax((data[1] * 190) + 1000)
+    setMin((data[0] * difference) + addition)
+    setMax((data[1] * difference) + addition)
     setVal(data)
   }
 
+  useEffect(() => {
+    if (min !== addition || max !== ((difference * 100) + addition)) {
+      setSelected(true)
+    } else {
+      setSelected(false)
+    }
+  }, [ min, max ])
+  
   return (
     <div className="dd-wrapper">
       <div className="dd-header-wrapper">
         <div
           tabIndex={0}
-          className='dd-header'
+          className={selected ? 'dd-header-selected' : 'dd-header'}
           role="button"
           onKeyPress={toggle}
           onClick={toggle}

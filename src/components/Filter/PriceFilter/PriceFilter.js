@@ -17,7 +17,7 @@ const items = [
   },
 ]
 
-const PriceFilter = ({ min, max, setMin, setMax }) => {
+const PriceFilter = ({ min, max, setMin, setMax, difference, addition }) => {
 
   return (
     <div className="priceFilter">
@@ -27,6 +27,8 @@ const PriceFilter = ({ min, max, setMin, setMax }) => {
         max={max}
         setMin={setMin}
         setMax={setMax}
+        difference={difference}
+        addition={addition}
       />
     </div>
   )

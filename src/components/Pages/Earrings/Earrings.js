@@ -30,7 +30,12 @@ const Earrings = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
+  const [ min, setMin ] = useState(200)
+  const [ max, setMax ] = useState(2000)
   const [{earrings, mapColor, getSort, clearAll}, dispatch ] = useStateValue()
+
+  const difference = 18
+  const addition = 200
 
   useEffect(() => {
     if (selectionColour.length !== 0 || selectionSort.length !== 0 || selectionPrice.length !== 0) {
@@ -148,8 +153,12 @@ const Earrings = () => {
           setSelection={setSelectionSort}
         />
         <PriceFilter
-          selection={selectionPrice}
-          setSelection={setSelectionPrice}
+          min={min}
+          max={max}
+          setMin={setMin}
+          setMax={setMax}
+          difference={difference}
+          addition={addition}
         />
         <ColourFilter
           coloursList={colorsFilterList(earrings)}

@@ -43,6 +43,9 @@ const Watches = () => {
   const [ max, setMax ] = useState(20000)
   const [{watches, mapColor, getSort, clearAll}, dispatch ] = useStateValue()
 
+  const difference = 190
+  const addition = 1000
+
   useEffect(() => {
     if (selectionColour.length !== 0 || selectionSort.length !== 0 || selectionPrice.length !== 0) {
       dispatch({type: 'CHANGE_TRUE'})
@@ -149,7 +152,7 @@ const Watches = () => {
       />
     })
   }
-  
+
   return (
     <>
       <Navigation />
@@ -163,6 +166,8 @@ const Watches = () => {
           max={max}
           setMin={setMin}
           setMax={setMax}
+          difference={difference}
+          addition={addition}
         />
         <ColourFilter
           coloursList={colorsFilterList(watches)}
