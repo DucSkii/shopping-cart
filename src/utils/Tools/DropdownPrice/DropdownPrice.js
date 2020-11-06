@@ -19,6 +19,8 @@ const DropdownPrice = ({title, min, max, setMin, setMax}) => {
   }
 
   const updateRange = (e, data) => {
+    setMin((data[0] * 190) + 1000)
+    setMax((data[1] * 190) + 1000)
     setVal(data)
   }
 
