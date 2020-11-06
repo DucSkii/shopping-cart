@@ -6,13 +6,15 @@ import { Slider } from '@material-ui/core'
 import { useStateValue } from '../../../context/StateContext'
 import './DropdownPrice.scss'
 
-const DropdownPrice = ({title, min, max, setMin, setMax, difference, addition, setSelectedPrice}) => {
+function DropdownPrice ({title, min, max, setMin, setMax, difference, addition, setSelectedPrice}) {
 
   const [ selected, setSelected ] = useState(false)
   const [{clearAll}, dispatch ] = useStateValue()
 
   const [ open, setOpen ] = useState(false)
   const [ val, setVal ] = useState([ 0, 100 ])
+
+  DropdownPrice.handleClickOutside = () => setOpen(false)
 
   useEffect(() => {
     setVal([ 0, 100 ])
@@ -21,10 +23,6 @@ const DropdownPrice = ({title, min, max, setMin, setMax, difference, addition, s
 
   const toggle = () => {
     setOpen(!open)
-  }
-
-  const handleClickOutside = evt => {
-    setOpen(false)
   }
 
   const updateRange = (e, data) => {
@@ -79,4 +77,8 @@ const DropdownPrice = ({title, min, max, setMin, setMax, difference, addition, s
   )
 }
 
-export default DropdownPrice
+const clickOutsideConfig = {
+  handleClickOutside: () => DropdownPrice.handleClickOutside,
+}
+
+export default onClickOutside(DropdownPrice, clickOutsideConfig)
