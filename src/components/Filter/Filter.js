@@ -3,7 +3,7 @@ import {useStateValue} from '../../context/StateContext'
 
 import './Filter.scss'
 
-const Filter = ({ gender, setGender, children }) => {
+const Filter = ({ gender, setGender, children, setMin, setMax, difference, addition }) => {
  
   const [ stickFilter, setStickFilter ] = useState(false)
   const [{showClear}, dispatch ] = useStateValue()
@@ -25,6 +25,8 @@ const Filter = ({ gender, setGender, children }) => {
   }, [])
 
   const clearAll = () => {
+    setMin(addition)
+    setMax((difference * 100) + addition)
     dispatch({type: 'CLEAR_ALL'})
   }
 

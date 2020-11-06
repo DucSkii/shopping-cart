@@ -38,27 +38,27 @@ const Watches = () => {
   const [ gender, setGender ] = useState('All')
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
-  const [ selectionPrice, setSelectionPrice ] = useState([])
   const [ min, setMin ] = useState(1000)
   const [ max, setMax ] = useState(20000)
+  const [ selectedPrice, setSelectedPrice ] = useState(false)
   const [{watches, mapColor, getSort, clearAll}, dispatch ] = useStateValue()
 
   const difference = 190
   const addition = 1000
 
   useEffect(() => {
-    if (selectionColour.length !== 0 || selectionSort.length !== 0 || selectionPrice.length !== 0) {
+    if (selectionColour.length !== 0 || selectionSort.length !== 0 || selectedPrice !== false) {
       dispatch({type: 'CHANGE_TRUE'})
     } else {
       dispatch({type: 'CHANGE_FALSE'})
     }
-  }, [ selectionColour, selectionPrice, selectionSort ])
+  }, [ selectionColour, selectedPrice, selectionSort ])
 
   useEffect(() => {
     if(clearAll === true){
       setSelectionColour([])
       setSelectionSort([])
-      setSelectionPrice([])
+      setSelectedPrice(false)
       dispatch({type: 'CLEAR_RESET'})
     }
   }, [clearAll])
@@ -160,7 +160,14 @@ const Watches = () => {
   return (
     <>
       <Navigation />
-      <Filter gender={gender} setGender={setGender}>
+      <Filter
+        gender={gender}
+        setGender={setGender}
+        setMin={setMin}
+        setMax={setMax}
+        difference={difference}
+        addition={addition}
+      >
         <SortBy
           selection={selectionSort}
           setSelection={setSelectionSort}
@@ -172,6 +179,7 @@ const Watches = () => {
           setMax={setMax}
           difference={difference}
           addition={addition}
+          setSelectedPrice={setSelectedPrice}
         />
         <ColourFilter
           coloursList={colorsFilterList(watches)}

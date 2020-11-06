@@ -3,13 +3,21 @@ import onClickOutside from 'react-onclickoutside'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { Slider } from '@material-ui/core'
+import { useStateValue } from '../../../context/StateContext'
 import './DropdownPrice.scss'
 
-const DropdownPrice = ({title, min, max, setMin, setMax, difference, addition}) => {
+const DropdownPrice = ({title, min, max, setMin, setMax, difference, addition, setSelectedPrice}) => {
+
+  const [ selected, setSelected ] = useState(false)
+  const [{clearAll}, dispatch ] = useStateValue()
 
   const [ open, setOpen ] = useState(false)
   const [ val, setVal ] = useState([ 0, 100 ])
-  const [ selected, setSelected ] = useState(false)
+
+  useEffect(() => {
+    setVal([ 0, 100 ])
+    dispatch({type: 'CLEAR_RESET'})
+  }, [clearAll])
 
   const toggle = () => {
     setOpen(!open)
@@ -32,7 +40,11 @@ const DropdownPrice = ({title, min, max, setMin, setMax, difference, addition}) 
       setSelected(false)
     }
   }, [ min, max ])
-  
+
+  useEffect(() => {
+    setSelectedPrice(selected)
+  }, [selected])
+
   return (
     <div className="dd-wrapper">
       <div className="dd-header-wrapper">
