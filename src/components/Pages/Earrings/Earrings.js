@@ -30,122 +30,98 @@ const Earrings = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
-  const [{earrings, mapColor}, dispatch ] = useStateValue()
+  const [{earrings, mapColor, getSort}, dispatch ] = useStateValue()
 
   const filterGender = () => {
     if (gender === 'All') {
       if (mapColor.length === 0) {
         return earrings.map((earring, index) => {
-          return <Items
-            key={index}
-            id={earring.id}
-            subTotal={earring.subTotal}
-            quantity={earring.quantity}
-            name={earring.name}
-            cost={earring.cost}
-            image={earring.image.url}
-            colour={earring.image.color.join(', ').toUpperCase()}
-            desc1={earring.description1}
-            desc2={earring.description2}
-            desc3={earring.description3}
-            gender={earring.image.gender}
-          />
+          return earring
         })
       } else {
-        return earrings.filter(item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+        return earrings.filter(item => item.image.color.some(color => mapColor.includes(color))).map((earring, index) => {
+          return earring
         })
       }
     } if (gender === 'Men') {
       if (mapColor.length === 0) {
-        return earrings.filter(earring => earring.image.gender.includes('Men')).map((filteredEarring, index) => {
-          return <Items
-            key={index}
-            id={filteredEarring.id}
-            subTotal={filteredEarring.subTotal}
-            quantity={filteredEarring.quantity}
-            name={filteredEarring.name}
-            cost={filteredEarring.cost}
-            image={filteredEarring.image.url}
-            colour={filteredEarring.image.color.join(', ').toUpperCase()}
-            desc1={filteredEarring.description1}
-            desc2={filteredEarring.description2}
-            desc3={filteredEarring.description3}
-            gender={filteredEarring.image.gender}
-          />
+        return earrings.filter(earring => earring.image.gender.includes('Men')).map((earring, index) => {
+          return earring
         })
       } else {
         return earrings.filter(earring => earring.image.gender.includes('Men')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+          item => item.image.color.some(color => mapColor.includes(color))).map((earring, index) => {
+          return earring
         })
       }
     } if (gender === 'Women') {
       if (mapColor.length === 0) {
-        return earrings.filter(earring => earring.image.gender.includes('Women')).map((filteredEarring, index) => {
-          return <Items
-            key={index}
-            id={filteredEarring.id}
-            subTotal={filteredEarring.subTotal}
-            name={filteredEarring.name}
-            quantity={filteredEarring.quantity}
-            cost={filteredEarring.cost}
-            image={filteredEarring.image.url}
-            colour={filteredEarring.image.color.join(', ').toUpperCase()}
-            desc1={filteredEarring.description1}
-            desc2={filteredEarring.description2}
-            desc3={filteredEarring.description3}
-            gender={filteredEarring.image.gender}
-          />
+        return earrings.filter(earring => earring.image.gender.includes('Women')).map((earring, index) => {
+          return earring
         })
       } else {
         return earrings.filter(earring => earring.image.gender.includes('Women')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+          item => item.image.color.some(color => mapColor.includes(color))).map((earring, index) => {
+          return earring
         })
       }
     }
   }
 
+  const sortArray = () => {
+    let filterSort = []
+    const filterNumber = filterGender().map(item => {
+      return item.cost
+    })
+    if (getSort.length === 0) {
+      filterSort = filterNumber
+    } else if (getSort.toString() === 'Price low to high') {
+      filterSort = filterNumber.sort((a, b) => {
+        return a - b
+      })
+    } else if (getSort.toString() === 'Price high to low') {
+      filterSort = filterNumber.sort((a, b) => {
+        return b - a
+      })
+    }
+    return filterSort
+  }
+
+  const mapOrder = (array, order, key) => {
+    array.sort((a, b) => {
+      let A = a[key]
+      let B = b[key]
+
+      if(order.indexOf(A) > order.indexOf(B)) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+    return array
+  }
+
+  const orderedArray = mapOrder(filterGender(), sortArray(), 'cost')
+
+  const renderOrderedArray = () => {
+    return orderedArray.map((item, index) => {
+      return <Items
+        key={index}
+        id={item.id}
+        subTotal={item.subTotal}
+        quantity={item.quantity}
+        name={item.name}
+        cost={item.cost}
+        image={item.image.url}
+        colour={item.image.color.join(', ').toUpperCase()}
+        desc1={item.description1}
+        desc2={item.description2}
+        desc3={item.description3}
+        gender={item.image.gender}
+      />
+    })
+  }
+  
   return (
     <>
       <Navigation />
@@ -165,7 +141,7 @@ const Earrings = () => {
         />
       </Filter>
       <Page className='earrings' title="Earrings" gender={gender}>
-        {filterGender()}
+        {renderOrderedArray()}
       </Page>
     </>
   )

@@ -30,121 +30,97 @@ const Necklaces = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
-  const [{necklaces, mapColor}, dispatch ] = useStateValue()
+  const [{necklaces, mapColor, getSort}, dispatch ] = useStateValue()
 
   const filterGender = () => {
 
     if (gender === 'All') {
       if (mapColor.length === 0) {
         return necklaces.map((necklace, index) => {
-          return <Items
-            key={index}
-            id={necklace.id}
-            subTotal={necklace.subTotal}
-            quantity={necklace.quantity}
-            name={necklace.name}
-            cost={necklace.cost}
-            image={necklace.image.url}
-            colour={necklace.image.color.join(', ').toUpperCase()}
-            desc1={necklace.description1}
-            desc2={necklace.description2}
-            desc3={necklace.description3}
-            gender={necklace.image.gender}
-          />
+          return necklace
         })
       } else {
-        return necklaces.filter(item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+        return necklaces.filter(item => item.image.color.some(color => mapColor.includes(color))).map((necklace, index) => {
+          return necklace
         })
       }
     } if (gender === 'Men') {
       if (mapColor.length === 0) {
-        return necklaces.filter(necklace => necklace.image.gender.includes('Men')).map((filteredNecklace, index) => {
-          return <Items
-            key={index}
-            id={filteredNecklace.id}
-            subTotal={filteredNecklace.subTotal}
-            quantity={filteredNecklace.quantity}
-            name={filteredNecklace.name}
-            cost={filteredNecklace.cost}
-            image={filteredNecklace.image.url}
-            colour={filteredNecklace.image.color.join(', ').toUpperCase()}
-            desc1={filteredNecklace.description1}
-            desc2={filteredNecklace.description2}
-            desc3={filteredNecklace.description3}
-            gender={filteredNecklace.image.gender}
-          />
+        return necklaces.filter(necklace => necklace.image.gender.includes('Men')).map((necklace, index) => {
+          return necklace
         })
       } else {
         return necklaces.filter(necklace => necklace.image.gender.includes('Men')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+          item => item.image.color.some(color => mapColor.includes(color))).map((necklace, index) => {
+          return necklace
         })
       }
     } if (gender === 'Women') {
       if (mapColor.length === 0) {
-        return necklaces.filter(necklace => necklace.image.gender.includes('Women')).map((filteredNecklace, index) => {
-          return <Items
-            key={index}
-            id={filteredNecklace.id}
-            subTotal={filteredNecklace.subTotal}
-            quantity={filteredNecklace.quantity}
-            name={filteredNecklace.name}
-            cost={filteredNecklace.cost}
-            image={filteredNecklace.image.url}
-            colour={filteredNecklace.image.color.join(', ').toUpperCase()}
-            desc1={filteredNecklace.description1}
-            desc2={filteredNecklace.description2}
-            desc3={filteredNecklace.description3}
-            gender={filteredNecklace.image.gender}
-          />
+        return necklaces.filter(necklace => necklace.image.gender.includes('Women')).map((necklace, index) => {
+          return necklace
         })
       } else {
         return necklaces.filter(necklace => necklace.image.gender.includes('Women')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+          item => item.image.color.some(color => mapColor.includes(color))).map((necklace, index) => {
+          return necklace
         })
       }
     }
+  }
+
+  const sortArray = () => {
+    let filterSort = []
+    const filterNumber = filterGender().map(item => {
+      return item.cost
+    })
+    if (getSort.length === 0) {
+      filterSort = filterNumber
+    } else if (getSort.toString() === 'Price low to high') {
+      filterSort = filterNumber.sort((a, b) => {
+        return a - b
+      })
+    } else if (getSort.toString() === 'Price high to low') {
+      filterSort = filterNumber.sort((a, b) => {
+        return b - a
+      })
+    }
+    return filterSort
+  }
+
+  const mapOrder = (array, order, key) => {
+    array.sort((a, b) => {
+      let A = a[key]
+      let B = b[key]
+
+      if(order.indexOf(A) > order.indexOf(B)) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+    return array
+  }
+
+  const orderedArray = mapOrder(filterGender(), sortArray(), 'cost')
+
+  const renderOrderedArray = () => {
+    return orderedArray.map((item, index) => {
+      return <Items
+        key={index}
+        id={item.id}
+        subTotal={item.subTotal}
+        quantity={item.quantity}
+        name={item.name}
+        cost={item.cost}
+        image={item.image.url}
+        colour={item.image.color.join(', ').toUpperCase()}
+        desc1={item.description1}
+        desc2={item.description2}
+        desc3={item.description3}
+        gender={item.image.gender}
+      />
+    })
   }
 
   return (
@@ -166,7 +142,7 @@ const Necklaces = () => {
         />
       </Filter>
       <Page className='necklaces' title="Necklaces" gender={gender}>
-        {filterGender()}
+        {renderOrderedArray()}
       </Page>
     </>
   )

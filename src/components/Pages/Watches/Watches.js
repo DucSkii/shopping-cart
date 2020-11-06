@@ -9,6 +9,7 @@ import ColourFilter from '../../Filter/ColourFilter/ColourFilter'
 import SortBy from '../../Filter/SortBy/SortBy'
 import PriceFilter from '../../Filter/PriceFilter/PriceFilter'
 import { useStateValue } from '../../../context/StateContext'
+import { filter } from 'lodash'
 
 // const test = () => {
 //   watches.filter(watch => {
@@ -38,128 +39,98 @@ const Watches = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
-  const [{watches, mapColor}, dispatch ] = useStateValue()
+  const [{watches, mapColor, getSort}, dispatch ] = useStateValue()
 
   const filterGender = () => {
     if (gender === 'All') {
       if (mapColor.length === 0) {
         return watches.map((watch, index) => {
-          return <Items
-            key={index}
-            id={watch.id}
-            subTotal={watch.subTotal}
-            quantity={watch.quantity}
-            name={watch.name}
-            cost={watch.cost}
-            image={watch.image.url}
-            colour={watch.image.color.join(', ').toUpperCase()}
-            desc1={watch.description1}
-            desc2={watch.description2}
-            desc3={watch.description3}
-            gender={watch.image.gender}
-          />
+          return watch
         })
       } else {
-        return watches.filter(item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+        return watches.filter(item => item.image.color.some(color => mapColor.includes(color))).map((watch, index) => {
+          return watch
         })
       }
     } if (gender === 'Men') {
       if (mapColor.length === 0) {
-        return watches.filter(watch => watch.image.gender.includes('Men')).map((filteredWatch, index) => {
-          return <Items
-            key={index}
-            id={filteredWatch.id}
-            subTotal={filteredWatch.subTotal}
-            quantity={filteredWatch.quantity}
-            name={filteredWatch.name}
-            cost={filteredWatch.cost}
-            image={filteredWatch.image.url}
-            colour={filteredWatch.image.color.join(', ').toUpperCase()}
-            desc1={filteredWatch.description1}
-            desc2={filteredWatch.description2}
-            desc3={filteredWatch.description3}
-            gender={filteredWatch.image.gender}
-          />
+        return watches.filter(watch => watch.image.gender.includes('Men')).map((watch, index) => {
+          return watch
         })
       } else {
         return watches.filter(watch => watch.image.gender.includes('Men')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+          item => item.image.color.some(color => mapColor.includes(color))).map((watch, index) => {
+          return watch
         })
       }
     } if (gender === 'Women') {
       if (mapColor.length === 0) {
-        return watches.filter(watch => watch.image.gender.includes('Women')).map((filteredWatch, index) => {
-          return <Items
-            key={index}
-            id={filteredWatch.id}
-            subTotal={filteredWatch.subTotal}
-            quantity={filteredWatch.quantity}
-            name={filteredWatch.name}
-            cost={filteredWatch.cost}
-            image={filteredWatch.image.url}
-            colour={filteredWatch.image.color.join(', ').toUpperCase()}
-            desc1={filteredWatch.description1}
-            desc2={filteredWatch.description2}
-            desc3={filteredWatch.description3}
-            gender={filteredWatch.image.gender}
-          />
+        return watches.filter(watch => watch.image.gender.includes('Women')).map((watch, index) => {
+          return watch
         })
       } else {
         return watches.filter(watch => watch.image.gender.includes('Women')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((filteredColor, index) => {
-          return <Items
-            key={index}
-            id={filteredColor.id}
-            subTotal={filteredColor.subTotal}
-            quantity={filteredColor.quantity}
-            name={filteredColor.name}
-            cost={filteredColor.cost}
-            image={filteredColor.image.url}
-            colour={filteredColor.image.color.join(', ').toUpperCase()}
-            desc1={filteredColor.description1}
-            desc2={filteredColor.description2}
-            desc3={filteredColor.description3}
-            gender={filteredColor.image.gender}
-          />
+          item => item.image.color.some(color => mapColor.includes(color))).map((watch, index) => {
+          return watch
         })
       }
     }
   }
 
-  // const filterColour = () => {
-  //   if (selectionColour.length !== 0) {
-  //     return
-  //   }
-  // }
+  const sortArray = () => {
+    let filterSort = []
+    const filterNumber = filterGender().map(item => {
+      return item.cost
+    })
+    if (getSort.length === 0) {
+      filterSort = filterNumber
+    } else if (getSort.toString() === 'Price low to high') {
+      filterSort = filterNumber.sort((a, b) => {
+        return a - b
+      })
+    } else if (getSort.toString() === 'Price high to low') {
+      filterSort = filterNumber.sort((a, b) => {
+        return b - a
+      })
+    }
+    return filterSort
+  }
 
+  const mapOrder = (array, order, key) => {
+    array.sort((a, b) => {
+      let A = a[key]
+      let B = b[key]
+
+      if(order.indexOf(A) > order.indexOf(B)) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+    return array
+  }
+
+  const orderedArray = mapOrder(filterGender(), sortArray(), 'cost')
+
+  const renderOrderedArray = () => {
+    return orderedArray.map((item, index) => {
+      return <Items
+        key={index}
+        id={item.id}
+        subTotal={item.subTotal}
+        quantity={item.quantity}
+        name={item.name}
+        cost={item.cost}
+        image={item.image.url}
+        colour={item.image.color.join(', ').toUpperCase()}
+        desc1={item.description1}
+        desc2={item.description2}
+        desc3={item.description3}
+        gender={item.image.gender}
+      />
+    })
+  }
+  
   return (
     <>
       <Navigation />
@@ -179,7 +150,7 @@ const Watches = () => {
         />
       </Filter>
       <Page className='watches' title="Watches" gender={gender}>
-        {filterGender()}
+        {renderOrderedArray()}
       </Page>
     </>
   )
