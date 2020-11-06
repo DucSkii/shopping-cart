@@ -39,6 +39,8 @@ const Watches = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
+  const [ min, setMin ] = useState(1000)
+  const [ max, setMax ] = useState(20000)
   const [{watches, mapColor, getSort, clearAll}, dispatch ] = useStateValue()
 
   useEffect(() => {
@@ -157,8 +159,10 @@ const Watches = () => {
           setSelection={setSelectionSort}
         />
         <PriceFilter
-          selection={selectionPrice}
-          setSelection={setSelectionPrice}
+          min={min}
+          max={max}
+          setMin={setMin}
+          setMax={setMax}
         />
         <ColourFilter
           coloursList={colorsFilterList(watches)}

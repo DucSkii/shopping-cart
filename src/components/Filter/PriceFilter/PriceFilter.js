@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Dropdown from '../../../utils/Tools/Dropdown/Dropdown.js'
+import DropdownPrice from '../../../utils/Tools/DropdownPrice/DropdownPrice'
 
 const items = [
   {
@@ -17,15 +17,16 @@ const items = [
   },
 ]
 
-const PriceFilter = ({ selection, setSelection }) => {
+const PriceFilter = ({ min, max, setMin, setMax }) => {
 
   return (
     <div className="priceFilter">
-      <Dropdown title="Price Range"
-        items={items}
-        multiSelect
-        selection={selection}
-        setSelection={setSelection}
+      <DropdownPrice
+        title="Price Range"
+        min={min}
+        max={max}
+        setMin={setMin}
+        setMax={setMax}
       />
     </div>
   )

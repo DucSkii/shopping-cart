@@ -1,0 +1,123 @@
+.dd-header {
+  margin: 5px 0;
+  &-wrapper {
+    :hover {
+      transition: all 0.2s ease-in-out;
+      color: #0770cf;
+    }
+  }
+  font-size: 14px;
+  display: flex;
+  width: 250px;
+  height: 30px;
+  background-color: #eee;
+  color: #666;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  &__title {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+  &__action {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+}
+
+.dd-header-selected {
+  margin: 5px 0;
+  &-wrapper {
+    :hover {
+      transition: all 0.2s ease-in-out;
+      color: #0770cf;
+    }
+  }
+  font-size: 14px;
+  display: flex;
+  width: 250px;
+  height: 30px;
+  background-color: #ddd;
+  color: #666;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  &__title {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+  &__action {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+}
+
+.dd-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0px;
+  padding: 0px 10px;
+  padding-bottom: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.dd-list-item-button {
+  width: 230px;
+  background-color: white;
+  height: 40px;
+  text-align: left;
+  border: none;
+  border-radius: 5px;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+  &-selected {
+    width: 230px;
+    height: 40px;
+    text-align: left;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: #0770cf;
+    color: white;
+  }
+}
+
+.dd-list-item-gap {
+  height: 10px;
+  background-color: #eee;
+}
+
+.slider {
+  &-price {
+    &-range {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+  background-color: #eee;
+  padding: 0px 30px;
+  border-radius: 5px;
+  height: 50px;
+}
+}
