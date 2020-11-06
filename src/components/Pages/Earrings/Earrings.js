@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Navigation from '../../Navigation/Navigation'
 import Page from '../../Page/Page'
@@ -30,7 +30,24 @@ const Earrings = () => {
   const [ selectionColour, setSelectionColour ] = useState([])
   const [ selectionSort, setSelectionSort ] = useState([])
   const [ selectionPrice, setSelectionPrice ] = useState([])
-  const [{earrings, mapColor, getSort}, dispatch ] = useStateValue()
+  const [{earrings, mapColor, getSort, clearAll}, dispatch ] = useStateValue()
+
+  useEffect(() => {
+    if (selectionColour.length !== 0 || selectionSort.length !== 0 || selectionPrice.length !== 0) {
+      dispatch({type: 'CHANGE_TRUE'})
+    } else {
+      dispatch({type: 'CHANGE_FALSE'})
+    }
+  }, [ selectionColour, selectionPrice, selectionSort ])
+
+  useEffect(() => {
+    if(clearAll === true){
+      setSelectionColour([])
+      setSelectionSort([])
+      setSelectionPrice([])
+      dispatch({type: 'CLEAR_RESET'})
+    }
+  }, [clearAll])
 
   const filterGender = () => {
     if (gender === 'All') {

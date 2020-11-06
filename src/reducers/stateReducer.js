@@ -11,6 +11,8 @@ export const initialState = {
   itemCount: 0,
   mapColor: [],
   getSort: [],
+  showClear: false,
+  clearAll: false,
 }
 
 export const getFavouritesListIds = (favouritesList) => {
@@ -37,7 +39,6 @@ export const getCartSubTotal = (cartList) => {
 
   return getSubTotal
 }
-
 // Can have function outside and use it within switches
 export default function stateReducer(state, action) {
   switch(action.type) {
@@ -50,6 +51,28 @@ export default function stateReducer(state, action) {
     return {
       ...state,
       favouritesList: action.payload || [],
+    }
+  case 'CLEAR_RESET' :
+    return {
+      ...state,
+      clearAll: false,
+    }
+  case 'CLEAR_ALL' :
+    return {
+      ...state,
+      getSort: [],
+      mapColor: [],
+      clearAll: true,
+    }
+  case 'CHANGE_FALSE' :
+    return {
+      ...state,
+      showClear: false,
+    }
+  case 'CHANGE_TRUE' :
+    return {
+      ...state,
+      showClear: true,
     }
   case 'CHANGE_COLOR' :
     const newColor = action.selection

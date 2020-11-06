@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
+import {useStateValue} from '../../context/StateContext'
 
 import './Filter.scss'
 
 const Filter = ({ gender, setGender, children }) => {
  
   const [ stickFilter, setStickFilter ] = useState(false)
+  const [{showClear}, dispatch ] = useStateValue()
 
   const checkScrollFilter = () => {
     if (window.pageYOffset > 162) {
@@ -21,6 +23,10 @@ const Filter = ({ gender, setGender, children }) => {
       setStickFilter(false)
     }
   }, [])
+
+  const clearAll = () => {
+    dispatch({type: 'CLEAR_ALL'})
+  }
 
   return (
     <div className={stickFilter ? 'filter-fixed' : 'filter'}>
@@ -42,7 +48,17 @@ const Filter = ({ gender, setGender, children }) => {
         >Women</div>
         <div className="filter-vertical-divider" />
       </div>
-      {children}
+      <div className="filters">
+        <div className="filters-left">
+          <div className="filters-text">Filters:</div>
+          <div className="filters-button-container" onClick={clearAll}>
+            <button className="filters-button" style={{display: showClear ? 'flex' : 'none'}}>Clear All</button>
+          </div>
+        </div>
+        <div className="filters-dropdown">
+          {children}
+        </div>
+      </div>
     </div>
   )
 }
