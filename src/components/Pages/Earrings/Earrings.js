@@ -57,8 +57,18 @@ const Earrings = () => {
   const filterGender = () => {
     return earrings.filter(earring => {
       const hasGender = earring.image.gender.includes(gender)
-      if(mapColor.length) return hasGender && earring.image.color.some(color => mapColor.includes(color))
-      if(gender !== 'All') return hasGender
+      // If gender is Men or Women
+      if(gender !== 'All') {
+        // If color filter
+        if(mapColor.length) {
+          // return true if right gender and color
+          return hasGender && earring.image.color.some(color => mapColor.includes(color))
+        }
+        // if no color filter, return if it's the right gender
+        return hasGender
+      } if(mapColor.length) {
+        return earring.image.color.some(color => mapColor.includes(color))
+      }
       return earring
     })
   }

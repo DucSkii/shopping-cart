@@ -54,11 +54,24 @@ const Watches = () => {
     }
   }, [clearAll])
 
+  // .filter
+
+  // .map
   const filterGender = () => {
     return watches.filter(watch => {
       const hasGender = watch.image.gender.includes(gender)
-      if(mapColor.length) return hasGender && watch.image.color.some(color => mapColor.includes(color))
-      if(gender !== 'All') return hasGender
+      // If gender is Men or Women
+      if(gender !== 'All') {
+        // If color filter
+        if(mapColor.length) {
+          // return true if right gender and color
+          return hasGender && watch.image.color.some(color => mapColor.includes(color))
+        }
+        // if no color filter, return if it's the right gender
+        return hasGender
+      } if(mapColor.length) {
+        return watch.image.color.some(color => mapColor.includes(color))
+      }
       return watch
     })
   }
