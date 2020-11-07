@@ -152,6 +152,8 @@ const Watches = () => {
     })
   }
 
+  const itemPageCount = renderOrderedArray().filter(array => array !== null)
+
   return (
     <>
       <Navigation />
@@ -182,7 +184,7 @@ const Watches = () => {
           setSelection={setSelectionColour}
         />
       </Filter>
-      <Page className='watches' title="Watches" gender={gender}>
+      <Page className='watches' title="Watches" gender={gender} itemPageCount={itemPageCount.length}>
         {renderOrderedArray()}
       </Page>
     </>

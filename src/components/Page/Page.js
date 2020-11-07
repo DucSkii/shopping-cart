@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons'
 import './Page.scss'
 
-const Page = ({ className, title, gender, children }) => {
+const Page = ({ className, title, gender, children, itemPageCount }) => {
 
   const [ showScroll, setShowScroll ] = useState(false)
 
@@ -32,7 +32,7 @@ const Page = ({ className, title, gender, children }) => {
       <div className={`page ${className}`}>
         <div className="page-title">{title}</div>
         <div className="page-subTitle">{gender}</div>
-        <div className="page-count">{children.length} items found</div>
+        <div className="page-count">{itemPageCount} items found</div>
         <div className="page-items">
           {children}
         </div>
