@@ -32,7 +32,7 @@ const Necklaces = () => {
   const [ min, setMin ] = useState(200)
   const [ max, setMax ] = useState(5000)
   const [ selectedPrice, setSelectedPrice ] = useState(false)
-  const [{necklaces, mapColor, getSort, clearAll}, dispatch ] = useStateValue()
+  const [{necklaces, mapColor, getSort, clearAll, searchBar}, dispatch ] = useStateValue()
 
   const difference = 48
   const addition = 200
@@ -132,20 +132,24 @@ const Necklaces = () => {
         return item
       }
     }).map((item, index) => {
-      return <Items
-        key={index}
-        id={item.id}
-        subTotal={item.subTotal}
-        quantity={item.quantity}
-        name={item.name}
-        cost={item.cost}
-        image={item.image.url}
-        colour={item.image.color.join(', ').toUpperCase()}
-        desc1={item.description1}
-        desc2={item.description2}
-        desc3={item.description3}
-        gender={item.image.gender}
-      />
+      if(searchBar !== '' && item.name.toLowerCase().indexOf(searchBar.toLowerCase()) === -1 ){
+        return null
+      } else {
+        return <Items
+          key={index}
+          id={item.id}
+          subTotal={item.subTotal}
+          quantity={item.quantity}
+          name={item.name}
+          cost={item.cost}
+          image={item.image.url}
+          colour={item.image.color.join(', ').toUpperCase()}
+          desc1={item.description1}
+          desc2={item.description2}
+          desc3={item.description3}
+          gender={item.image.gender}
+        />
+      }
     })
   }
 

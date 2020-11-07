@@ -9,15 +9,6 @@ import ColourFilter from '../../Filter/ColourFilter/ColourFilter'
 import SortBy from '../../Filter/SortBy/SortBy'
 import PriceFilter from '../../Filter/PriceFilter/PriceFilter'
 import { useStateValue } from '../../../context/StateContext'
-import { filter } from 'lodash'
-
-// const test = () => {
-//   watches.filter(watch => {
-//     if(watch.image.color.includes('Black')){
-//       return watch
-//     }
-//   })
-// }
 
 const colorsFilterList = (watches) => {
   const colors = []
@@ -41,7 +32,7 @@ const Watches = () => {
   const [ min, setMin ] = useState(1000)
   const [ max, setMax ] = useState(20000)
   const [ selectedPrice, setSelectedPrice ] = useState(false)
-  const [{watches, mapColor, getSort, clearAll}, dispatch ] = useStateValue()
+  const [{watches, mapColor, getSort, clearAll, searchBar}, dispatch ] = useStateValue()
 
   const difference = 190
   const addition = 1000
@@ -140,20 +131,24 @@ const Watches = () => {
         return item
       }
     }).map((item, index) => {
-      return <Items
-        key={index}
-        id={item.id}
-        subTotal={item.subTotal}
-        quantity={item.quantity}
-        name={item.name}
-        cost={item.cost}
-        image={item.image.url}
-        colour={item.image.color.join(', ').toUpperCase()}
-        desc1={item.description1}
-        desc2={item.description2}
-        desc3={item.description3}
-        gender={item.image.gender}
-      />
+      if(searchBar !== '' && item.name.toLowerCase().indexOf(searchBar.toLowerCase()) === -1 ){
+        return null
+      } else {
+        return <Items
+          key={index}
+          id={item.id}
+          subTotal={item.subTotal}
+          quantity={item.quantity}
+          name={item.name}
+          cost={item.cost}
+          image={item.image.url}
+          colour={item.image.color.join(', ').toUpperCase()}
+          desc1={item.description1}
+          desc2={item.description2}
+          desc3={item.description3}
+          gender={item.image.gender}
+        />
+      }
     })
   }
 

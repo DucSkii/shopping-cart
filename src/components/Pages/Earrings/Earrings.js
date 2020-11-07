@@ -32,7 +32,7 @@ const Earrings = () => {
   const [ min, setMin ] = useState(200)
   const [ max, setMax ] = useState(2000)
   const [ selectedPrice, setSelectedPrice ] = useState(false)
-  const [{earrings, mapColor, getSort, clearAll}, dispatch ] = useStateValue()
+  const [{earrings, mapColor, getSort, clearAll, searchBar}, dispatch ] = useStateValue()
 
   const difference = 18
   const addition = 200
@@ -131,23 +131,27 @@ const Earrings = () => {
         return item
       }
     }).map((item, index) => {
-      return <Items
-        key={index}
-        id={item.id}
-        subTotal={item.subTotal}
-        quantity={item.quantity}
-        name={item.name}
-        cost={item.cost}
-        image={item.image.url}
-        colour={item.image.color.join(', ').toUpperCase()}
-        desc1={item.description1}
-        desc2={item.description2}
-        desc3={item.description3}
-        gender={item.image.gender}
-      />
+      if(searchBar !== '' && item.name.toLowerCase().indexOf(searchBar.toLowerCase()) === -1 ){
+        return null
+      } else {
+        return <Items
+          key={index}
+          id={item.id}
+          subTotal={item.subTotal}
+          quantity={item.quantity}
+          name={item.name}
+          cost={item.cost}
+          image={item.image.url}
+          colour={item.image.color.join(', ').toUpperCase()}
+          desc1={item.description1}
+          desc2={item.description2}
+          desc3={item.description3}
+          gender={item.image.gender}
+        />
+      }
     })
   }
-  
+
   return (
     <>
       <Navigation />

@@ -13,6 +13,7 @@ export const initialState = {
   getSort: [],
   showClear: false,
   clearAll: false,
+  searchBar: '',
 }
 
 export const getFavouritesListIds = (favouritesList) => {
@@ -51,6 +52,11 @@ export default function stateReducer(state, action) {
     return {
       ...state,
       favouritesList: action.payload || [],
+    }
+  case 'SEARCH_BAR' :
+    return {
+      ...state,
+      searchBar: action.text,
     }
   case 'CLEAR_RESET' :
     return {
