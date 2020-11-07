@@ -55,40 +55,12 @@ const Necklaces = () => {
   }, [clearAll])
 
   const filterGender = () => {
-
-    if (gender === 'All') {
-      if (mapColor.length === 0) {
-        return necklaces.map((necklace, index) => {
-          return necklace
-        })
-      } else {
-        return necklaces.filter(item => item.image.color.some(color => mapColor.includes(color))).map((necklace, index) => {
-          return necklace
-        })
-      }
-    } if (gender === 'Men') {
-      if (mapColor.length === 0) {
-        return necklaces.filter(necklace => necklace.image.gender.includes('Men')).map((necklace, index) => {
-          return necklace
-        })
-      } else {
-        return necklaces.filter(necklace => necklace.image.gender.includes('Men')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((necklace, index) => {
-          return necklace
-        })
-      }
-    } if (gender === 'Women') {
-      if (mapColor.length === 0) {
-        return necklaces.filter(necklace => necklace.image.gender.includes('Women')).map((necklace, index) => {
-          return necklace
-        })
-      } else {
-        return necklaces.filter(necklace => necklace.image.gender.includes('Women')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((necklace, index) => {
-          return necklace
-        })
-      }
-    }
+    return necklaces.filter(necklace => {
+      const hasGender = necklace.image.gender.includes(gender)
+      if(mapColor.length) return hasGender && necklace.image.color.some(color => mapColor.includes(color))
+      if(gender !== 'All') return hasGender
+      return necklace
+    })
   }
 
   const sortArray = () => {

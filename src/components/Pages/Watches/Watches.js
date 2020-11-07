@@ -55,39 +55,12 @@ const Watches = () => {
   }, [clearAll])
 
   const filterGender = () => {
-    if (gender === 'All') {
-      if (mapColor.length === 0) {
-        return watches.map((watch, index) => {
-          return watch
-        })
-      } else {
-        return watches.filter(item => item.image.color.some(color => mapColor.includes(color))).map((watch, index) => {
-          return watch
-        })
-      }
-    } if (gender === 'Men') {
-      if (mapColor.length === 0) {
-        return watches.filter(watch => watch.image.gender.includes('Men')).map((watch, index) => {
-          return watch
-        })
-      } else {
-        return watches.filter(watch => watch.image.gender.includes('Men')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((watch, index) => {
-          return watch
-        })
-      }
-    } if (gender === 'Women') {
-      if (mapColor.length === 0) {
-        return watches.filter(watch => watch.image.gender.includes('Women')).map((watch, index) => {
-          return watch
-        })
-      } else {
-        return watches.filter(watch => watch.image.gender.includes('Women')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((watch, index) => {
-          return watch
-        })
-      }
-    }
+    return watches.filter(watch => {
+      const hasGender = watch.image.gender.includes(gender)
+      if(mapColor.length) return hasGender && watch.image.color.some(color => mapColor.includes(color))
+      if(gender !== 'All') return hasGender
+      return watch
+    })
   }
 
   const sortArray = () => {

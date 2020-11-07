@@ -55,39 +55,12 @@ const Earrings = () => {
   }, [clearAll])
 
   const filterGender = () => {
-    if (gender === 'All') {
-      if (mapColor.length === 0) {
-        return earrings.map((earring, index) => {
-          return earring
-        })
-      } else {
-        return earrings.filter(item => item.image.color.some(color => mapColor.includes(color))).map((earring, index) => {
-          return earring
-        })
-      }
-    } if (gender === 'Men') {
-      if (mapColor.length === 0) {
-        return earrings.filter(earring => earring.image.gender.includes('Men')).map((earring, index) => {
-          return earring
-        })
-      } else {
-        return earrings.filter(earring => earring.image.gender.includes('Men')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((earring, index) => {
-          return earring
-        })
-      }
-    } if (gender === 'Women') {
-      if (mapColor.length === 0) {
-        return earrings.filter(earring => earring.image.gender.includes('Women')).map((earring, index) => {
-          return earring
-        })
-      } else {
-        return earrings.filter(earring => earring.image.gender.includes('Women')).filter(
-          item => item.image.color.some(color => mapColor.includes(color))).map((earring, index) => {
-          return earring
-        })
-      }
-    }
+    return earrings.filter(earring => {
+      const hasGender = earring.image.gender.includes(gender)
+      if(mapColor.length) return hasGender && earring.image.color.some(color => mapColor.includes(color))
+      if(gender !== 'All') return hasGender
+      return earring
+    })
   }
 
   const sortArray = () => {
