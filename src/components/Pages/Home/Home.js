@@ -1,12 +1,22 @@
 import React from 'react'
 
 import Navigation from '../../Navigation/Navigation'
-import Model from '../../images/websiteModel.jpg'
+import Watch from '../../images/watch.jpg'
+import Watch2 from '../../images/watch2.jpg'
+import Necklace from '../../images/necklace.jpg'
 import Flower from '../../images/flower.png'
+import { Fade } from 'react-slideshow-image'
+import 'react-slideshow-image/dist/styles.css'
 
 import './Home.scss'
 
 const Home = () => {
+
+  const fadeImages = [
+    Watch2,
+    Necklace,
+    Watch,
+  ]
 
   return (
     <div className="home-container">
@@ -21,7 +31,21 @@ const Home = () => {
       </div>
       <div className="home-model-wrapper" >
         <img className="home-flower" src={Flower} alt='' />
-        <img className="home-model" src={Model} alt='' />
+        <div className="home-watch">
+          <Fade
+            arrows={false}
+          >
+            <div className="each-fade">
+              <img src={fadeImages[0]} alt="" />
+            </div>
+            <div className="each-fade">
+              <img src={fadeImages[1]} alt="" />
+            </div>
+            <div className="each-fade">
+              <img src={fadeImages[2]} alt="" />
+            </div>
+          </Fade>
+        </div>
       </div>
     </div>
   )

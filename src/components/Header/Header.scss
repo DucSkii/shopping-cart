@@ -24,6 +24,10 @@
 .header-section {
   display: flex;
   flex: 1;
-  justify-content: space-between;
-  padding-left: 30px;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.header-store {
+  margin-right: 60px;
 }

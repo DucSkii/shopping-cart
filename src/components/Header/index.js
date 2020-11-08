@@ -13,8 +13,10 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-section">
-        <SearchBar />
         <Title />
+        <SearchBar />
+      </div>
+      <div className="header-store">
         <StoreFinder />
       </div>
       <div className="header-link">
