@@ -13,6 +13,7 @@ Functionality that I wished to include:
 Improvments that can be made:
 - This is my first big project and I did not think about the reposiveness of the website making it incompatible for mobile devices. I have learnt from this and for the next project I made sure to include responsiveness from the mobile-first approach.
 - The search bar is very half-functional, it does not give "suggested searches" or "auto-fill searches" and only works on the page of items you are currently on. This can be improved by figuring out how to search from any page.
+- Have a way to track the users location to change the delivery address on the header, this could be done by having user authentication and a customisable profile per user.
 
 
 
