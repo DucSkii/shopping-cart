@@ -1,7 +1,7 @@
 The goal of this project was to make a simple eCommerce website and have it be deployed.
 
 Functionality that I wished to include:
-- Have a home page, a page for each of the items, a favourites page and a checkout page
+- Have a home page, a page for each of the items, a favourites page and a checkout page.
 - Have a fully functional navagation system using react-router-dom.
 - Be able to add items to cart and have the option to pre-select the delivery.
 - Be able to add certain items into your favourites list.
@@ -21,3 +21,5 @@ The designing was done completely with css/scss and the icons were provided by "
 
 This project was fully deployed using firebase,
 You can find a link to the deployed website here: https://shopping-cart-project-f7cf3.web.app/
+
+To install the code please clone the repository and run "npm install" to get all the dependencies. Run "npm run start" to host the application on your localhost.
