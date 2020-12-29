@@ -13,12 +13,12 @@ export const watch = () => {
     image: faker.random.arrayElement([
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126333-0010.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'gold', 'silver' ],
+        color: ['gold', 'silver'],
         gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126711chnr-0002.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'black', 'rose gold' ],
+        color: ['silver', 'black', 'rose gold'],
         gender: ['Men'],
       },
       {
@@ -28,7 +28,7 @@ export const watch = () => {
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m124060-0001.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'black' ],
+        color: ['silver', 'black'],
         gender: ['Men'],
       },
       {
@@ -38,37 +38,37 @@ export const watch = () => {
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m116681-0002.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'rose gold', 'royal blue' ],
+        color: ['silver', 'rose gold', 'royal blue'],
         gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m116515ln-0018.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'black', 'rose gold' ],
+        color: ['black', 'rose gold'],
         gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126603-0001.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'black', 'gold' ],
+        color: ['silver', 'black', 'gold'],
         gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m326238-0009.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'black', 'gold' ],
+        color: ['black', 'gold'],
         gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m50535-0002.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'black', 'rose gold' ],
+        color: ['black', 'rose gold'],
         gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m116680-0002.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'royal blue' ],
+        color: ['silver', 'royal blue'],
         gender: ['Men'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m116508-0009.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'gold', 'black' ],
+        color: ['gold', 'black'],
         gender: ['Men'],
       },
       {
@@ -83,27 +83,27 @@ export const watch = () => {
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m278384rbr-0029.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'royal blue' ],
+        color: ['silver', 'royal blue'],
         gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126233-0030.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'gold', 'silver' ],
+        color: ['gold', 'silver'],
         gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126281rbr-0011.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'rose gold', 'black' ],
+        color: ['silver', 'rose gold', 'black'],
         gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126234-0015.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'black' ],
+        color: ['silver', 'black'],
         gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m126283rbr-0004.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'gold' ],
+        color: ['silver', 'gold'],
         gender: ['Women'],
       },
       {
@@ -118,17 +118,17 @@ export const watch = () => {
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m278273-0016.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'gold' ],
+        color: ['silver', 'gold'],
         gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m279384rbr-0018.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'black' ],
+        color: ['silver', 'black'],
         gender: ['Women'],
       },
       {
         url: 'https://content.rolex.com/dam/2020//upright-bba-with-shadow/m279161-0017.png?impolicy=v6-upright&imwidth=420',
-        color: [ 'silver', 'rose gold' ],
+        color: ['silver', 'rose gold'],
         gender: ['Women'],
       },
     ]),
