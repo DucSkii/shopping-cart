@@ -20,7 +20,7 @@ _**The goal of this project was to make a simple eCommerce website and have it b
 ![Alt Text](https://i.gyazo.com/44fc99f8ce0594f90243e752f1b4c365.png)
 
 _The website for this project is **NOT RESPONSIVE**, however this is something I have learn from and took action towards in my next project._
-*The designing was done completely with css/scss, the icons were taken from "Font Awesome"*
+*The designing was done completely with css/scss, the icons were taken from "Font Awesome.".*
 *The images for the necklace and earrings page have been corrupted, the replacement images do not work as intended. Check out the watches page to have the full experience.*
 
 This project was fully deployed using firebase,
