@@ -9,8 +9,8 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as Heart } from '@fortawesome/free-solid-svg-icons'
 import { getFavouritesListIds } from '../../reducers/stateReducer'
 
-const Items = ({...props}) => {
-  const [{favouritesList}, dispatch ] = useStateValue()
+const Items = ({ ...props }) => {
+  const [{ favouritesList }, dispatch] = useStateValue()
 
   //watch - favourites - false
   //getid [1,2,3,4]
@@ -18,24 +18,24 @@ const Items = ({...props}) => {
 
   const toggleFavourite = () => {
     // This checks if current item is already a favourite
-    if(getFavouritesListIds(favouritesList).includes(props.id)) {
+    if (getFavouritesListIds(favouritesList).includes(props.id)) {
       //REMOVE_FROM_FAVOURITES
-      dispatch({type: 'delete', item: props})
-    }else {
+      dispatch({ type: 'delete', item: props })
+    } else {
       //ADD_TO_FAVOURITES
-      dispatch({type: 'add', item: props})
+      dispatch({ type: 'add', item: props })
     }
   }
-  
+
   const changeIcon = () => {
     let icon = faHeart
-    if(getFavouritesListIds(favouritesList).includes(props.id)) {
+    if (getFavouritesListIds(favouritesList).includes(props.id)) {
       icon = Heart
     }
 
     return (
       <div className="items-heart">
-        <FontAwesomeIcon icon={icon} onClick={toggleFavourite}/>
+        <FontAwesomeIcon icon={icon} onClick={toggleFavourite} />
       </div>
     )
   }
@@ -59,10 +59,10 @@ const Items = ({...props}) => {
       >
         <div className="items">
           <div className="items-wrapper">
-            <img className="items-image" src={props.image} alt=''/>
+            <img className="items-image" src={props.image} alt='' />
           </div>
-          <div>{props.name}</div>
-          <div>£{props.cost}</div>
+          <div style={{ zIndex: '5' }}>{props.name}</div>
+          <div style={{ zIndex: '5' }}>£{props.cost}</div>
         </div>
       </MyModal>
       <div className="items-gap" />

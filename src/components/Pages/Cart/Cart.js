@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Navigation from '../../Navigation/Navigation'
 import CartItems from '../../Items/CartItems/CartItems'
-import {useStateValue} from '../../../context/StateContext'
-import {getCartSubTotal, getCartDeliveryTotal} from '../../../reducers/stateReducer'
+import { useStateValue } from '../../../context/StateContext'
+import { getCartSubTotal, getCartDeliveryTotal } from '../../../reducers/stateReducer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons'
 import './Cart.scss'
 
 const Cart = () => {
 
-  const [{cartList}, dispatch ] = useStateValue()
-  const [ showScroll, setShowScroll ] = useState(false)
-  const [ cartCount, setCartCount ] = useState(0)
+  const [{ cartList }, dispatch] = useStateValue()
+  const [showScroll, setShowScroll] = useState(false)
+  const [cartCount, setCartCount] = useState(0)
 
   useEffect(() => {
     const count = cartList.reduce((amount, item) => {
@@ -41,18 +41,18 @@ const Cart = () => {
   }
 
   const checkScrollTop = () => {
-    if (window.pageYOffset > 400){
+    if (window.pageYOffset > 400) {
       setShowScroll(true)
-    } else if (window.pageYOffset <= 400){
+    } else if (window.pageYOffset <= 400) {
       setShowScroll(false)
     }
   }
 
-  const scrollTop = () =>{
-    window.scrollTo({top: 0, behavior: 'smooth'})
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  useEffect (() => {
+  useEffect(() => {
     window.addEventListener('scroll', checkScrollTop)
     return () => {
       window.removeEventListener('scroll', checkScrollTop)
@@ -61,13 +61,13 @@ const Cart = () => {
 
   return (
     <>
-      <div className="page-scrollIcon" onClick={scrollTop} style={{display: showScroll ? 'flex' : 'none'}}><FontAwesomeIcon icon={faArrowCircleUp} size='4x' /></div>
+      <div className="page-scrollIcon" onClick={scrollTop} style={{ display: showScroll ? 'flex' : 'none' }}><FontAwesomeIcon icon={faArrowCircleUp} size='4x' /></div>
       <div className="cartPage-container">
         <Navigation />
         <div className="cartPage">
           <div className="cartPage-cart">
             <div className="cartPage-title">Your Cart ({cartCount})</div>
-            <div className="cartPage-title-line"/>
+            <div className="cartPage-title-line" style={{ width: '45vw' }} />
             <CartItems />
           </div>
           <div className="cartPage-total">
