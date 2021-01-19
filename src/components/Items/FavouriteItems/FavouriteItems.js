@@ -58,8 +58,8 @@ const FavouriteItems = ({...props}) => {
           <div className="favouriteItems-wrapper">
             <img className="favouriteItems-image" src={props.image} alt=''/>
           </div>
-          <div>{props.name}</div>
-          <div>£{props.cost}</div>
+          <div style={{ zIndex: '5' }}>{props.name}</div>
+          <div style={{ zIndex: '5' }}>£{props.cost}</div>
         </div>
       </MyModal>
       <div className="favouriteItems-gap" />

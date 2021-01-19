@@ -52,11 +52,6 @@ export const earring = () => {
         gender: ['Men'],
       },
       {
-        url: 'https://d34qiagx43sg99.cloudfront.net/4580974-745.webp',
-        color: ['diamond', 'gold'],
-        gender: ['Men'],
-      },
-      {
         url: 'https://d34qiagx43sg99.cloudfront.net/5908949-745.webp',
         color: ['diamond'],
         gender: ['Men'],
